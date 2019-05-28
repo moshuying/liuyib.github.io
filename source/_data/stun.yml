@@ -1,0 +1,175 @@
+# ==================================================
+# Basic config
+# ==================================================
+
+# HTML lang
+language:
+  - zh-CN
+  - en
+  # - XXX
+
+# Header menu navigation
+menu:
+  home: /
+  archives: /archives
+  categories: /categories
+  tags: /tags
+  about: /about
+  # XXX: /xxx
+
+# Favicon
+favicon: /imgs/favicon.ico
+
+# Avatar in the sidebar
+# In theme directory(source/imgs)
+avatar: /imgs/my_avatar.jpg
+
+# Social links
+social:
+  github: https://github.com/liuyib
+  segmentfault: https://segmentfault.com/u/liuyib
+  twitter:
+  weibo:
+  wechat:
+  qq:
+  telegram:
+
+feed:
+  mail: 1656081615@qq.com
+  rss: test
+
+# Stylesheets loaded in the <head>
+stylesheets:
+  - /css/index.css
+
+# Scripts loaded in the end of the body
+scripts:
+  - /js/third-part/ready.min.js
+  - /js/third-part/anime.min.js
+  - /js/utils.js
+  - /js/scroll.js
+  - /js/sidebar.js
+  - /js/post.js
+
+# ==================================================
+# Advanced config
+# ==================================================
+
+# --------------------------------------------------
+# Icon
+# --------------------------------------------------
+# Header menu icon
+header_menu_icon:
+  enable: true
+
+# --------------------------------------------------
+# Tag cloud
+# If not used, comment it or ignore it
+# --------------------------------------------------
+tag:
+  # Color for tag
+  start_color: '#a4d8fa'
+  end_color: '#49b1f5'
+  # Font size for tag
+  min_font_size: 16
+  max_font_size: 30
+
+# --------------------------------------------------
+# Catalog of article in the sidebar
+# --------------------------------------------------
+catalog:
+  enable: true
+  # Show list number
+  number: true
+
+# --------------------------------------------------
+# Code highlight
+# optional value:
+# - light
+# - dark
+# - ocean
+# --------------------------------------------------
+highlight_theme: light
+
+# --------------------------------------------------
+# Code wrap
+# optional value: true or false
+# --------------------------------------------------
+code_word_wrap: true
+
+# --------------------------------------------------
+# Comments
+# --------------------------------------------------
+# Disqus
+disqus:
+  enable: true
+
+# --------------------------------------------------
+# Reward
+# --------------------------------------------------
+reward:
+  enable: true
+  qr_img_url:
+    alipay: /imgs/reward/my_alipay.png
+    wechat: /imgs/reward/my_wechat.png
+
+# --------------------------------------------------
+# Copyright
+# --------------------------------------------------
+# Copyright of articles
+post_copyright:
+  enable: true
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+# Copyright at the bottom of the site
+site_copyright:
+  enable: true
+  start: 2019
+  # If not set, default is the latest year
+  end:
+
+# --------------------------------------------------
+# ICP
+# --------------------------------------------------
+ICP:
+  enable: false
+  text:
+
+# --------------------------------------------------
+# PWA
+# See https://github.com/JLHwung/hexo-offline
+# --------------------------------------------------
+pwa:
+  enable: true
+  manifest: /manifest.json
+
+# --------------------------------------------------
+# Busuanzi count for PV / UV in site
+# --------------------------------------------------
+busuanzi:
+  # Count values only if the other configs are false
+  enable: true
+  # Custom uv span for the whole site
+  site_uv: true
+  site_uv_header: <i class="fa fa-user"></i>
+  site_uv_footer:
+  # Custom pv span for the whole site
+  site_pv: true
+  site_pv_header: <i class="fa fa-eye"></i>
+  site_pv_footer:
+  # Custom pv span for one page only
+  page_pv: true
+  page_pv_header: <i class="fa fa-file"></i>
+  page_pv_footer:
+
+# --------------------------------------------------
+# Canvas ribbon
+# See: https://github.com/hustcc/ribbon.js
+# --------------------------------------------------
+canvas_ribbon:
+  enable: false
+  size: 150
+  alpha: 0.6
+  zIndex: -1
+  click_to_change: false
