@@ -79,4 +79,6 @@ theme: stun
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:liuyib/liuyib.github.io.git
+  branch: master
