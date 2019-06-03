@@ -14,6 +14,8 @@ type: about
 
 ## 经历
 
+行内图片：![alt](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190528162724.png)
+
 - test
 - test
   - test
