@@ -108,7 +108,7 @@ code_word_wrap: true
 # If you don't want to set the align of img
 # please empty it, then img will show by default
 # --------------------------------------------------
-img_horizonal_align: 
+img_horizonal_align: center
 
 # --------------------------------------------------
 # Vertical alignment of text and images
