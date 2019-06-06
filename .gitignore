@@ -5,4 +5,6 @@ db.json
 node_modules/
 public/
 .deploy*/
-.git
+themes/*/.git
+yarn.lock
+package-lock.json

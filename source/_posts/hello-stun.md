@@ -71,7 +71,7 @@ _斜体文本_
 
 行内图片：![alt](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190528162724.png)
 
-> 图片默认是行内图片，如果想要换行，在文本后面手动换行后插入图片即可。
+> 注意：stun 主题中，图片的对齐方式默认是左对齐和支持行内图片。但是如果在主题配置文件中手动设置了图片的对齐方式，那么行内图片将会换行显示。
 
 ## 设置图片尺寸
 
@@ -84,16 +84,6 @@ _斜体文本_
 设置尺寸：
 
 {% img https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529124941.png 60 60 %}
-
-## 设置图片居中
-
-设置居中：
-
-<center>![alt](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529124941.png)</center>
-
-设置居中、尺寸：
-
-<center>{% img https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529124941.png 60 60 %}</center>
 
 ## 嵌入资源
 
