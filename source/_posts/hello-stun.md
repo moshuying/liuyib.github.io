@@ -101,7 +101,7 @@ _斜体文本_
 
 示例
 
-<!-- <script async src="//jsfiddle.net/coder515/zruvekob/embed/"></script> -->
+<script async src="//jsfiddle.net/coder515/zruvekob/embed/"></script>
 
 > 可以直接使用 jsfiddle 提供的嵌入代码，例如：`<script async src="//jsfiddle.net/usename/xxx/embed/"></script>`
 
@@ -119,7 +119,7 @@ _斜体文本_
 
 示例
 
-<!-- <script src="https://gist.github.com/liuyib/3fa0290ed2a60d106b68511bef81d0f6.js"></script> -->
+<script src="https://gist.github.com/liuyib/3fa0290ed2a60d106b68511bef81d0f6.js"></script>
 
 > 可以直接使用 github 提供的嵌入代码：例如：`<script src="https://gist.github.com/username/xxx"></script>`
 
