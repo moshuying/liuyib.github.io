@@ -13,7 +13,7 @@ type: about
 你可以在这些地方找到我。
 
 - [Github](https://github.com/liuyib)
-- [segmentdefault](https://segmentfault.com/u/liuyib)
+- [SegmentFault](https://segmentfault.com/u/liuyib)
 - [掘金](https://juejin.im/user/5ad6b350f265da2397076275)
 
 在 Github 上较为活跃。

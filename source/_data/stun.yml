@@ -1,186 +1,380 @@
-# ==================================================
-# Basic config
-# ==================================================
+# ---------------------------------------------------------------
+# Site Information config
+# ---------------------------------------------------------------
 
-# Header menu navigation
+favicon:
+  small: /imgs/favicon-16x16-stun.png
+  medium: /imgs/favicon-32x32-stun.png
+  # apple_touch_icon: /imgs/apple-touch-icon-stun.png
+  # safari_pinned_tab: /imgs/logo-stun.svg
+
+header:
+  # Header height (Only percentage units are supported).
+  height: 80%
+  # Header navigation bar height (Support for all types of CSS size units).
+  nav_height: 50px
+  # Background image in the header.
+  bg_image:
+    enable: true
+    # In theme directory (source/imgs): /images/avatar.png
+    # In site directory (source/uploads): /uploads/avatar.png
+    # You can also use a link of image.
+    url: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529223722.jpg
+  # Blur filter effect of the header background.
+  blur_effect:
+    enable: false
+    # Degree of blur.
+    level: 15px
+
+# Creative Commons 4.0 International License.
+creative_commons:
+  enable: true
+  # Available: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND
+  # For details, please see: https://creativecommons.org/share-your-work/licensing-types-examples
+  license: BY-NC-SA
+  # Show the CC license in the sidebar.
+  sidebar: true
+  # Show the CC license at the post bottom.
+  post: true
+  # You can set a language value if you prefer a translated version of CC license.
+  # Valid values of language: en, zh, etc.
+  # If not set, "en" will be used by default.
+  language: en
+
+# Back to top button.
+back2top:
+  enable: true
+  icon:
+    # Icon name in FontAwesome, see: https://fontawesome.com/icons?d=listing
+    # `rocket` is recommended.
+    name: rocket
+    # Animation of rocket launch.
+    animation: true
+    # Rotation Angle of icon.
+    rotate: -45deg
+    # Please use quote to wrap value (Support for all types of CSS color units).
+    color: "#49b1f5"
+    # Colour when the mouse hovers it.
+    hover_color: "#fc6423"
+
+# Footer of your site.
+footer:
+  # Background image in the footer.
+  bg_image:
+    enable: true
+    # In theme directory (source/imgs): /images/avatar.png
+    # In site directory (source/uploads): /uploads/avatar.png
+    # You can also use a link of image.
+    url: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529223722.jpg
+  # Copyright information.
+  copyright:
+    enable: true
+    # If not set, will be used `author` from Hexo main config.
+    text: liuyib. All Rights Reserved.
+    # Specify the date when the site was setup.
+    #   If not set, the current year will be used.
+    since: 2019
+    # Specify the date when the site ended.
+    #   If not set, the current year will be used.
+    end: 
+  # Icon between the copyright year and the owner.
+  icon:
+    enable: true
+    # Icon name in FontAwesome, see: https://fontawesome.com/icons?d=listing
+    # `heart` is recommended with animation in red (#ff0000).
+    name: heart
+    # Heart beat animation.
+    animation: true
+    # Please use quote to wrap value (Support for all types of CSS color units).
+    color: "#ff0000"
+  # Hexo link (Powered by Hexo).
+  powered:
+    enable: true
+    # Version info of Hexo after Hexo link (e.g. vX.X.X).
+    version: true
+  # Theme info link (Theme - stun).
+  theme:
+    enable: true
+    # Version info of theme after theme info (e.g. vX.X.X).
+    version: true
+  # Beian icp information for Chinese users. see: http://www.miitbeian.gov.cn
+  beian:
+    enable: false
+    # 备案 XXXXXXXX 号
+    icp: 
+  # Any custom text (e.g. Hosted by <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>).
+  custom:
+    enable: true
+    text: 托管于 <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>
+
+# ---------------------------------------------------------------
+# Menu config
+# ---------------------------------------------------------------
+
+# Header navigation menu.
+# Value before `||` delimiter is the target link.
+# Value after `||` delimiter is the name of FontAwesome icon.
+#   If not set, "question-circle-o" icon will be shown.
 menu:
-  home: /
-  archives: /archives
-  categories: /categories
-  tags: /tags
-  about: /about
-  # XXX: /xxx
+  home: / || home
+  archives: /archives/ || folder-open
+  categories: /categories/ || th
+  tags: /tags/ || tags
+  about: /about/ || user
+  # reading: /reading/ || book
+  # sitemap: /sitemap.xml || sitemap
+  # xxx: /xxx/ || xxx
 
-# Favicon
-favicon: /imgs/favicon.ico
+menu_settings:
+  icon: true
 
-# Avatar in the sidebar
-avatar: /imgs/my_avatar.jpg
+# ---------------------------------------------------------------
+# Sidebar config
+# ---------------------------------------------------------------
 
-# Social links
+sidebar:
+  enable: true
+  # Sidebar position, available values: left | right
+  float: right
+  # Sidebar offset from top menubar (Support for all types of CSS size units).
+  offsetTop: 20px
+  # Define the sidebar width, 260px ~ 360px is better
+  #   (Support for all types of CSS size units).
+  width: 300px
+  # Horizon line.
+  horizon_line: true
+
+author:
+  enable: true
+  # Avatar in the sidebar.
+  avatar:
+    # In theme directory (source/imgs): /images/avatar.png
+    # In site directory (source/uploads): /uploads/avatar.png
+    # You can also use a link of image.
+    url: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190528162910.jpg
+    # If true, the avatar would be displayed in a circle.
+    rounded: true
+    # The value should be chosen from 0 to 1.
+    opacity: 1
+    # Mouse hover animation, available value: turn | shake
+    animation: turn
+
+  # Your favorite motto (e.g. Talk is cheap, show me your code).
+  motto: Write code and love life.
+
+# Social links.
+# Value before `||` delimiter is the target link.
+# Value after `||` delimiter is the name of FontAwesome icon.
+# If you can`t find a suitable icon, you can choose to display the original.
+#   text by adding the "origin" prefix (e.g. origin:sf, then "sf" will be show).
 social:
-  github: https://github.com/liuyib
-  segmentfault: https://segmentfault.com/u/liuyib
-  twitter: 
-  weibo: 
-  wechat: 
-  qq: 
-  telegram: 
+  enable: true
+  github: https://github.com/liuyib/ || github
+  # google: https://plus.google.com/ || google
+  # twitter: https://twitter.com/ || twitter
+  # youtube: https://youtube.com/ || youtube
+  segmentfault: https://segmentfault.com/u/liuyib/ || origin:sf
+  zhihu: https://www.zhihu.com/people/liu-yibo-64-65/activities/ || origin:知
+  # weibo: https://weibo.com/ || weibo
+  # wechat: yournumber || weixin
+  # telegram: yournumber || telegram
+  # qq: yournumber || qq
 
-# Subscribe of email and rss
+social_setting:
+  # Only show social links by an icon.
+  icon_only: true
+  # Available values are equal to "justify-content" attribute in CSS.
+  # e.g. flex-start | center | flex-end | space-between, etc.
+  # For details, please see: https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content
+  text_align: center
+
+# Table Of Contents in the Sidebar.
+toc:
+  enable: true
+  # Automatically add list number to toc.
+  number: true
+  # If true, all words will be placed on next lines
+  #   if header width longer then sidebar width.
+  wrap: true
+  # Maximum heading depth of generated toc.
+  #   You can set it in one post through `toc_max_depth` in Front-matter.
+  # e.g. value: 3, will use h1~3 to generated toc.
+  max_depth: 5
+
+# Subscribe of email and rss.
 feed:
-  mail: 1656081615@qq.com
-  # rss: 
+  enable: true
+  # Enter your email subscription link (e.g. http://eepurl.com/guAE6j).
+  email: http://eepurl.com/guAE6j
+  rss: /atom.xml
 
-# Stylesheets loaded in the <head>
-stylesheets:
-  - /css/index.css
+# The reading progress of post.
+reading_progress:
+  enable: true
+  # Please use the quote to wrap value (Support for all types of CSS color units).
+  color: "#fc6423"
+  # Support for all types of CSS size units.
+  height: 1px
 
-# Scripts loaded in the end of the body
+# ---------------------------------------------------------------
+# Post config
+# ---------------------------------------------------------------
+
+# The meta-information at the front of the post.
+post_meta:
+  icon_only: false
+  # Show create information.
+  created:
+    enable: true
+    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
+    icon: calendar-o
+  # Show update information.
+  updated:
+    enable: true
+    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
+    icon: calendar-check-o
+  # Count the reading time of the post.
+  # Don't enable this before install dependencies
+  #   by `npm install hexo-wordcount --save` in hexo directory.
+  reading_time:
+    enable: true
+    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
+    icon: clock-o
+    # Set reading speed to estimate reading time.
+    speed:
+      # Reading speed of zh-CN.
+      zh: 200
+      # Reading speed of en-US.
+      en: 80
+  # Count the words of the post.
+  # Don't enable this before install dependencies
+  #   by `npm install hexo-wordcount --save` in hexo directory.
+  word_count:
+    enable: true
+    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
+    icon: file-word-o
+
+# Code highlight.
+# values:
+# - light
+# - dark
+# - ocean
+highlight_theme: light
+
+# Code wrap.
+# values: true or false
+code_word_wrap: true
+
+# Horizonal alignment of img.
+# values:
+# - left
+# - center
+# - right
+# 
+# If you don't want to set the align of the image, please empty it,
+#   then it will show by default.
+img_horizonal_align: center
+
+# Vertical alignment of text and images.
+# values:
+# - top
+# - middle
+# - bottom
+text_vertical_align_with_img: bottom
+
+# Show tags at the bottom of the post.
+post_tags: true
+
+# Show "post end" at the bottom of the post.
+post_end_text:
+  enable: true
+  # Show horizon line before the text that prompts the end of the article.
+  horizon_line: true
+
+# Reward
+reward:
+  enable: true
+  alipay: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222805.png
+  wechat: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222806.png
+
+# ---------------------------------------------------------------
+# Comment config
+# ---------------------------------------------------------------
+
+# Gitment
+# See: https://github.com/imsun/gitment
+gitment:
+  enable: true
+  # Github username.
+  owner: liuyib
+  # Github repository.
+  repo: liuyib.github.io
+  client_id: 07f6e8abd8835ef2e849
+  client_secret: 5c10f35c294c667eb4331a7b9cb39b8153e15cd8
+  # Enable / Disable Lazy load. Enable is recommended.
+  lazy: false
+
+# ---------------------------------------------------------------
+# Statistics and Analytics config
+# ---------------------------------------------------------------
+
+busuanzi:
+  enable: true
+  site:
+    icon_only: false
+    # Number of unique visitor to the entire site.
+    uv:
+      enable: true
+      # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
+      icon: user
+    # Number of page view to the entire site.
+    pv:
+      enable: true
+      # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
+      icon: eye
+  # Number of page view to a post.
+  post_pv:
+    icon_only: false
+    enable: true
+    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
+    icon: eye
+
+# ---------------------------------------------------------------
+# Other config
+# ---------------------------------------------------------------
+
+# Tag cloud.
+# If not used, comment it or ignore it.
+tag_cloud:
+  # Color for tag (please use the quote to wrap value, only support HEX).
+  start_color: "#a4d8fa"
+  end_color: "#49b1f5"
+  # Size for tag.
+  min_size: 24
+  max_size: 34
+  # Maximum number of tags displayed. Change it if you have more than 200 tags.
+  max_amount: 200
+
+# Assets.
+# In theme directory (source/css).
+css: css
+# In theme directory (source/js).
+js: js
+# In theme directory (source/imgs).
+img: imgs
+
+# CND for third libs.
+cdn:
+  css:
+    fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
+  js:
+    jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
+    velocity: https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js
+
+# Scripts loaded at the end of the body.
 scripts:
   - /js/utils.js
   - /js/scroll.js
   - /js/header.js
   - /js/sidebar.js
   - /js/post.js
-
-# CND for third libs
-cdn:
-  # css: 
-  js:
-    jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
-    velocity: https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js
-
-# ==================================================
-# Advanced config
-# ==================================================
-
-# --------------------------------------------------
-# Tag cloud
-# If not used, comment it or ignore it
-# --------------------------------------------------
-tag:
-  # Color for tag（please use quote to wrap value, only support HEX）
-  start_color: '#a4d8fa'
-  end_color: '#49b1f5'
-  # Font size for tag
-  min_font_size: 16
-  max_font_size: 30
-
-# --------------------------------------------------
-# Code highlight
-# values:
-# - light
-# - dark
-# - ocean
-# --------------------------------------------------
-highlight_theme: light
-
-# --------------------------------------------------
-# Reward
-# --------------------------------------------------
-reward:
-  enable: true
-  qr_img_url:
-    alipay: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222805.png
-    wechat: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222806.png
-
-# --------------------------------------------------
-# Icon
-# --------------------------------------------------
-# Whether to show header menu icon
-# values: true or false
-header_menu_icon_show: true
-
-# --------------------------------------------------
-# Whether to wrap lines when code is overflow
-# values: true or false
-# --------------------------------------------------
-code_word_wrap: true
-
-# --------------------------------------------------
-# Horizonal alignment of img
-# values:
-# - left
-# - center
-# - right
-# 
-# If you don't want to set the align of img
-# please empty it, then img will show by default
-# --------------------------------------------------
-img_horizonal_align: center
-
-# --------------------------------------------------
-# Vertical alignment of text and images
-# values:
-# - top
-# - middle
-# - bottom
-# --------------------------------------------------
-text_vertical_align_with_img: bottom
-
-# --------------------------------------------------
-# Comments
-# --------------------------------------------------
-
-
-# --------------------------------------------------
-# Copyright
-# --------------------------------------------------
-# Copyright of articles
-post_copyright:
-  enable: true
-  license: CC BY-NC-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-# Copyright at the bottom of the site
-site_copyright:
-  enable: true
-  start: 2019
-  # If not set, default is the latest year
-  end: 
-
-# --------------------------------------------------
-# ICP
-# --------------------------------------------------
-ICP:
-  enable: false
-  text: 
-
-# --------------------------------------------------
-# PWA
-# See https://github.com/JLHwung/hexo-offline
-# --------------------------------------------------
-# pwa:
-#   enable: true
-#   manifest: /manifest.json
-
-# --------------------------------------------------
-# Busuanzi count for PV / UV in site
-# --------------------------------------------------
-# busuanzi:
-#   # Count values only if the other configs are false
-#   enable: true
-#   # Custom uv span for the whole site
-#   site_uv: true
-#   site_uv_header: <i class="fa fa-user"></i>
-#   site_uv_footer:
-#   # Custom pv span for the whole site
-#   site_pv: true
-#   site_pv_header: <i class="fa fa-eye"></i>
-#   site_pv_footer:
-#   # Custom pv span for one page only
-#   page_pv: true
-#   page_pv_header: <i class="fa fa-file"></i>
-#   page_pv_footer:
-
-# --------------------------------------------------
-# Canvas ribbon
-# See: https://github.com/hustcc/ribbon.js
-# --------------------------------------------------
-# canvas_ribbon:
-#   enable: false
-#   size: 150
-#   alpha: 0.6
-#   zIndex: -1
-#   click_to_change: false
