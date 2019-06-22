@@ -39,7 +39,7 @@ creative_commons:
   # You can set a language value if you prefer a translated version of CC license.
   # Valid values of language: en, zh, etc.
   # If not set, "en" will be used by default.
-  language: en
+  language: zh
 
 # Back to top button.
 back2top:
@@ -157,7 +157,7 @@ author:
     # The value should be chosen from 0 to 1.
     opacity: 1
     # Mouse hover animation, available value: turn | shake
-    animation: turn
+    animation: shake
 
   # Your favorite motto (e.g. Talk is cheap, show me your code).
   motto: Write code and love life.
@@ -179,6 +179,7 @@ social:
   # wechat: yournumber || weixin
   # telegram: yournumber || telegram
   # qq: yournumber || qq
+  dribbble: https://dribbble.com/liuyib/ || dribbble
 
 social_setting:
   # Only show social links by an icon.
