@@ -1,5 +1,7 @@
 ---
 title: Hello Stun
+top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190528163523.jpg
+top: true
 tags:
   - hexo-theme
   - stun
@@ -9,9 +11,9 @@ categories:
   - 测试文章
 ---
 
-欢迎使用漂亮的 hexo 主题 [Stun](https://github.com/liuyib/hexo-theme-stun)。这是一篇展示 stun 功能的文章。在这篇文章中，你可以看到 stun 目前支持的文章解析方面的功能。想查看其他的功能，只需要尽情的浏览本站~
+欢迎使用漂亮的 hexo 主题 [stun](https://github.com/liuyib/hexo-theme-stun)。想要查看 stun 的功能，你只需要尽情的浏览本站~
 
-如果你使用 stun 时遇到了问题，可以在[这里](https://github.com/liuyib/hexo-theme-stun/issues)寻找答案或进行提问。当然如果你有好的建议，欢迎发起 [issue](https://github.com/liuyib/hexo-theme-stun/issues)，如果想要贡献代码，欢迎 [PR](https://github.com/liuyib/hexo-theme-stun/pulls)。
+有关 stun 的配置，请查阅[详细文档](https://liuyib.github.io/hexo-theme-stun/)。如果你使用时遇到了 bug，可以发起 [issue](https://github.com/liuyib/hexo-theme-stun/issues)。如果想要贡献代码，欢迎 [PR](https://github.com/liuyib/hexo-theme-stun/pulls)。
 
 ---
 
@@ -21,9 +23,23 @@ categories:
 
 <!-- more -->
 
+当然，你也可以选择自动保留摘要，详情请参考：[文章摘要](https://liuyib.github.io/hexo-theme-stun/zh-CN/advanced/theme-config.html#%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81)
+
 ## 图片
 
+默认大小：
+
 ![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529223722.jpg)
+
+指定图片大小：
+
+![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529223722.jpg?size=300x200)
+
+详情请参考：[设置图片大小](https://liuyib.github.io/hexo-theme-stun/zh-CN/advanced/theme-config.html#%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E5%A4%A7%E5%B0%8F)
+
+行内图片：![alt](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190528162724.png)
+
+> 注意：stun 主题中，图片的对齐方式默认是左对齐和支持行内图片。但是如果在主题配置文件中手动设置了图片的对齐方式，那么行内图片将会换行显示。
 
 ## 文本
 
@@ -61,29 +77,6 @@ _斜体文本_
 
 - [ ] 计划任务
 - [x] 完成任务
-
-## 链接
-
-文本：[stun](https://github.com/liuyib/hexo-theme-stun)
-
-图片：
-![alt](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529124941.png)
-
-行内图片：![alt](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190528162724.png)
-
-> 注意：stun 主题中，图片的对齐方式默认是左对齐和支持行内图片。但是如果在主题配置文件中手动设置了图片的对齐方式，那么行内图片将会换行显示。
-
-## 设置图片尺寸
-
-需要使用 hexo 提供的语法（当然你也可以用 `<img>` 标签设置 CSS 属性）。
-
-```text
-{% img [class names] /path/to/image [width] [height] [title text [alt text]] %}
-```
-
-设置尺寸：
-
-{% img https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529124941.png 60 60 %}
 
 ## 嵌入资源
 
