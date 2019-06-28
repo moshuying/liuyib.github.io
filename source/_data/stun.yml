@@ -25,7 +25,7 @@ menu_settings:
   text_only: false
 
 # ---------------------------------------------------------------
-# Site Information config
+# Site config
 # ---------------------------------------------------------------
 
 favicon:
@@ -99,7 +99,7 @@ footer:
     #   (e.g. liuyib. All Rights Reserved.)
     text: liuyib. All Rights Reserved.
     # Start time. If not set, the current year will be used.
-    since: 
+    since: 2019
     # End time. If not set, the current year will be used.
     end: 
   # The icon between the copyright year and the owner.
@@ -130,7 +130,7 @@ footer:
   # Any custom text (e.g. Hosted by <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>).
   custom:
     enable: true
-    text: Hosted by <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>
+    text: 托管于 <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>
 
 # ---------------------------------------------------------------
 # Sidebar config
@@ -140,11 +140,9 @@ sidebar:
   enable: true
   # Sidebar position, available values: left | right
   position: left
-  # Sidebar offset from top menubar
-  #   (Only px units are supported).
+  # Sidebar offset from top menubar (Only px units are supported).
   offsetTop: 20px
-  # Define the sidebar width, 260px ~ 360px is better
-  #   (All CSS size units are supported).
+  # Define the sidebar width, 260px ~ 360px is better (All CSS size units are supported).
   width: 300px
   # Horizon line.
   horizon_line: true
@@ -156,7 +154,7 @@ author:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: /images/avatar.png
+    url: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190528162910.jpg
     # If true, the avatar would be displayed in a circle.
     rounded: true
     # The value should be chosen from 0 to 1.
@@ -164,25 +162,25 @@ author:
     # Mouse hover animation, available value: turn | shake
     animation: shake
   # Your favorite motto (e.g. Talk is cheap, show me your code).
-  motto: write code and love life
+  motto: Write code and love life
 
 # Social links.
 # Value before `||` delimiter is the target link.
 # Value after `||` delimiter is the name of FontAwesome icon.
 # See: https://fontawesome.com/v4.7.0/icons/
-# If you can`t find a suitable icon, you can choose to display the original.
+# If you can`t find a suitable icon, you can choose to display the original
 #   text by adding the "origin" prefix (e.g. origin:sf, then "sf" will be show).
 social:
-  github: https://github.com/ || github
-  google: https://plus.google.com/ || google
-  twitter: https://twitter.com/ || twitter
-  youtube: https://youtube.com/ || youtube
-  segmentfault: https://segmentfault.com/ || origin:sf
-  zhihu: https://www.zhihu.com/ || origin:知
-  weibo: https://weibo.com/ || weibo
-  wechat: yournumber || weixin
-  telegram: yournumber || telegram
-  qq: yournumber || qq
+  github: https://github.com/liuyib/ || github
+  # google: https://plus.google.com/ || google
+  # twitter: https://twitter.com/ || twitter
+  # youtube: https://youtube.com/ || youtube
+  segmentfault: https://segmentfault.com/u/liuyib/ || origin:sf
+  zhihu: https://www.zhihu.com/people/liu-yibo-64-65/activities/ || origin:知
+  # weibo: https://weibo.com/ || weibo
+  # wechat: yournumber || weixin
+  # telegram: yournumber || telegram
+  # qq: yournumber || qq
   # You can also add a link by yourself.
   # xxx: xxx || (origin:)xxx
 
@@ -200,17 +198,18 @@ toc:
   enable: true
   # Automatically add list number to toc.
   number: true
-  # If true, all words will be placed on next lines
-  #   if header width longer then sidebar width.
+  # If true, all words will be placed on the next lines when they overflow..
   wrap: true
-  # Maximum heading depth of generated toc.
-  #   You can set it in one post through `toc_max_depth` in Front-matter.
+  # If true, the toc of post will always be displayed, rather than the activated part of it.
+  expand_all: false
+  # Maximum heading depth of generated toc. You can set it in the
+  #   post through `toc_max_depth` in Front-matter.
   # e.g. value: 3, will use h1~3 to generated toc.
-  max_depth: 5
+  max_depth: 6
 
 # Subscribe of email and rss.
 feed:
-  enable: true
+  enable: false
   # Enter your email subscription link (e.g. http://eepurl.com/guAE6j).
   email: http://eepurl.com/guAE6j
   # Enter the rss address of you set (e.g. /atom.xml)
@@ -244,7 +243,7 @@ post_meta:
     icon: calendar-check-o
   # Count the reading time of the post.
   # Don't enable this before install dependencies
-  #   by `npm install hexo-wordcount --save` in hexo directory.
+  #   by `npm install hexo-wordcount --save` in hexo directory
   #   and you must restart your hexo server.
   reading_time:
     enable: true
@@ -302,7 +301,7 @@ code_word_wrap: true
 # 
 # If you don't want to set the align of the image, please empty it,
 #   then it will show by default.
-img_horizonal_align: 
+img_horizonal_align: center
 
 # Vertical alignment of text and images.
 # values:
@@ -326,6 +325,11 @@ reward:
   alipay: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222805.png
   wechat: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222806.png
 
+# Whether to page the article list on the home page and archives page.
+post_list_paged:
+  home: true
+  archives: false
+
 # ---------------------------------------------------------------
 # Comment config
 # ---------------------------------------------------------------
@@ -335,13 +339,13 @@ reward:
 gitment:
   enable: false
   # Github username.
-  owner: liuyib
+  owner: 
   # Github repository.
-  repo: openSource-test
-  client_id: 07f6e8abd8835ef2e849
-  client_secret: 5c10f35c294c667eb4331a7b9cb39b8153e15cd8
+  repo: 
+  client_id: 
+  client_secret: 
   # Enable / Disable Lazy load. Enable is recommended.
-  lazy: false
+  lazy: true
 
 # ---------------------------------------------------------------
 # Statistics and Analytics config
@@ -369,16 +373,6 @@ busuanzi:
     enable: true
     # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
     icon: eye
-
-# ---------------------------------------------------------------
-# Search config
-# ---------------------------------------------------------------
-
-# Algolia Search
-algolia_search:
-  enable: false
-  hits:
-    per_page: 10
 
 # ---------------------------------------------------------------
 # Other config
