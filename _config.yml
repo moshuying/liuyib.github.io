@@ -93,3 +93,9 @@ feed:
   content_limit_delim: ' '
   order_by: -date
   # icon: icon.png
+
+# Algolia Search API Key
+algolia:
+  applicationID: 'HVGSDQGVZB'
+  apiKey: 'be51eecdd830511495cc1f9c7b50f272'
+  indexName: 'stun_NAME'
