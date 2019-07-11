@@ -1,6 +1,7 @@
 ---
 title: Hello Stun
 top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190528163523.jpg
+date: 2019-5-15 22:54:49
 top: true
 tags:
   - hexo-theme
