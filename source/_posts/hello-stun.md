@@ -16,13 +16,13 @@ categories:
 
 有关 stun 的配置，请查阅[详细文档](https://liuyib.github.io/hexo-theme-stun/)。如果你使用时遇到了 bug，可以发起 [issue](https://github.com/liuyib/hexo-theme-stun/issues)。如果想要贡献代码，欢迎 [PR](https://github.com/liuyib/hexo-theme-stun/pulls)。
 
+<!-- more -->
+
 ---
 
 ## 摘要
 
 在你文章的 markdown 源文件中，使用 hexo 提供的语法 `<!-- more -->`，之前的部分会被解析为摘要。就像这篇文章一样，这段话之前的部分会成为文章的摘要。在网站首页的文章列表中可以看到效果。
-
-<!-- more -->
 
 当然，你也可以选择自动保留摘要，详情请参考：[文章摘要](https://liuyib.github.io/hexo-theme-stun/zh-CN/advanced/theme-config.html#%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81)
 
