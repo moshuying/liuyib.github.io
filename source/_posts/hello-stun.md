@@ -90,11 +90,11 @@ _斜体文本_
 
 ## Emoji 支持
 
-依赖于插件：[hexo-filter-github-emojis](https://github.com/crimx/hexo-filter-github-emojis)，详情请查看：[添加 Emoji 支持](https://liuyib.github.io/hexo-theme-stun/zh-CN/advanced/theme-config.html#%E6%B7%BB%E5%8A%A0-emoji-%E6%94%AF%E6%8C%81)
-
 - `:gem:` :gem:
 - `:sparkles:` :sparkles:
 - `:christmas_tree:` :christmas_tree:
+
+依赖于插件：[hexo-filter-github-emojis](https://github.com/crimx/hexo-filter-github-emojis)，也可以通过更换 markdown 渲染器 [hexo-renderer-markdown-it-plus](https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus) 来支持 Emoji。详情请查看：[添加 Emoji 支持](https://liuyib.github.io/hexo-theme-stun/zh-CN/advanced/theme-config.html#%E6%B7%BB%E5%8A%A0-emoji-%E6%94%AF%E6%8C%81)
 
 ## 嵌入资源
 
