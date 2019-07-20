@@ -5,7 +5,7 @@
 # Site
 title: liuyib`s blog
 subtitle: write code and love life
-description: 
+description:
 keywords: Stun hexo liuyib
 author: liuyib
 language: zh-CN
@@ -44,7 +44,7 @@ highlight:
   line_number: true
   auto_detect: true
   tab_replace:
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -53,7 +53,7 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -99,3 +99,12 @@ algolia:
   applicationID: 'HVGSDQGVZB'
   apiKey: 'be51eecdd830511495cc1f9c7b50f272'
   indexName: 'stun_NAME'
+
+githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: false
+  styles:
+    color: inherit
+    background-image: none !important
+  customEmojis: 

@@ -55,8 +55,8 @@ header:
 # Creative Commons 4.0 International License.
 creative_commons:
   enable: true
-  # Available: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND
-  # For details, please see: https://creativecommons.org/share-your-work/licensing-types-examples
+  # Available: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND.
+  # For details, please see: https://creativecommons.org/share-your-work/licensing-types-examples/
   license: BY-NC-SA
   # Show the CC license in the sidebar.
   sidebar: true
@@ -122,7 +122,7 @@ footer:
     enable: true
     # Version info of theme after theme info (e.g. vX.X.X).
     version: true
-  # Beian icp information for Chinese users. see: http://www.miitbeian.gov.cn
+  # Beian icp information for Chinese users. see: http://www.miitbeian.gov.cn/
   beian:
     enable: false
     # 备案 XXXXXXXX 号
@@ -138,7 +138,7 @@ footer:
 
 sidebar:
   enable: true
-  # Sidebar position, available values: left | right
+  # Sidebar position, available values: left | right.
   position: left
   # Sidebar offset from top menubar (Only px units are supported).
   offsetTop: 20px
@@ -159,9 +159,9 @@ author:
     rounded: true
     # The value should be chosen from 0 to 1.
     opacity: 1
-    # Mouse hover animation, available value: turn | shake
+    # Mouse hover animation, available value: turn | shake.
     animation: shake
-  # Your favorite motto (e.g. Talk is cheap, show me your code).
+  # Your favorite motto.
   motto: Write code and love life
 
 # Social links.
@@ -181,6 +181,7 @@ social:
   # wechat: yournumber || weixin
   # telegram: yournumber || telegram
   # qq: yournumber || qq
+  juejin: https://juejin.im/user/5ad6b350f265da2397076275/ || origin:掘
   # You can also add a link by yourself.
   # xxx: xxx || (origin:)xxx
 
@@ -190,7 +191,7 @@ social_setting:
   icon_only: true
   # Available values are equal to "justify-content" attribute in CSS.
   # e.g. flex-start | center | flex-end | space-between, etc.
-  # For details, please see: https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content
+  # For details, please see: https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content/
   text_align: center
 
 # Table Of Contents in the Sidebar.
@@ -198,7 +199,7 @@ toc:
   enable: true
   # Automatically add list number to toc.
   number: true
-  # If true, all words will be placed on the next lines when they overflow..
+  # If true, all words will be placed on the next lines when they overflow.
   wrap: true
   # If true, the toc of post will always be displayed, rather than the activated part of it.
   expand_all: false
@@ -209,10 +210,13 @@ toc:
 
 # Subscribe of email and rss.
 feed:
-  enable: false
+  enable: true
   # Enter your email subscription link (e.g. http://eepurl.com/guAE6j).
   email: http://eepurl.com/guAE6j
-  # Enter the rss address of you set (e.g. /atom.xml)
+  # Enter the rss address of you set (e.g. /atom.xml).
+  # Dependencies: https://github.com/hexojs/hexo-generator-feed/
+  # Don't enable this before install dependencies
+  #   by `npm install hexo-generator-feed --save` in hexo directory.
   rss: /atom.xml
 
 # The reading progress of post.
@@ -242,9 +246,9 @@ post_meta:
     # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
     icon: calendar-check-o
   # Count the reading time of the post.
+  # Dependencies: https://github.com/willin/hexo-wordcount/
   # Don't enable this before install dependencies
-  #   by `npm install hexo-wordcount --save` in hexo directory
-  #   and you must restart your hexo server.
+  #   by `npm install hexo-wordcount --save` in hexo directory.
   reading_time:
     enable: true
     # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
@@ -256,9 +260,9 @@ post_meta:
       # Reading speed of en-US.
       en: 80
   # Count the words of the post.
+  # Dependencies: https://github.com/willin/hexo-wordcount/
   # Don't enable this before install dependencies
-  #   by `npm install hexo-wordcount --save` in hexo directory
-  #   and you must restart your hexo server.
+  #   by `npm install hexo-wordcount --save` in hexo directory.
   word_count:
     enable: true
     # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
@@ -270,8 +274,8 @@ post_list:
   paginate:
     home: true
     archives: false
-  # Whether to show the top image of post.
-  top_image:
+  # Whether to show the cover image of post.
+  cover_image:
     home: true
 
 # The widget of post.
@@ -290,10 +294,11 @@ auto_excerpt:
   length: 150
 
 # Stick post to the top.
-# To enable this feature, you need to install dependencies `hexo-generator-index-pin-top`
-# For details, see: https://github.com/netcan/hexo-generator-index-pin-top
+# Dependencies: https://github.com/netcan/hexo-generator-index-pin-top/
+# Don't enable this before install dependencies
+#   by `npm install hexo-generator-index-pin-top --save` in hexo directory.
 stick_top:
-  # Position of icon, available values: left | right
+  # Position of icon, available values: left | right.
   position: right
   # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
   icon: thumb-tack
@@ -309,9 +314,9 @@ stick_top:
 # - ocean
 highlight_theme: light
 
-# Code wrap.
-# values: true or false
-code_word_wrap: true
+# Code wrap
+# values: true or false.
+code_word_wrap: false
 
 # Horizonal alignment of img.
 # values:
@@ -319,9 +324,8 @@ code_word_wrap: true
 # - center
 # - right
 # 
-# If you don't want to set the align of the image, please empty it,
-#   then it will show by default.
-img_horizonal_align: center
+# If you empty it, images will show by default.
+img_horizonal_align: 
 
 # Vertical alignment of text and images.
 # values:
@@ -348,12 +352,12 @@ gitment:
   owner: 
   # Github repository.
   repo: 
-  # Github Application Client ID
+  # Github Application Client ID.
   client_id: 
-  # Github Application Client Secret
+  # Github Application Client Secret.
   client_secret: 
   # Enable / Disable Lazy load. Enable is recommended.
-  lazy: true
+  lazy: false
 
 # Gittalk
 # See: https://github.com/gitalk/gitalk/
@@ -363,19 +367,19 @@ gitalk:
   owner: liuyib
   # Github repository.
   repo: liuyib.github.io
-  # Github Application Client ID
+  # Github Application Client ID.
   client_id: f9773b8f4bf0eab8bdf7
-  # Github Application Client Secret
+  # Github Application Client Secret.
   client_secret: b8cf368c44428ae4d7c9d0ec634532219e8cdf67
-  # GitHub repo owner and collaborators, only these guys can initialize github issues
+  # GitHub repo owner and collaborators, only these guys can initialize github issues.
   admin:
     - liuyib
-  # Facebook-like distraction free mode
+  # Facebook-like distraction free mode.
   distraction_free_mode: true
-  # Gitalk's display language depends on user's browser or system environment
+  # Gitalk's display language depends on user's browser or system environment.
   # If you want everyone visiting your site to see a uniform language,
-  #   you can set a force language value
-  # Available values: en, zh-CN, es-ES, fr, ru, zh-TW
+  #   you can set a force language value.
+  # Available values: en, zh-CN, es-ES, fr, ru, zh-TW.
   language: 
 
 # Valine
@@ -463,10 +467,75 @@ algolia_search:
     show_stats: true
 
 # ---------------------------------------------------------------
+# Background config
+# ---------------------------------------------------------------
+
+# Canvas-ribbon
+# Dependencies: https://github.com/hustcc/ribbon.js
+canvas_ribbon:
+  enable: true
+  # The width of the ribbon.
+  size: 300
+  # The transparency of the ribbon.
+  alpha: 0.6
+  # The display level of the ribbon.
+  zIndex: -1
+
+# Canvas-nest
+# Dependencies: https://github.com/hustcc/canvas-nest.js
+canvas_nest:
+  enable: false
+  # Display on mobile or not
+  onmobile: true
+  # RGB values, use ',' to separate
+  # Color for lines
+  color: "0,0,255"
+  # Color for points
+  pointColor: "0,0,255"
+  # The opacity of line: 0 ~ 1
+  opacity: 0.6
+  # The number of lines
+  count: 99
+  # z-index property of the background
+  zIndex: -1
+
+# ---------------------------------------------------------------
+# Math and Chart config
+# ---------------------------------------------------------------
+math:
+  enable: true
+
+  # Only the page which has `math: true` in Front-matter will render.
+  # If true, it will load mathjax / katex srcipt EVERY PAGE.
+  per_page: false
+
+  engine: katex
+
+  # See: https://github.com/mathjax/MathJax/
+  # hexo-renderer-pandoc (or hexo-renderer-kramed) needed to full MathJax support.
+  mathjax:
+    cdn: https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+    # See: https://mhchem.github.io/MathJax-mhchem/
+    mhchem:
+      enable: true
+      mhchem_js: https://cdn.jsdelivr.net/npm/mathjax-mhchem@3.3.2/mhchem.min.js
+  
+  # hexo-renderer-markdown-it-plus (or hexo-renderer-markdown-it with markdown-it-katex plugin) needed to full Katex support.
+  katex:
+    cdn: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css
+
+    copy_tex:
+      # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
+      enable: true
+      copy_tex_js: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/copy-tex.min.js
+      copy_tex_css: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/copy-tex.css
+
+# ---------------------------------------------------------------
 # Other config
 # ---------------------------------------------------------------
 
-# Tag cloud.
+# Tag cloud
 # If not used, comment it or ignore it.
 tag_cloud:
   # Color for tag (please use the quote to wrap value, only support HEX).
@@ -478,7 +547,7 @@ tag_cloud:
   # Maximum number of tags displayed. Change it if you have more than 200 tags.
   max_amount: 200
 
-# Assets.
+# Assets
 # In theme directory (source/css).
 css: css
 # In theme directory (source/js).
@@ -486,11 +555,19 @@ js: js
 # In theme directory (source/images).
 images: images
 
-# CND for third libs.
+# Set a CDN address for the vendor you want to customize.
+# ---------------------------------------------------------------
+#! Do not edit the follow configs.
+#! Unless you know what you are doing.
+# ---------------------------------------------------------------
 cdn:
   css:
     fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
+
   js:
-    jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
-    velocity: https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js
-    velocity-ui: https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js
+    jquery: https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js
+    velocity: https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js
+    velocity-ui: https://cdn.jsdelivr.net/npm/velocity-ui-pack@1.2.2/velocity.ui.min.js
+
+  canvas_ribbon: https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js
+  canvas_nest: https://cdn.jsdelivr.net/npm/canvas-nest.js@latest/dist/canvas-nest.js
