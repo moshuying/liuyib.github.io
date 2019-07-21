@@ -108,3 +108,11 @@ githubEmojis:
     color: inherit
     background-image: none !important
   customEmojis: 
+
+all_minifier: true
+
+js_concator:
+  enable: true
+  bundle_path: '/js/bundle.js'
+  front: false
+  silent: false
