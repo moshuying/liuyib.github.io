@@ -113,6 +113,6 @@ all_minifier: true
 
 js_concator:
   enable: true
-  bundle_path: '/js/bundle.js'
+  bundle_path: '/js/bundle.min.js'
   front: false
   silent: false
