@@ -13,9 +13,9 @@ categories:
 - 测试文章
 ---
 
-欢迎使用漂亮的 hexo 主题 [Stun](https://github.com/liuyib/hexo-theme-stun)。在这里你可以看到 Stun 的部分功能，要想查看全部功能请访问：[https://liuyib.github.io/hexo-theme-stun/zh-CN/](https://liuyib.github.io/hexo-theme-stun/zh-CN/)
+欢迎使用漂亮的 hexo 主题 [Stun](https://github.com/liuyib/hexo-theme-stun)。在这里你可以看到 stun 的部分功能，要想查看全部功能请访问：[https://liuyib.github.io/hexo-theme-stun/zh-CN/](https://liuyib.github.io/hexo-theme-stun/zh-CN/)
 
-如果你使用 Stun 时遇到了问题，可以在[这里](https://github.com/liuyib/hexo-theme-stun/issues)寻找答案或进行提问。当然如果你有好的建议，欢迎发起 [issue](https://github.com/liuyib/hexo-theme-stun/issues)，如果想要贡献代码，欢迎 [PR](https://github.com/liuyib/hexo-theme-stun/pulls)。
+如果你使用 stun 时遇到了问题，可以在[这里](https://github.com/liuyib/hexo-theme-stun/issues)寻找答案或进行提问。当然如果你有好的建议，欢迎发起 [issue](https://github.com/liuyib/hexo-theme-stun/issues)，如果想要贡献代码，欢迎 [PR](https://github.com/liuyib/hexo-theme-stun/pulls)。
 
 <!-- more -->
 
@@ -49,7 +49,7 @@ categories:
 
 行内图片：![alt](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190528162724.png)
 
-> Stun 主题中，图片的对齐方式默认是左对齐和支持行内图片。但是如果在主题配置文件中手动设置了图片的对齐方式，那么行内图片将会换行显示。
+> 注意：stun 主题中，图片的对齐方式默认是左对齐和支持行内图片。但是如果在主题配置文件中手动设置了图片的对齐方式，那么行内图片将会换行显示。
 
 ## 文本
 
@@ -222,7 +222,6 @@ _.compact([0, 1, false, 2, '', 3]);
 | :---------------------------------------: | :-----------------------------------------: |
 | $x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$ | <br> `x = {-b \pm \sqrt{b^2-4ac} \over 2a}.` <br><br> |
 | $f(a) = \frac{1}{2\pi i} \oint\frac{f(z)}{z-a}dz$ | <br> `f(a) = \frac{1}{2\pi i} \oint\frac{f(z)}{z-a}dz` <br><br> |
-| $\cos(θ+φ)=\cos(θ)\cos(φ)−\sin(θ)\sin(φ)$ | <br> `\cos(θ+φ)=\cos(θ)\cos(φ)−\sin(θ)\sin(φ)` <br><br> |
 | $\int_D ({\nabla\cdot} F)dV=\int_{\partial D} F\cdot ndS$ | <br> `\int_D ({\nabla\cdot} F)dV=\int_{\partial D} F\cdot ndS` <br><br> |
 | $\sigma = \sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i -\mu)^2}$ | <br> `\sigma = \sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i -\mu)^2}` <br><br> |
 
