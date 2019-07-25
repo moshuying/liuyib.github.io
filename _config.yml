@@ -83,6 +83,7 @@ deploy:
   repo: git@github.com:liuyib/liuyib.github.io.git
   branch: master
 
+# See:https://github.com/hexojs/hexo-generator-feed
 feed:
   type: atom
   path: atom.xml
@@ -100,6 +101,7 @@ algolia:
   apiKey: 'be51eecdd830511495cc1f9c7b50f272'
   indexName: 'stun_NAME'
 
+# See: https://github.com/crimx/hexo-filter-github-emojis
 githubEmojis:
   enable: true
   className: github-emoji
@@ -109,6 +111,8 @@ githubEmojis:
     background-image: none !important
   customEmojis: 
 
+# ------------------------------------
+# See: https://github.com/chenzhutian/hexo-all-minifier
 all_minifier: true
 
 js_concator:
@@ -116,3 +120,8 @@ js_concator:
   bundle_path: '/js/bundle.min.js'
   front: false
   silent: false
+# ------------------------------------
+
+# See: https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+  path: sitemap.xml

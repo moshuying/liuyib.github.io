@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2019-05-15 00:16:19
-type: about
+sitemap: false
 ---
 
 ## 关于我
