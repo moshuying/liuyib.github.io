@@ -476,7 +476,7 @@ algolia_search:
 canvas_ribbon:
   enable: true
   # The width of the ribbon.
-  size: 300
+  size: 120
   # The transparency of the ribbon.
   alpha: 0.6
   # The display level of the ribbon.
