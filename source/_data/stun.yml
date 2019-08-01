@@ -51,7 +51,7 @@ header:
   mask:
     enable: true
     # Opacity of mask (value: 0 ~ 1).
-    opacity: 0.35
+    opacity: 0.4
 
 # Creative Commons 4.0 International License.
 creative_commons:
@@ -143,8 +143,6 @@ sidebar:
   position: left
   # Sidebar offset from top menubar (Only px units are supported).
   offsetTop: 20px
-  # Define the sidebar width, 260px ~ 360px is better (All CSS size units are supported).
-  width: 300px
   # Horizon line.
   horizon_line: true
 
@@ -190,10 +188,6 @@ social_setting:
   enable: true
   # Only show by icon.
   icon_only: true
-  # Available values are equal to "justify-content" attribute in CSS.
-  # e.g. flex-start | center | flex-end | space-between, etc.
-  # For details, please see: https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content/
-  text_align: center
 
 # Table Of Contents in the Sidebar.
 toc:
@@ -328,13 +322,6 @@ code_word_wrap: false
 # If you empty it, images will show by default.
 img_horizonal_align: 
 
-# Vertical alignment of text and images.
-# values:
-# - top
-# - middle
-# - bottom
-text_vertical_align_with_img: bottom
-
 # Reward
 reward:
   enable: true
@@ -414,13 +401,13 @@ valine:
 # See: https://www.livere.com/
 livere:
   enable: false
-  uid: 
+  uid: MTAyMC80NTMxMi8yMTgyNQ==
 
 # Disqus
 # See: https://disqus.com/
 disqus:
   enable: false
-  shortname: 
+  shortname: liuyib
   count: true
 
 # ---------------------------------------------------------------
@@ -491,8 +478,6 @@ canvas_nest:
   # RGB values, use ',' to separate
   # Color for lines
   color: "0,0,255"
-  # Color for points
-  pointColor: "0,0,255"
   # The opacity of line: 0 ~ 1
   opacity: 0.6
   # The number of lines
@@ -540,17 +525,32 @@ math:
 # See: https://fancyapps.com/fancybox/3/
 fancybox: true
 
+# Whether to enlarge the image when clicked.
+zoom_image:
+  enable: false
+  # The color of mask.
+  # Please use the quote to wrap value (All CSS size units are supported).
+  mask_color: "rgba(0,0,0,0.6)"
+
 # If you are use "photos" attribute in the Front-matter,
 #   you can enable this to show images in waterfalls flow.
+# See: https://github.com/desandro/masonry/
 gallery_waterfall:
   enable: true
   col_width: 220px
   gap_x: 10px
   gap_y: 10px
 
+# Lazy load the images of post.
+# See: https://github.com/tuupola/lazyload
+lazyload:
+  enable: true
+  # Available values: gif | block
+  placeholder: gif
+
 # Google AdSense
 google_adsense:
-  enable: true
+  enable: false
   js_src: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
   client: ca-pub-2577876740331235
   enable_page_level_ads: true
@@ -609,4 +609,4 @@ cdn:
     velocity-ui: https://cdn.jsdelivr.net/npm/velocity-ui-pack@1.2.2/velocity.ui.min.js
 
   canvas_ribbon: https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js
-  canvas_nest: https://cdn.jsdelivr.net/npm/canvas-nest.js@latest/dist/canvas-nest.js
+  canvas_nest: https://cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0.0/canvas-nest.min.js
