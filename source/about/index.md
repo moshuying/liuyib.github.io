@@ -38,4 +38,4 @@ sitemap: false
 
 ### 打赏名单
 
-{% table _data/reward.json %}
+{% table _data/reward.json 时间,赞助人,金额,留言 %}

@@ -374,7 +374,7 @@ gitalk:
 # Valine
 # See: https://valine.js.org/quickstart.html
 valine:
-  enable: true
+  enable: false
   # Your leancloud application appid.
   appid: EeEv8LOQVDcwvAqObS8kgqax-gzGzoHsz
   # Your leancloud application appkey.
@@ -407,7 +407,7 @@ livere:
 # Disqus
 # See: https://disqus.com/
 disqus:
-  enable: false
+  enable: true
   shortname: liuyib
   count: true
 
@@ -434,7 +434,7 @@ busuanzi:
       icon: eye
   # Number of page view to a post.
   post_pv:
-    enable: false
+    enable: true
     # Only show by icon.
     icon_only: false
     # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/

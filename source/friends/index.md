@@ -5,7 +5,7 @@ date: 2019-08-01 21:22:42
 
 ## 友链
 
-// TODO
+{% friends _data/friends.json %}
 
 ### 添加友链
 
