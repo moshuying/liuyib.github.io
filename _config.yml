@@ -101,6 +101,12 @@ algolia:
   apiKey: 'be51eecdd830511495cc1f9c7b50f272'
   indexName: 'stun_NAME'
 
+# Local Search
+search:
+  path: search.json
+  field: post
+  content: true
+
 # See: https://github.com/crimx/hexo-filter-github-emojis
 githubEmojis:
   enable: true
@@ -125,3 +131,33 @@ js_concator:
 # See: https://github.com/hexojs/hexo-generator-sitemap
 sitemap:
   path: sitemap.xml
+
+# PWA
+# See: https://github.com/lavas-project/hexo-pwa/
+pwa:
+  manifest:
+    path: /manifest.json
+  serviceWorker:
+    path: /sw.js
+    preload:
+      urls:
+        - /
+      posts: 5
+    opts:
+      networkTimeoutSeconds: 5
+    routes:
+      # 缓存你的静态资源，例如你使用了 webp 格式的图片，将其添加进去
+      - pattern: !!js/regexp /.*\.(js|css|html|jpg|jpeg|png|svg|gif|json|xml|eot|ttf|woff|woff2)$/
+        # 缓存策略，可选值：cacheFirst, networkFirst, cacheOnly, networkOnly, fastest
+        # 每个值的具体含义请查看：https://googlechromelabs.github.io/sw-toolbox/api.html#handlers
+        strategy: cacheFirst
+      - pattern: !!js/regexp /\//
+        strategy: networkFirst
+      # 如果你想缓存 CDN 资源，请像下面这样进行设置
+      - pattern: !!js/regexp /raw.githubusercontent.com/
+        strategy: cacheFirst
+      - pattern: !!js/regexp /cdn.jsdelivr.net/
+        strategy: cacheFirst
+      - pattern: !!js/regexp /cdn.viglink.com/
+        strategy: cacheFirst
+  priority: 5
