@@ -15,9 +15,6 @@ menu:
   about: /about/ || user
   gallery: /gallery/ || picture-o
   friends: /friends/ || hand-spock-o
-  # reading: /reading/ || book
-  # sitemap: /sitemap.xml || sitemap
-  # You can also add a item by yourself.
   # xxx: /xxx/ || xxx
 
 menu_settings:
@@ -33,6 +30,9 @@ menu_settings:
 favicon:
   small: /images/icons/favicon-16x16.png
   medium: /images/icons/favicon-32x32.png
+  # ! -----------------------------------------------------
+  # ! If you don't understand, please ignore the following.
+  # ! -----------------------------------------------------
   # apple_touch_icon: /images/icons/apple-touch-icon.png
   # safari_pinned_tab: /images/icons/logo-stun.svg
   # msapplication: /images/icons/favicon-144x144.png
@@ -42,7 +42,7 @@ favicon:
 pwa:
   enable: true
   manifest: /manifest.json
-  theme_color: "#54bcff"
+  theme_color: '#54bcff'
 
 header:
   # Header height (Support for all types of CSS size units).
@@ -89,9 +89,9 @@ back2top:
     # Rotation Angle of icon.
     rotate: -45deg
     # Please use quote to wrap value (All CSS size units are supported).
-    color: "#49b1f5"
+    color: '#49b1f5'
     # Colour when the mouse hovers it.
-    hover_color: "#fc6423"
+    hover_color: '#fc6423'
 
 # Footer of your site.
 footer:
@@ -101,7 +101,7 @@ footer:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: 
+    url:
   # Copyright information.
   copyright:
     enable: true
@@ -111,7 +111,7 @@ footer:
     # Start time. If not set, the current year will be used.
     since: 2019
     # End time. If not set, the current year will be used.
-    end: 
+    end:
   # The icon between the copyright year and the owner.
   icon:
     enable: true
@@ -121,7 +121,7 @@ footer:
     # Heart beat animation.
     animation: true
     # Please use quote to wrap value (All CSS size units are supported).
-    color: "#ff0000"
+    color: '#ff0000'
   # Hexo link (Powered by Hexo).
   powered:
     enable: true
@@ -136,7 +136,7 @@ footer:
   beian:
     enable: false
     # 备案 XXXXXXXX 号
-    icp: 
+    icp:
   # Any custom text (e.g. Hosted by <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>).
   custom:
     enable: true
@@ -184,13 +184,12 @@ social:
   # twitter: https://twitter.com/ || twitter
   # youtube: https://youtube.com/ || youtube
   segmentfault: https://segmentfault.com/u/liuyib/ || origin:sf
-  zhihu: https://www.zhihu.com/people/liu-yibo-64-65/activities/ || origin:知
   # weibo: https://weibo.com/ || weibo
+  zhihu: https://www.zhihu.com/people/liu-yibo-64-65/activities/ || origin:知
   # wechat: yournumber || weixin
   # telegram: yournumber || telegram
   # qq: yournumber || qq
   juejin: https://juejin.im/user/5ad6b350f265da2397076275/ || origin:掘
-  # You can also add a link by yourself.
   # xxx: xxx || (origin:)xxx
 
 social_setting:
@@ -227,7 +226,7 @@ feed:
 reading_progress:
   enable: true
   # Please use the quote to wrap value (All CSS size units are supported).
-  color: "#fc6423"
+  color: '#fc6423'
   # Support for all types of CSS size units.
   height: 1px
 
@@ -309,7 +308,7 @@ stick_top:
   # Rotation Angle of icon.
   rotate: 45deg
   # Please use the quote to wrap value (All CSS size units are supported).
-  color: "#999"
+  color: '#999'
 
 # Code highlight.
 # values:
@@ -327,13 +326,14 @@ code_word_wrap: false
 # - left
 # - center
 # - right
-# 
+#
 # If you empty it, images will show by default.
-img_horizonal_align: 
+img_horizonal_align:
 
 # Reward
 reward:
   enable: true
+  # Fill in your QR Code for collecting money.
   alipay: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222805.png
   wechat: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222806.png
 
@@ -346,13 +346,13 @@ reward:
 gitment:
   enable: false
   # Github username.
-  owner: 
+  owner:
   # Github repository.
-  repo: 
+  repo:
   # Github Application Client ID.
-  client_id: 
+  client_id:
   # Github Application Client Secret.
-  client_secret: 
+  client_secret:
   # Enable / Disable Lazy load. Enable is recommended.
   lazy: false
 
@@ -377,7 +377,7 @@ gitalk:
   # If you want everyone visiting your site to see a uniform language,
   #   you can set a force language value.
   # Available values: en, zh-CN, es-ES, fr, ru, zh-TW.
-  language: 
+  language:
 
 # Valine
 # See: https://valine.js.org/quickstart.html
@@ -448,6 +448,18 @@ busuanzi:
     # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
     icon: eye
 
+# Google analytics ID
+# See: https://analytics.google.com/
+google_analytics: UA-146413033-1
+
+# Baidu analytics ID
+# See: https://tongji.baidu.com/
+baidu_analytics:
+
+# Tencent analytics ID
+# See: https://v2.ta.qq.com/
+tencent_analytics:
+
 # ---------------------------------------------------------------
 # Search config
 # ---------------------------------------------------------------
@@ -491,7 +503,7 @@ canvas_nest:
   onmobile: true
   # RGB values, use ',' to separate
   # Color for lines
-  color: "0,0,255"
+  color: '0,0,255'
   # The opacity of line: 0 ~ 1
   opacity: 0.6
   # The number of lines
@@ -512,7 +524,7 @@ math:
   engine: katex
 
   # See: https://github.com/mathjax/MathJax/
-  # hexo-renderer-pandoc (or hexo-renderer-kramed) needed to full MathJax support.
+  # hexo-renderer-kramed (or hexo-renderer-markdown-it-plus or hexo-renderer-pandoc) needed to full MathJax support.
   mathjax:
     cdn: https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
@@ -520,7 +532,7 @@ math:
     mhchem:
       enable: true
       mhchem_js: https://cdn.jsdelivr.net/npm/mathjax-mhchem@3.3.2/mhchem.min.js
-  
+
   # hexo-renderer-markdown-it-plus (or hexo-renderer-markdown-it with markdown-it-katex plugin) needed to full Katex support.
   katex:
     cdn: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css
@@ -530,6 +542,26 @@ math:
       enable: true
       copy_tex_js: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/copy-tex.min.js
       copy_tex_css: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/copy-tex.css
+
+# ---------------------------------------------------------------
+# Webmaster tools verification config
+# ---------------------------------------------------------------
+
+# Google Webmaster tools verification setting
+# See: https://www.google.com/webmasters/
+google_site_verification: _dxRdKposlAngL4xRoCTrJu0sZ7Pp_RhlBF9inxcD5w
+
+# Bing Webmaster tools verification setting
+# See: https://www.bing.com/webmaster/
+bing_site_verification: 18AD1FBA8E286618BB655AAD011085F7
+
+# Baidu Webmaster tools verification setting
+# See: https://ziyuan.baidu.com/site/
+baidu_site_verification: RQA4RBConA
+
+# 360 Webmaster tools verification setting
+# see http://zhanzhang.so.com/
+qihu360_site_verification: 5ef7c260ff4628e3837da4b15be88062
 
 # ---------------------------------------------------------------
 # Other config
@@ -544,7 +576,7 @@ zoom_image:
   enable: false
   # The color of mask.
   # Please use the quote to wrap value (All CSS size units are supported).
-  mask_color: "rgba(0,0,0,0.6)"
+  mask_color: 'rgba(0,0,0,0.6)'
 
 # If you are use "photos" attribute in the Front-matter,
 #   you can enable this to show images in waterfalls flow.
@@ -562,6 +594,36 @@ lazyload:
   # Available values: gif | block
   placeholder: gif
 
+# Quicklink support
+# See: https://github.com/GoogleChromeLabs/quicklink/
+quicklink:
+  enable: false
+
+  # Quicklink (quicklink.umd.js script) is loaded on demand.
+  # Add `quicklink: true` in Front-matter of the page or post you need.
+  # Home page and archive page can be controlled through home and archive options below.
+  home: true
+  archive: true
+
+  # Initialize quicklink after the load event fires.
+  delay: true
+  # Custom a time in milliseconds by which the browser must execute prefetching.
+  timeout: 10000
+  # Enable fetch() or falls back to XHR.
+  priority: true
+
+  # For more flexibility you can add some patterns (RegExp, Function, or Array) to ignores.
+  # See: https://github.com/GoogleChromeLabs/quicklink#custom-ignore-patterns
+  # ! ---------------------------------------------------------------
+  # ! Leave "ignores" as empty if you don't understand what it means.
+  # ! ---------------------------------------------------------------
+  # Example:
+  # ignores:
+  #   - /\/api\/?/
+  #   - uri => uri.includes('.zip')
+  #   - (uri, el) => el.hasAttribute('nofollow')
+  ignores:
+
 # Google AdSense
 google_adsense:
   enable: false
@@ -578,7 +640,7 @@ external_link:
     # `external-link` is recommended.
     name: external-link
     # Please use the quote to wrap value (All CSS size units are supported).
-    color: "#aaa"
+    color: '#aaa'
 
 # The shortcuts of the site.
 shortcuts:
@@ -592,11 +654,11 @@ shortcuts:
 # If not used, comment it or ignore it.
 tag_cloud:
   # Color for tag (please use the quote to wrap value, only support HEX).
-  start_color: "#a4d8fa"
-  end_color: "#49b1f5"
+  start_color: '#a4d8fa'
+  end_color: '#49b1f5'
   # Size for tag.
-  min_size: 16
-  max_size: 26
+  min_size: 20
+  max_size: 30
   # Maximum number of tags displayed. Change it if you have more than 200 tags.
   max_amount: 200
 
@@ -609,24 +671,24 @@ js: js
 images: images
 
 # Set a CDN address for the vendor you want to customize.
-# ---------------------------------------------------------------
-# !!! Do not edit the follow configs.
-# !!! Unless you know what you are doing.
-# ---------------------------------------------------------------
+# ! -----------------------------------------------------
+# ! Do not edit the follow configs.
+# ! Unless you know what you are doing.
+# ! -----------------------------------------------------
 cdn:
   # Using version: 4.7.0
   # See: https://fontawesome.com/
   # Example:
   # fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
-  fontawesome: 
+  fontawesome:
 
   # Using version: 3.4.1
   # Example:
   # jquery: //cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js
   # jquery: //cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js
-  jquery: 
-  
+  jquery:
+
   # Using version: 1.5.2
   # See: http://velocityjs.org/
   # Example:
@@ -634,8 +696,8 @@ cdn:
   # velocity: //cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.min.js
   # velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js
   # velocity_ui: //cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.ui.min.js
-  velocity: 
-  velocity_ui: 
+  velocity:
+  velocity_ui:
 
   # gitalk & js-md5
   # Using version: latest & latest
@@ -644,9 +706,9 @@ cdn:
   # gitalk_js: //cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js
   # gitalk_css: //cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.css
   # md5: //cdn.jsdelivr.net/npm/js-md5@latest/src/md5.min.js
-  gitalk_js: 
-  gitalk_css: 
-  gitalk_md5: 
+  gitalk_js:
+  gitalk_css:
+  gitalk_md5:
 
   # gitment & js-md5
   # Using version: latest & latest
@@ -655,9 +717,9 @@ cdn:
   # gitment_js: //cdn.jsdelivr.net/npm/gitment/dist/gitment.browser.min.js
   # gitment_css: //cdn.jsdelivr.net/npm/gitment/style/default.min.css
   # md5: //cdn.jsdelivr.net/npm/js-md5@latest/src/md5.min.js
-  gitment_js: 
-  gitment_css: 
-  gitment_md5: 
+  gitment_js:
+  gitment_css:
+  gitment_md5:
 
   # valine & leancloud-storage
   # Using version: latest & latest
@@ -665,52 +727,58 @@ cdn:
   # Example:
   # valine: //cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js
   # leancloud_storage: //cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js
-  valine: 
-  leancloud_storage: 
+  valine:
+  leancloud_storage:
 
   # busuanzi
   # Using version: latest
   # See: https://busuanzi.ibruce.info/
   # Example:
   # busuanzi: //cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js
-  busuanzi: 
-  
+  busuanzi:
+
   # Using version: 2.1.1
   # See: https://busuanzi.ibruce.info/
   # Example:
   # instantsearch_js: //cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js
   # instantsearch_css: //cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css
-  instantsearch_js: 
-  instantsearch_css: 
+  instantsearch_js:
+  instantsearch_css:
 
   # Using version: latest
   # See: https://github.com/hustcc/ribbon.js
   # Example:
   # canvas_ribbon: //cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js
-  canvas_ribbon: 
-  
+  canvas_ribbon:
+
   # Using version: latest
   # See: https://github.com/hustcc/canvas-nest.js
   # Example:
   # canvas_nest: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@latest/canvas-nest.min.js
-  canvas_nest: 
+  canvas_nest:
 
   # Using version: 3.5.7
   # See: https://www.fancyapps.com/fancybox/3/
   # Example:
   # fancybox_js: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
   # fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
-  fancybox_js: 
-  fancybox_css: 
+  fancybox_js:
+  fancybox_css:
 
   # Using version: 4.2.2
   # See: https://masonry.desandro.com/
   # Example:
   # masonry: //cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js
-  masonry: 
+  masonry:
 
   # Using version: 2.0.0-rc.2
   # See: https://github.com/tuupola/lazyload/
   # Example:
   # lazyload: //cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js
-  lazyload: 
+  lazyload:
+
+  # # Using version: latest
+  # See: https://github.com/GoogleChromeLabs/quicklink/
+  # Example:
+  # quicklink: //cdn.jsdelivr.net/npm/quicklink@latest/dist/quicklink.umd.js
+  quicklink:

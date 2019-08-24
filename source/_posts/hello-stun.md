@@ -5,12 +5,12 @@ top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/2019
 top: true
 math: true
 tags:
-- hexo-theme
-- stun
-- demo
+  - hexo-theme
+  - stun
+  - demo
 categories:
-- [hexo-theme, stun]
-- 测试文章
+  - [hexo-theme, stun]
+  - 测试文章
 ---
 
 欢迎使用漂亮的 hexo 主题 [Stun](https://github.com/liuyib/hexo-theme-stun)。在这里你可以看到 stun 的部分功能，要想查看全部功能请访问：[https://liuyib.github.io/hexo-theme-stun/zh-CN/](https://liuyib.github.io/hexo-theme-stun/zh-CN/)
