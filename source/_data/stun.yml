@@ -454,11 +454,11 @@ google_analytics: UA-146413033-1
 
 # Baidu analytics ID
 # See: https://tongji.baidu.com/
-baidu_analytics:
+baidu_analytics: 2be584e2ddc153d81489b57ba106c8c0
 
 # Tencent analytics ID
 # See: https://v2.ta.qq.com/
-tencent_analytics:
+tencent_analytics: 66465986
 
 # ---------------------------------------------------------------
 # Search config
@@ -597,7 +597,7 @@ lazyload:
 # Quicklink support
 # See: https://github.com/GoogleChromeLabs/quicklink/
 quicklink:
-  enable: false
+  enable: true
 
   # Quicklink (quicklink.umd.js script) is loaded on demand.
   # Add `quicklink: true` in Front-matter of the page or post you need.
@@ -623,6 +623,11 @@ quicklink:
   #   - uri => uri.includes('.zip')
   #   - (uri, el) => el.hasAttribute('nofollow')
   ignores:
+    - /\/api\/?/
+    - uri => uri.includes('.xml')
+    - uri => uri.includes('.zip')
+    - (uri, el) => el.hasAttribute('nofollow')
+    - (uri, el) => el.hasAttribute('noprefetch')
 
 # Google AdSense
 google_adsense:
