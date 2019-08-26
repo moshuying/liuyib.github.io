@@ -16,6 +16,15 @@ menu:
   gallery: /gallery/ || picture-o
   friends: /friends/ || hand-spock-o
   # xxx: /xxx/ || xxx
+  # You can add a secondary menu like follow.
+  # xxx: javascript:; || xxx
+
+# Secondary menu.
+submenu:
+  # Add item of secondary menu in here.
+  # xxx:
+  #   xx1: /xxx/ || xxx
+  #   xx2: /xxx/ || xxx
 
 menu_settings:
   # Only show by icon.
@@ -60,7 +69,7 @@ header:
   mask:
     enable: true
     # Opacity of mask (value: 0 ~ 1).
-    opacity: 0.4
+    opacity: 0.5
 
 # Creative Commons 4.0 International License.
 creative_commons:
@@ -553,15 +562,15 @@ google_site_verification: _dxRdKposlAngL4xRoCTrJu0sZ7Pp_RhlBF9inxcD5w
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster/
-bing_site_verification: 18AD1FBA8E286618BB655AAD011085F7
+bing_site_verification: 6A508F795A82FADAC671AFCB9848929F
 
 # Baidu Webmaster tools verification setting
 # See: https://ziyuan.baidu.com/site/
-baidu_site_verification: RQA4RBConA
+baidu_site_verification: UYjZUCoORR
 
 # 360 Webmaster tools verification setting
 # see http://zhanzhang.so.com/
-qihu360_site_verification: 5ef7c260ff4628e3837da4b15be88062
+qihu360_site_verification: b926bfcb0e6034f32ac4700700a812f5
 
 # ---------------------------------------------------------------
 # Other config
