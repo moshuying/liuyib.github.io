@@ -138,7 +138,7 @@ pwa:
   manifest:
     path: /manifest.json
   serviceWorker:
-    path: /sw.js
+    path: /service-worker.js
     preload:
       urls:
         - /

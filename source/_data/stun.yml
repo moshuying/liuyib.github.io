@@ -93,8 +93,6 @@ back2top:
     # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
     # `rocket` is recommended.
     name: rocket
-    # Animation of rocket launch.
-    animation: true
     # Rotation Angle of icon.
     rotate: -45deg
     # Please use quote to wrap value (All CSS size units are supported).
@@ -106,7 +104,7 @@ back2top:
 footer:
   # Background image in the footer.
   bg_image:
-    enable: true
+    enable: false
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
@@ -128,7 +126,7 @@ footer:
     # `heart` is recommended with animation in red (#ff0000).
     name: heart
     # Heart beat animation.
-    animation: true
+    animation: false
     # Please use quote to wrap value (All CSS size units are supported).
     color: '#ff0000'
   # Hexo link (Powered by Hexo).
@@ -179,7 +177,7 @@ author:
     # Mouse hover animation, available value: turn | shake.
     animation: shake
   # Your favorite motto.
-  motto: Write code and love life
+  motto: write code and love life
 
 # Social links.
 # Value before `||` delimiter is the target link.
@@ -218,7 +216,7 @@ toc:
   # Maximum heading depth of generated toc. You can set it in the
   #   post through `toc_max_depth` in Front-matter.
   # e.g. value: 3, will use h1~3 to generated toc.
-  max_depth: 6
+  max_depth: 4
 
 # Subscribe of email and rss.
 feed:
@@ -530,6 +528,7 @@ math:
   # If true, it will load mathjax / katex srcipt EVERY PAGE.
   per_page: false
 
+  # value: mathjax / katex (suggest: katex)
   engine: katex
 
   # See: https://github.com/mathjax/MathJax/
@@ -539,7 +538,7 @@ math:
 
     # See: https://mhchem.github.io/MathJax-mhchem/
     mhchem:
-      enable: true
+      enable: false
       mhchem_js: https://cdn.jsdelivr.net/npm/mathjax-mhchem@3.3.2/mhchem.min.js
 
   # hexo-renderer-markdown-it-plus (or hexo-renderer-markdown-it with markdown-it-katex plugin) needed to full Katex support.
@@ -578,11 +577,11 @@ qihu360_site_verification: b926bfcb0e6034f32ac4700700a812f5
 
 # Fancybox
 # See: https://fancyapps.com/fancybox/3/
-fancybox: true
+fancybox: false
 
 # Whether to enlarge the image when clicked.
 zoom_image:
-  enable: false
+  enable: true
   # The color of mask.
   # Please use the quote to wrap value (All CSS size units are supported).
   mask_color: 'rgba(0,0,0,0.6)'
@@ -607,36 +606,48 @@ lazyload:
 # See: https://github.com/GoogleChromeLabs/quicklink/
 quicklink:
   enable: true
-
   # Quicklink (quicklink.umd.js script) is loaded on demand.
   # Add `quicklink: true` in Front-matter of the page or post you need.
   # Home page and archive page can be controlled through home and archive options below.
   home: true
   archive: true
-
   # Initialize quicklink after the load event fires.
   delay: true
   # Custom a time in milliseconds by which the browser must execute prefetching.
   timeout: 10000
   # Enable fetch() or falls back to XHR.
   priority: true
-
   # For more flexibility you can add some patterns (RegExp, Function, or Array) to ignores.
   # See: https://github.com/GoogleChromeLabs/quicklink#custom-ignore-patterns
   # ! ---------------------------------------------------------------
   # ! Leave "ignores" as empty if you don't understand what it means.
   # ! ---------------------------------------------------------------
-  # Example:
-  # ignores:
-  #   - /\/api\/?/
-  #   - uri => uri.includes('.zip')
-  #   - (uri, el) => el.hasAttribute('nofollow')
   ignores:
     - /\/api\/?/
     - uri => uri.includes('.xml')
     - uri => uri.includes('.zip')
     - (uri, el) => el.hasAttribute('nofollow')
     - (uri, el) => el.hasAttribute('noprefetch')
+
+# Pjax
+# See: https://github.com/MoOx/pjax/
+pjax:
+  enable: true
+  # ! -----------------------------------------------------
+  # ! If you don't understand, please ignore the following.
+  # ! -----------------------------------------------------
+  # Please see: https://github.com/MoOx/pjax/#options
+  elements:
+  selectors:
+  switches:
+  switchesOptions:
+  history: true
+  scrollTo: false
+  scrollRestoration: false
+  cacheBust: false
+  debug: false
+  currentUrlFullReload: false
+  timeout: 0
 
 # Google AdSense
 google_adsense:
@@ -694,7 +705,9 @@ cdn:
   # See: https://fontawesome.com/
   # Example:
   # fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css
+  # fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.2/css/all.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+  # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css
   fontawesome:
 
   # Using version: 3.4.1
@@ -791,8 +804,14 @@ cdn:
   # lazyload: //cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js
   lazyload:
 
-  # # Using version: latest
+  # Using version: latest
   # See: https://github.com/GoogleChromeLabs/quicklink/
   # Example:
   # quicklink: //cdn.jsdelivr.net/npm/quicklink@latest/dist/quicklink.umd.js
   quicklink:
+
+  # Using version: latest
+  # See: https://github.com/MoOx/pjax/
+  # Example:
+  # pjax: //cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js
+  pjax:
