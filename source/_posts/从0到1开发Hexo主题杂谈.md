@@ -178,11 +178,11 @@ copyright:
 
 随着项目的发展，配置文件会越来越大，上面这种做法的缺点也会越来越明显。
 
-1、对于使用者
+- 对于使用者
 
   当更新主题时，由于配置文件会被覆盖，因此用户必须提前将配置文件备份，等更新完主题后再将备份的数据拷贝回去，这个过程繁琐又容易出错。
 
-2、对于开发者
+- 对于开发者
 
   在发布主题时，开发者不可能将自己测试用的数据保留在主题配置文件中，而应该预留一份干净的配置文件。因此每次发布主题之前，都需要把主题配置文件里的测试数据清空、备份，然后等发布完主题后再恢复回来。这种做法是无法令人忍受的，因为每次 `git commit` 之前都需要这样做一次。
 
@@ -224,7 +224,6 @@ hexo.on('generateBefore', function () {
 将这些部分对应的代码放在主题 `layout` 目录下的 `layout.swig` 文件中用以复用，例如：
 
 ``` html layout.swig
-<!DOCTYPE html>
 <html>
   <head>
     <title>{% block title %}{% endblock %}</title>
@@ -265,15 +264,13 @@ hexo.on('generateBefore', function () {
 `layout.swig` 是网站最基础的布局代码，所有的页面都是继承它而来。Swig 使用 `extends` 和 `block` 实现继承，例如：
 
 ``` html layout.swig
-<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>{% block title %}My Site{% endblock %}</title>
-</head>
-<body>
-  {% block content %}{% endblock %}
-</body>
+  <head>
+    <title>{% block title %}My Site{% endblock %}</title>
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+  </body>
 </html>
 ```
 
