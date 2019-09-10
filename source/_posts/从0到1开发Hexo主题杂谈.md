@@ -1,7 +1,8 @@
 ---
 title: 从0到1开发Hexo主题杂谈
 date: 2019-08-20 18:20:24
-top_image:
+top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190911002035.jpg
+math: false
 tags:
   - hexo
   - hexo-theme
@@ -37,13 +38,7 @@ layout.pug   -- 使用 pug
 - 英文文档地址分别如下：[Swig](https://node-swig.github.io/swig-templates/docs/)、[EJS](https://ejs.co/#docs)、[Pug](https://pugjs.org/api/getting-started.html)、[Haml](http://haml.info/docs.html)。
 - 中文文档地址分别如下：[Swig](https://myvin.github.io/swig.zh-CN/docs/index.html)、[EJS](https://ejs.bootcss.com/#docs)、[Pug](https://pugjs.org/zh-cn/api/getting-started.html)、Haml（无）。
 
-~~由于我比较喜欢 Pug 的语法风格，因此选择了 Pug。~~ 这里推荐使用 Swig。我最初使用 Pug 进行开发，后来发现一些功能使用 Pug 实现过于复杂甚至无法实现。
-
-> 我建议，如果你开发主题的目标是：功能简单、可配置性要求不高，并且你喜欢用 Pug，那么你可以选择 Pug。否则还是老老实实的用 Swig 吧。说真的，Swig 除了语法丑点之外，没什么不好。
->
-> 这里也不是说 Pug 不能开发复杂功能的功能，而是相比 Swig 而言有些地方比较吃亏，一些功能只能用一些具有 hack 味道的方法来实现。
->
-> 当然，Swig 也有它的缺点，在我看来，Swig 模板自带的空白字符就很让人头疼。
+这里我选择了 Pug，不过推荐使用 Swig 或 EJS。
 
 ### CSS 预处理语言
 
@@ -378,3 +373,10 @@ hexo.on('generateBefore', function () {
 4、发起新的合并申请（pull request）。
 
 最后，只需要等待 Hexo 仓库的维护人员收录你的主题即可。
+
+---
+
+参考链接：
+
+- [Hexo主题开发经验杂谈](https://molunerfinn.com/make-a-hexo-theme/)
+- [Hexo 主题开发指南](http://chensd.com/2016-06/hexo-theme-guide.html)

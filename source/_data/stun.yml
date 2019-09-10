@@ -1,4 +1,40 @@
 # ---------------------------------------------------------------
+# Theme Core Configuration Settings
+# ---------------------------------------------------------------
+
+# Allow to cache content generation. Introduced in Stun v1.4.0
+cache: true
+
+# Remove unnecessary files after hexo generate. Introduced in Stun v1.4.0
+shake_file: true
+
+# ---------------------------------------------------------------
+# SEO Settings
+# ---------------------------------------------------------------
+
+# If true, will add site-subtitle to index page.
+# Remember to set up your site-subtitle in Hexo `_config.yml`.
+index_subtitle: false
+
+# Webmaster tools verification setting
+# ---------------------------------------------------------------
+# Google Webmaster tools verification setting
+# See: https://www.google.com/webmasters/
+google_site_verification:
+
+# Bing Webmaster tools verification setting
+# See: https://www.bing.com/webmaster/
+bing_site_verification:
+
+# Baidu Webmaster tools verification setting
+# See: https://ziyuan.baidu.com/site/
+baidu_site_verification:
+
+# 360 Webmaster tools verification setting
+# see http://zhanzhang.so.com/
+qihu360_site_verification:
+
+# ---------------------------------------------------------------
 # Menu config
 # ---------------------------------------------------------------
 
@@ -64,7 +100,7 @@ header:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529223722.jpg
+    url: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190911001213.jpg
   # Mask effect of the top background image.
   mask:
     enable: true
@@ -160,7 +196,9 @@ sidebar:
   # Sidebar offset from top menubar (Only px units are supported).
   offsetTop: 20px
   # Horizon line.
-  horizon_line: true
+  horizon_line: false
+  # Suggest: 240px ~ 300px
+  width: 260px
 
 author:
   enable: true
@@ -319,23 +357,16 @@ stick_top:
 
 # Code highlight.
 # values:
-# - light
-# - dark
-# - ocean
+#   - light
+#   - dark
+#   - ocean
 highlight_theme: light
 
-# Code wrap
-# values: true or false.
+# Code wrap.
 code_word_wrap: false
 
-# Horizonal alignment of img.
-# values:
-# - left
-# - center
-# - right
-#
-# If you empty it, images will show by default.
-img_horizonal_align:
+# Add a line below h1, h2.
+heading_line: true
 
 # Reward
 reward:
@@ -361,8 +392,7 @@ gitalk:
   # Github Application Client Secret.
   client_secret: b8cf368c44428ae4d7c9d0ec634532219e8cdf67
   # GitHub repo owner and collaborators, only these guys can initialize github issues.
-  admin:
-    - liuyib
+  admin: liuyib
   # Facebook-like distraction free mode.
   distraction_free_mode: true
   # Gitalk's display language depends on user's browser or system environment.
@@ -419,25 +449,20 @@ disqus:
 # See: https://busuanzi.ibruce.info/
 busuanzi:
   enable: true
-  site:
-    # Only show by icon.
-    icon_only: false
-    # Number of unique visitor to the entire site.
-    uv:
-      enable: true
-      # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
-      icon: user
-    # Number of page view to the entire site.
-    pv:
-      enable: true
-      # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
-      icon: eye
+  # Only show by icon.
+  icon_only: false
+  # Number of unique visitor to the entire site.
+  site_uv:
+    enable: true
+    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
+    icon: user
+  # Number of page view to the entire site.
+  site_pv:
+    enable: true
+    icon: eye
   # Number of page view to a post.
   post_pv:
     enable: true
-    # Only show by icon.
-    icon_only: false
-    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
     icon: eye
 
 # Google analytics ID
@@ -495,7 +520,7 @@ canvas_nest:
   onmobile: true
   # RGB values, use ',' to separate
   # Color for lines
-  color: '0,0,255'
+  color: '0,0,0'
   # The opacity of line: 0 ~ 1
   opacity: 0.6
   # The number of lines
@@ -535,26 +560,6 @@ math:
       enable: true
       copy_tex_js: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/copy-tex.min.js
       copy_tex_css: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/copy-tex.css
-
-# ---------------------------------------------------------------
-# Webmaster tools verification config
-# ---------------------------------------------------------------
-
-# Google Webmaster tools verification setting
-# See: https://www.google.com/webmasters/
-google_site_verification: _dxRdKposlAngL4xRoCTrJu0sZ7Pp_RhlBF9inxcD5w
-
-# Bing Webmaster tools verification setting
-# See: https://www.bing.com/webmaster/
-bing_site_verification: 6A508F795A82FADAC671AFCB9848929F
-
-# Baidu Webmaster tools verification setting
-# See: https://ziyuan.baidu.com/site/
-baidu_site_verification: UYjZUCoORR
-
-# 360 Webmaster tools verification setting
-# see http://zhanzhang.so.com/
-qihu360_site_verification: b926bfcb0e6034f32ac4700700a812f5
 
 # ---------------------------------------------------------------
 # Other config
@@ -667,8 +672,8 @@ tag_cloud:
   start_color: '#a4d8fa'
   end_color: '#49b1f5'
   # Size for tag.
-  min_size: 20
-  max_size: 30
+  min_size: 16
+  max_size: 26
   # Maximum number of tags displayed. Change it if you have more than 200 tags.
   max_amount: 200
 
@@ -679,6 +684,11 @@ css: css
 js: js
 # In theme directory (source/images).
 images: images
+
+# The common prefix of the FontAwesome icon.
+# Using "fa" prefix in version 4.
+# Using "fas | far | fal | fad | fab" prefix in version 5.
+fa_prefix: fa
 
 # Set a CDN address for the vendor you want to customize.
 # ! -----------------------------------------------------

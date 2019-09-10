@@ -1,7 +1,7 @@
 ---
 title: Hello Stun
 date: 2019-5-15 22:54:49
-top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190528163523.jpg
+top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190911001210.jpg
 top: true
 math: true
 tags:
@@ -13,7 +13,7 @@ categories:
   - 测试文章
 ---
 
-欢迎使用漂亮的 hexo 主题 [Stun](https://github.com/liuyib/hexo-theme-stun)。在这里你可以看到 stun 的部分功能，要想查看全部功能请访问：[https://liuyib.github.io/hexo-theme-stun/zh-CN/](https://liuyib.github.io/hexo-theme-stun/zh-CN/)
+欢迎使用漂亮的 Hexo 主题 [Stun](https://github.com/liuyib/hexo-theme-stun)。在这里你可以看到 stun 的部分功能，要想查看全部功能请访问：[https://liuyib.github.io/hexo-theme-stun/zh-CN/](https://liuyib.github.io/hexo-theme-stun/zh-CN/)
 
 如果你使用 stun 时遇到了问题，可以在[这里](https://github.com/liuyib/hexo-theme-stun/issues)寻找答案或进行提问。当然如果你有好的建议，欢迎发起 [issue](https://github.com/liuyib/hexo-theme-stun/issues)，如果想要贡献代码，欢迎 [PR](https://github.com/liuyib/hexo-theme-stun/pulls)。
 
@@ -79,9 +79,9 @@ _斜体文本_
 
 1. 有序列表 1
 2. 有序列表 2
-3. 子列表
-4. 子列表
-5. 有序列表 3
+   1. 子列表 1
+   2. 子列表 2
+3. 有序列表 3
 
 ### 计划列表
 
@@ -180,7 +180,7 @@ _.compact([0, 1, false, 2, '', 3]);
 | `:unicorn:` | `:unicorn:` | `:unicorn:` |
 | :---------- | :---------: | ----------: |
 | 居左        |    居中     |        居右 |
-| 🦄          |     🦄      |          🦄 |
+| 🦄         |     🦄      |         🦄 |
 
 ## 注脚
 
