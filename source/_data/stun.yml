@@ -20,19 +20,19 @@ index_subtitle: false
 # ---------------------------------------------------------------
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-google_site_verification:
+google_site_verification: _dxRdKposlAngL4xRoCTrJu0sZ7Pp_RhlBF9inxcD5w
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster/
-bing_site_verification:
+bing_site_verification: 6A508F795A82FADAC671AFCB9848929F
 
 # Baidu Webmaster tools verification setting
 # See: https://ziyuan.baidu.com/site/
-baidu_site_verification:
+baidu_site_verification: UYjZUCoORR
 
 # 360 Webmaster tools verification setting
 # see http://zhanzhang.so.com/
-qihu360_site_verification:
+qihu360_site_verification: b926bfcb0e6034f32ac4700700a812f5
 
 # ---------------------------------------------------------------
 # Menu config
