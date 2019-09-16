@@ -6,6 +6,7 @@ top: true
 top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190911000324.jpg
 math: false
 sitemap: false
+comments: false
 ---
 
 This is a link for Gitter of theme-stun. Clicking on the title to talking.

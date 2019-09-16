@@ -1,9 +1,6 @@
 ---
 title: Hello Stun
 date: 2019-5-15 22:54:49
-top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190911001210.jpg
-top: true
-math: true
 tags:
   - hexo-theme
   - stun
@@ -11,6 +8,9 @@ tags:
 categories:
   - [hexo-theme, stun]
   - 测试文章
+top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190911001210.jpg
+top: true
+math: true
 ---
 
 欢迎使用漂亮的 Hexo 主题 [Stun](https://github.com/liuyib/hexo-theme-stun)。在这里你可以看到 stun 的部分功能，要想查看全部功能请访问：[https://liuyib.github.io/hexo-theme-stun/zh-CN/](https://liuyib.github.io/hexo-theme-stun/zh-CN/)
