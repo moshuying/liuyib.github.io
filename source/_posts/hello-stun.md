@@ -8,7 +8,7 @@ tags:
 categories:
   - [hexo-theme, stun]
   - 测试文章
-top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190911001210.jpg
+top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190918001207.jpg
 top: true
 math: true
 ---

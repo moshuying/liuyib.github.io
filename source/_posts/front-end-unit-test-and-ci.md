@@ -1,13 +1,13 @@
 ---
 title: 前端单元测试和持续集成
 date: 2019-06-04 22:54:49
-top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190911001211.jpg
-math: false
 tags:
   - 前端自动化
   - 单元测试
   - 持续集成
   - Github徽章
+top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190918001251.jpg
+math: false
 ---
 
 经常使用 Github 的同学应该知道，一些开源项目中常常会挂上很多花花绿绿了的小徽章，比如 vue 的：
