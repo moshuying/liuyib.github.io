@@ -6,11 +6,13 @@ tags:
   - 单元测试
   - 持续集成
   - Github徽章
-top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190918001251.jpg
+top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190918001207.jpg
 math: false
 ---
 
 经常使用 Github 的同学应该知道，一些开源项目中常常会挂上很多花花绿绿了的小徽章，比如 vue 的：
+
+<!-- more -->
 
 ![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604131517.png)
 
@@ -19,8 +21,6 @@ math: false
 ## 给项目装上徽章
 
 想要获取徽章，有很多方式，最简单的可以通过 [shields.io](https://shields.io/) 网站获取，基本上想要的徽章都能获取到，没有的也可以进行 DIY，很方便。
-
-<!-- more -->
 
 举个例子，将项目的开源协议通过徽章进行展示，你只需要填写 Github 用户名和项目名称，网站就会自动获取你项目中的数据。
 
