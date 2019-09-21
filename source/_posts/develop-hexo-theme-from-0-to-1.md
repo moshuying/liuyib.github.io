@@ -29,8 +29,8 @@ math: false
 常用的几种模板引擎有：[Swig](https://github.com/paularmstrong/swig)、[EJS](https://github.com/hexojs/hexo-renderer-ejs)、[Haml](https://github.com/hexojs/hexo-renderer-haml) 或 [Jade](https://github.com/hexojs/hexo-renderer-jade)。其中 Jade 由于商标问题，改名为 [Pug](https://github.com/pugjs/pug)，虽然它们是兼容的，但使用的时候，推荐安装 Pug 而不是 Jade。Hexo 内置了 Swig，将文件扩展名改为 `.swig` 即可使用，你也可以安装插件来获得另外几种模板引擎的支持，Hexo 会根据文件扩展名来决定使用哪一种。例如：
 
 ``` text
-layout.swig  -- 使用 swig
 layout.pug   -- 使用 pug
+layout.swig  -- 使用 swig
 ```
 
 这里你需要做的是，选择一个自己喜欢的模板引擎，然后浏览文档，了解这个模板引擎的基本用法。
@@ -139,7 +139,7 @@ yo hexo-theme
 
 有关以上目录的介绍，详参见：[Hexo 主题](https://hexo.io/zh-cn/docs/themes)。
 
-这里需要提一下，主题目录和 Hexo 根目录中各有一个 `source` 文件夹，当你执行指令 `hexo generate` 来生成静态文件时，这两个 `source` 目录中的文件如果是 markdown 会被解析为 HTML，其他不能解析的文件，会被复制到 `public` 目录中。`public` 目录用于存放生成的静态文件，这些静态文件就是线上跑的网站文件。因此，如果你不清楚 `source` 目录里文件的使用路径是怎样的，那么你可以跑一下指令 `hexo generate`，这些文件生成到 `public` 目录中后，它们的路径关系就很明显了。
+这里需要提一下，主题目录和 Hexo 根目录中各有一个 `source` 文件夹，当你执行指令 `hexo generate` 来生成静态文件时，这两个 `source` 目录中的文件如果是 Markdown 会被解析为 HTML，其他不能解析的文件，会被复制到 `public` 目录中。`public` 目录用于存放生成的静态文件，这些静态文件就是线上跑的网站文件。因此，如果你不清楚 `source` 目录里文件的使用路径是怎样的，那么你可以跑一下指令 `hexo generate`，这些文件生成到 `public` 目录中后，它们的路径关系就很明显了。
 
 #### 通读文档
 
@@ -167,11 +167,20 @@ copyright:
 
 这样使用：
 
-``` html
+``` text
+// -------------------- Pug 语法 --------------------
+if theme.copyright.enable
+  div.copyright= theme.copyright.text
+
+// -------------------- Swig 语法 --------------------
 {% if theme.copyright.enable %}
 <div class="copyright">{{ theme.copyright.text }}</div>
 {% endif %}
 ```
+
+{% note default  %}
+后面的文章中，模板语言示例代码都会用 Pug 和 Swig 两种语法给出。
+{% endnote  %}
 
 随着项目的发展，配置文件会越来越大，上面这种做法的缺点也会越来越明显。
 
@@ -218,9 +227,34 @@ hexo.on('generateBefore', function () {
 - 页面主体部分（显示文章的地方）
 - ......
 
-将这些部分对应的代码放在主题 `layout` 目录下的 `layout.swig` 文件中用以复用，例如：
+将这些部分对应的代码放在主题 `layout` 目录下的 `layout.pug` 文件中用以复用，例如：
 
-``` html layout.swig
+``` text
+// -------------------- Pug 语法 --------------------
+html
+  head
+    title
+      block title
+  body
+    header#header.header
+      div.header-inner
+        include ./header.pug
+    
+    main#main.main
+      div.main-inner
+        div#content.content
+          div.content-inner
+            block content
+        
+        div#sidebar.sidebar
+          div.sidebar-inner
+            block sidebar
+
+    footer#footer.footer
+      div.footer-inner
+        include ./footer.pug
+
+// -------------------- Swig 语法 --------------------
 <html>
   <head>
     <title>{% block title %}{% endblock %}</title>
@@ -258,12 +292,22 @@ hexo.on('generateBefore', function () {
 </html>
 ```
 
-`layout.swig` 是网站最基础的布局代码，所有的页面都是继承它而来。Swig 使用 `extends` 和 `block` 实现继承，例如：
+`layout.pug` 是网站最基础的布局代码，所有的页面都是继承它而来。Pug / Swig 使用 `extends` 和 `block` 实现继承，例如：
 
-``` html layout.swig
+``` text
+// -------------------- Pug 语法 --------------------
+html
+  head
+    title
+      block title
+
+  body
+    block content
+
+// -------------------- Swig 语法 --------------------
 <html>
   <head>
-    <title>{% block title %}My Site{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
     {% block content %}{% endblock %}
@@ -271,7 +315,17 @@ hexo.on('generateBefore', function () {
 </html>
 ```
 
-``` html index.swig
+``` text
+// -------------------- Pug 语法 --------------------
+extends layout.pug
+
+block title
+  My Page
+
+block content
+  This is a awesome page.
+
+// -------------------- Swig 语法 --------------------
 {% extends 'layout.swig' %}
 
 {% block title %}My Page{% endblock %}
@@ -283,25 +337,41 @@ hexo.on('generateBefore', function () {
 
 除了继承的方式复用代码，还可以通过 `include` 语法直接引文件来实现代码复用，例如：
 
-``` html
+``` text
+// -------------------- Pug 语法 --------------------
+div#header.header
+  include ./header.pug
+
+// -------------------- Swig 语法 --------------------
 <div id="header" class="header">
   {% include './header.swig' %}
 </div>
 ```
 
-> 由于 `layout.swig` 只用于被其他页面继承，并不会单独渲染成页面，因此，可以将文件名改为 `_layout.swig`（以下划线开头）这样 Hexo 就不会解析这个文件，可以提高 Hexo 生成页面的速度。
+> 由于 `layout.pug` 只用于被其他页面继承，并不会单独渲染成页面，因此，可以将文件名改为 `_layout.pug`（以下划线开头）这样 Hexo 就不会解析这个文件，可以提高 Hexo 生成页面的速度。
 
 这里我并不准备介绍页面中更详细的部分如何实现，直接看[源码](https://github.com/liuyib/hexo-theme-stun)效果更好。
 
 ### 数据交互
 
-这里介绍下 Swig、Stylus、JavaScript 这几种文件如何与主题配置文件进行数据交互。
+这里介绍下 Pug / Swig、Stylus、JavaScript 这几种文件如何与主题配置文件进行数据交互。
 
 前面我们已经知道了，主题配置文件里的配置项被包含在 `theme` 变量下。因此在我们需要知道如何在另外三种文件中使用 `theme` 变量：
 
-- 在 Swig 文件中使用
+- 在 Pug / Swig 文件中使用
 
-  ``` html
+  ``` text
+  // -------------------- Pug 语法 --------------------
+  div= theme.copyright.text
+
+  html(lang=theme.language)
+
+  if theme.sidebar.enable
+    div.sidebar
+
+  div(class=`sidebar ${ if theme.sidebar.show ? 'show' : '' }`)
+
+  // -------------------- Swig 语法 --------------------
   <div>{{ theme.copyright.text }}</div>
 
   <html lang="{{ theme.language }}"></html>
@@ -312,8 +382,6 @@ hexo.on('generateBefore', function () {
 
   <div class="sidebar {% if theme.sidebar.show %}show{% endif %}"></div>
   ```
-
-  > 上面代码中的 {% raw %}<code>{{ }}</code>{% endraw %}、{% raw %}<code>{% %}</code>{% endraw %}，都是 Swig 的语法，不熟悉的需要自己查看文档。
 
 - 在 Stylus 文件中使用
 
@@ -332,9 +400,20 @@ hexo.on('generateBefore', function () {
 
 - 在 JavaScript 文件中使用
 
-  在 JS 文件中没有办法直接获取到 Hexo 内置的 `theme` 变量，但是我们可以换一种方式来间接获取。新建一个模板引擎文件，我们就叫它 `config.swig`，文件内容如下所示：
+  在 JS 文件中没有办法直接获取到 Hexo 内置的 `theme` 变量，但是我们可以换一种方式来间接获取。新建一个模板引擎文件，我们就叫它 `config.pug`，文件内容如下所示：
 
-  ``` html config.swig
+  ``` text
+  // ----- Pug 语法（注意 script 标签后面的点，表示该标签后面有多行代码）-----
+  script.
+    var CONFIG = {
+      sidebar: '!{ theme.sidebar }',
+      back2top: '!{ theme.back2top }',
+      ...
+    };
+
+    window.CONFIG = CONFIG;
+
+  // -------------------- Swig 语法 --------------------
   <script>
     var CONFIG = {
       sidebar: {{ theme.sidebar | json_encode }},
@@ -346,7 +425,7 @@ hexo.on('generateBefore', function () {
   </script>
   ```
 
-  然后将 `config.swig` 文件放在 HTML 的 `head` 标签中加载，这样就可以通过全局变量 `CONFIG` 在 JS 中获取主题配置文件里的数据了。
+  然后将 `config.pug` 文件放在 HTML 的 `head` 标签中加载，这样就可以通过全局变量 `CONFIG` 在 JS 中获取主题配置文件里的数据了。
 
 到这里为止，就介绍完了开发 Hexo 主题前必要的知识储备，剩下的就靠开发者自己完成了。
 
