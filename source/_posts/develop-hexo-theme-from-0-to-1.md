@@ -167,7 +167,7 @@ copyright:
 
 这样使用：
 
-``` text
+``` html
 // -------------------- Pug 语法 --------------------
 if theme.copyright.enable
   div.copyright= theme.copyright.text
@@ -229,7 +229,7 @@ hexo.on('generateBefore', function () {
 
 将这些部分对应的代码放在主题 `layout` 目录下的 `layout.pug` 文件中用以复用，例如：
 
-``` text
+``` html
 // -------------------- Pug 语法 --------------------
 html
   head
@@ -294,7 +294,7 @@ html
 
 `layout.pug` 是网站最基础的布局代码，所有的页面都是继承它而来。Pug / Swig 使用 `extends` 和 `block` 实现继承，例如：
 
-``` text
+``` html
 // -------------------- Pug 语法 --------------------
 html
   head
@@ -315,7 +315,7 @@ html
 </html>
 ```
 
-``` text
+``` html
 // -------------------- Pug 语法 --------------------
 extends layout.pug
 
@@ -337,7 +337,7 @@ block content
 
 除了继承的方式复用代码，还可以通过 `include` 语法直接引文件来实现代码复用，例如：
 
-``` text
+``` html
 // -------------------- Pug 语法 --------------------
 div#header.header
   include ./header.pug
@@ -360,7 +360,7 @@ div#header.header
 
 - 在 Pug / Swig 文件中使用
 
-  ``` text
+  ``` html
   // -------------------- Pug 语法 --------------------
   div= theme.copyright.text
 
@@ -402,7 +402,7 @@ div#header.header
 
   在 JS 文件中没有办法直接获取到 Hexo 内置的 `theme` 变量，但是我们可以换一种方式来间接获取。新建一个模板引擎文件，我们就叫它 `config.pug`，文件内容如下所示：
 
-  ``` text
+  ``` html
   // ----- Pug 语法（注意 script 标签后面的点，表示该标签后面有多行代码）-----
   script.
     var CONFIG = {
