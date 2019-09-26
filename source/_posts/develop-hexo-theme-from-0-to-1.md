@@ -2,10 +2,9 @@
 title: 从0到1开发Hexo主题杂谈
 date: 2019-08-20 18:20:24
 tags:
-  - hexo
-  - hexo-theme
+  - Hexo
 categories:
-  - [hexo-theme, hexo主题开发]
+  - Hexo主题开发
 top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190911002035.jpg
 math: false
 ---

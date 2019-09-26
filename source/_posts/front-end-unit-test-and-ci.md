@@ -2,10 +2,11 @@
 title: 前端单元测试和持续集成
 date: 2019-06-04 22:54:49
 tags:
-  - 前端自动化
   - 单元测试
   - 持续集成
   - Github徽章
+categories:
+  - 前端自动化
 top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190918001207.jpg
 math: false
 ---
