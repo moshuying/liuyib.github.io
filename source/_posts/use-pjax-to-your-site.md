@@ -75,7 +75,7 @@ var pjax = new Pjax({
     "head title",
     "#main"
   ]
-})
+});
 ```
 
 这样，就实现了一个最简单的 Pjax 网站，不过这才刚开始。下面是一些常用的参数：
@@ -125,7 +125,7 @@ div.loading-bar
 
 CSS(Stylus):
 
-``` css
+``` stylus
 .loading-bar {
   position: fixed;
   top: 0;
@@ -162,11 +162,11 @@ var loadingBar = document.querySelector('.loading-bar');
 var progress = document.querySelector('.loading-bar .progress');
 var timer = null;
 
-// 通过 Pjax 切换页面开始时执行的函数
+// Pjax 开始时执行的函数
 document.addEventListener('pjax:send', function (){
   // 进度条默认已经加载 20%
   var loadingBarWidth = 20;
-  // 进度条最大增加的宽度
+  // 进度条的最大宽度
   var MAX_LOADING_WIDTH = 95;
 
   // 显示进度条
@@ -176,7 +176,7 @@ document.addEventListener('pjax:send', function (){
 
   clearInterval(timer);
   timer = setInterval(function () {
-    // 进度条的增长速度（可以改为一个随机值，显得更加真实）
+    // 进度条的增加速度（可以改为一个随机值，显得更加真实）
     loadingBarWidth += 3;
 
     // 当进度条到达 95% 后停止增加
@@ -188,7 +188,7 @@ document.addEventListener('pjax:send', function (){
   }, 500);
 });
 
-// 通过 Pjax 切换页面完成之后执行的函数
+// Pjax 完成之后执行的函数
 document.addEventListener('pjax:complete', function () {
   clearInterval(timer);
   progress.style.width = '100%';
@@ -241,7 +241,7 @@ function pjax_reload() {
   lazyload(imgs);
 }
 
-// 通过 Pjax 切换页面完成后，重新加载上面的函数
+// Pjax 完成后，重新加载上面的函数
 document.addEventListener('pjax:complete', function (){
   pjax_reload();
 });
@@ -267,7 +267,7 @@ $('script[data-pjax], .pjax-reload script').each(function () {
   $(this).parent().append($(this).remove());
 });
 
-// 原生 JS 写法
+// JS 写法
 document.querySelector('script[data-pjax], .pjax-reload script').forEach(function (elem) {
   var id = element.id || '';
   var src = element.src || '';
@@ -298,11 +298,11 @@ document.querySelector('script[data-pjax], .pjax-reload script').forEach(functio
 
 3. 重载整个 `script` 标签
 
-这种情况和前面类似，如果一些 JS 脚本写在 `script` 标签中，并且需要重载，可以选择直接重载整个 `script` 标签。具体做法和上一步相同，在标签上添加 `data-pjax` 属性后，进行操作即可。
+这种情况和前面类似，如果一些 JS 脚本写在 `script` 标签中，并且需要重载，可以选择直接重载整个 `script` 标签。具体做法和上一步相同，在标签上添加 `data-pjax` 属性，然后将具有这个属性的标签重新添加到页面中。
 
 ## 总结
 
-本文主要介绍了 Pjax 的基本用法，以及一些常见问题的解决方法。到这里，你的网站应该就可以正常的使用 Pjax 了。
+本文主要介绍了 Pjax 的基本用法，以及一些常见问题的解决方法。下面，赶快动起手来，让你的网站使用 Pjax 吧。
 
 ---
 
