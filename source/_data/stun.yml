@@ -103,6 +103,10 @@ header:
     enable: true
     # Opacity of mask (value: 0 ~ 1).
     opacity: 0.5
+  # The icon that prompt to scroll down.
+  scroll_down_icon:
+    enable: true
+    animation: true
 
 # Creative Commons 4.0 International License.
 creative_commons:
@@ -142,6 +146,11 @@ footer:
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
     url:
+  # Mask effect of the background image.
+  mask:
+    enable: false
+    # Opacity of mask (value: 0 ~ 1).
+    opacity: 0.5
   # Copyright information.
   copyright:
     enable: true
@@ -607,7 +616,7 @@ quicklink:
   # For more flexibility you can add some patterns (RegExp, Function, or Array) to ignores.
   # See: https://github.com/GoogleChromeLabs/quicklink#custom-ignore-patterns
   # ! ---------------------------------------------------------------
-  # ! Leave "ignores" as empty if you don't understand what it means.
+  # ! If you don't understand, please ignore the following.
   # ! ---------------------------------------------------------------
   ignores:
     - /\/api\/?/
