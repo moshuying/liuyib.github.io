@@ -3,6 +3,7 @@ title: 关于
 date: 2019-05-15 00:16:19
 math: false
 sitemap: false
+reward: true
 ---
 
 ## 关于我
