@@ -13,7 +13,7 @@ math: false
 
 在没有开发自己的 Hexo 主题之前，我都是在 Github Issue 里写[博客](https://github.com/liuyib/blog/issues)，但这样的做法总被小伙伴各种吐槽 (￣_￣ )。想到如果文章多的时候，使用 Github Issue 浏览起来不够方便，所以还是换回了 Hexo。
 
-使用 Hexo 首先是要挑选喜欢的主题，以我个人的感受来讲，Hexo 的主题虽然有两百多个，但是能拿出手的也就不到二十个。其中我最佩服的主题 Next 已经足够优秀，但是风格我并不喜欢，最后决定自己开发。
+使用 Hexo 首先是要挑选喜欢的主题，以我个人的感受来讲，Hexo 的主题虽然有两百多个，但是能拿出手的也就不到二十个。其中我最佩服的主题 Next 已经足够优秀，但是风格我并不喜欢，最后决定自己开坑。
 
 本文主要记录了我从零开发 Hexo 主题 -- [Stun](https://github.com/liuyib/hexo-theme-stun) 时，遇到的所有坑和经验，**仅供参考**，有不足的地方欢迎指出。
 
@@ -37,7 +37,7 @@ layout.swig  -- 使用 swig
 - 英文文档地址分别如下：[Swig](https://node-swig.github.io/swig-templates/docs/)、[EJS](https://ejs.co/#docs)、[Pug](https://pugjs.org/api/getting-started.html)、[Haml](http://haml.info/docs.html)。
 - 中文文档地址分别如下：[Swig](https://myvin.github.io/swig.zh-CN/docs/index.html)、[EJS](https://ejs.bootcss.com/#docs)、[Pug](https://pugjs.org/zh-cn/api/getting-started.html)、Haml（无）。
 
-这里我选择了 Pug，不过推荐使用 Swig 或 EJS。
+这里我选择了 Pug，不过我还是推荐使用 Swig 或 EJS。
 
 ### CSS 预处理语言
 
@@ -138,7 +138,7 @@ yo hexo-theme
 
 有关以上目录的介绍，详参见：[Hexo 主题](https://hexo.io/zh-cn/docs/themes)。
 
-这里需要提一下，主题目录和 Hexo 根目录中各有一个 `source` 文件夹，当你执行指令 `hexo generate` 来生成静态文件时，这两个 `source` 目录中的文件如果是 Markdown 会被解析为 HTML，其他不能解析的文件，会被复制到 `public` 目录中。`public` 目录用于存放生成的静态文件，这些静态文件就是线上跑的网站文件。因此，如果你不清楚 `source` 目录里文件的使用路径是怎样的，那么你可以跑一下指令 `hexo generate`，这些文件生成到 `public` 目录中后，它们的路径关系就很明显了。
+这里需要提一下，主题目录和 Hexo 根目录中各有一个 `source` 文件夹，当你执行指令 `hexo generate` 来生成静态文件时，这两个 `source` 目录中的文件如果是 Markdown 会被解析为 HTML，其他不能被解析的文件，会被复制到 `public` 目录中。`public` 目录用于存放打包后生成的文件，这些文件就是线上跑的网站资源文件。因此，如果你不清楚 `source` 目录里文件的使用路径是怎样的，那么你可以跑一下指令 `hexo generate`，这些文件生成到 `public` 目录中后，它们的路径关系就很明显了。
 
 #### 通读文档
 

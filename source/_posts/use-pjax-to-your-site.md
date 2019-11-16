@@ -1,5 +1,5 @@
 ---
-title: 使用 Pjax 让你的网站实现局部刷新
+title: 集成 Pjax 实现网站无刷新加载
 date: 2019-09-24 20:49:16
 tags:
   - Pjax
@@ -15,7 +15,7 @@ math: false
 
 一般情况下，当我们点击一个网页链接后，浏览器就会努力发送网络请求，然后将请求到的网页渲染出来。有时，我们经常会在一个网站中不停地点击链接，然后网页不停地跳转。通常，浏览器会对文件资源进行一定的缓存，这样使得同一个网站之间的页面跳转时，能够更快的加载。
 
-虽然浏览的对资源的缓存加快了页面的加载速度，但是页面每一次跳转时，都会整体刷新一次，这一定程度上降低了用户体验。为了解决这一问题，我们可以使用 Pjax 来让页面不跳转进行局部刷新。
+虽然浏览器对资源的缓存加快了页面的加载速度，但是页面每一次跳转时，都会整体刷新一次，这一定程度上降低了用户体验。为了解决这一问题，我们可以使用 Pjax 实现网站无刷新加载。
 
 <!-- more -->
 
@@ -34,7 +34,7 @@ Pjax 有依赖和不依赖 jQuery 的两种版本：
 
 ### 引用文件
 
-为了方便，这里直接使用 JSDelivr 公共的 CDN 地址。
+为了方便，这里直接使用 JSDelivr 公共的 CDN 地址：
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.js"></script>
@@ -104,7 +104,7 @@ var pjax = new Pjax({
 
   是否在 URL 上添加时间戳，防止浏览器缓存。
 
-更多参数，请查看 MoOx/pjax 项目的 [READMD](https://github.com/MoOx/pjax)。
+关于这些参数的作用和设置，根据需要自行选择。更多参数，请查看 MoOx/pjax 项目的 [READMD](https://github.com/MoOx/pjax)。
 
 ### 添加进度条
 
@@ -114,7 +114,7 @@ var pjax = new Pjax({
 
 首先要清楚一点，这里要实现的加载进度条实际上是**假的**，也就是说，页面实际加载了多少我们并没有办法知道，进度条也只是按照一定的速度增加的。
 
-> 如果可以控制服务端的话，可以做出**真的**加载进度条，至少在 Github Pages 上还做不到。
+> 如果可以控制服务端的话，可以做出**真的**加载进度条，至少在 Github Pages 上还暂时做不到。
 
 HTML(Pug):
 
@@ -166,7 +166,7 @@ var timer = null;
 document.addEventListener('pjax:send', function (){
   // 进度条默认已经加载 20%
   var loadingBarWidth = 20;
-  // 进度条的最大宽度
+  // 进度条的最大增加宽度
   var MAX_LOADING_WIDTH = 95;
 
   // 显示进度条
@@ -204,7 +204,7 @@ document.addEventListener('pjax:complete', function () {
 
 ### 重载 JS 脚本
 
-**这里的重载指的是重新加载**。由于通过 Pjax 切换的页面并没有完全刷新，浏览器不会将网页从头执行一遍，因此有些 JS 将不会生效。重载 JS 脚本大致分为三种，一种是重载 JS 函数，一种是重载整个 JS 文件，另一种是重载整个内联的 `script` 标签。
+**这里的重载指的是重新加载**。由于通过 Pjax 切换的页面并没有完全刷新，浏览器不会将网页从头执行一遍，因此有些 JS 将不会生效。重载 JS 脚本大致分为三种：一种是重载 JS 函数，一种是重载整个 JS 文件，另一种是重载内联的 `script` 标签。
 
 1. 重载 JS 函数
 
@@ -227,7 +227,7 @@ document.querySelector('.search-button').onclick = function () {
 比如，页面主体部分是变化的，懒加载其中的图片：
 
 ``` js
-var imgs = document.querySelectorAll('img.lazyload');
+var imgs = document.querySelectorAll('#main img.lazyload');
 
 lazyload(imgs);
 ```
@@ -236,7 +236,7 @@ lazyload(imgs);
 
 ``` js
 function pjax_reload() {
-  var imgs = document.querySelectorAll('img.lazyload');
+  var imgs = document.querySelectorAll('#main img.lazyload');
 
   lazyload(imgs);
 }
@@ -251,7 +251,7 @@ document.addEventListener('pjax:complete', function (){
 
 这种情况多数用于第三方文件，比如，卜算子统计的脚本、谷歌 / 百度 / 腾讯分析的脚本等，这些脚本在每一次页面加载后都需要执行。
 
-我的做法是，在引入这些文件的标签上添加 `data-pjax` 属性，然后将具有这个属性的标签重新添加在页面中。有时候不方便在这些标签上添加额外的属性，那么你可以在这些标签外套一层标签，如 `<div class=".pjax-reload"></div>`，然后将 `.pjax-reload` 里的元素全部重新添加到页面中即可。代码示例如下。
+我的做法是，在引入这些文件的标签上添加 `data-pjax` 属性，然后将具有这个属性的标签重新添加在页面中。有时候不方便在这些标签上添加额外的属性，那么你可以在这些标签外套一层标签，如 `<div class=".pjax-reload"></div>`，然后将 `.pjax-reload` 里的元素全部重新添加到页面中即可。代码示例如下：
 
 ``` html
 <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi/bsz.pure.mini.js" data-pjax>
@@ -302,7 +302,7 @@ document.querySelector('script[data-pjax], .pjax-reload script').forEach(functio
 
 ## 总结
 
-本文主要介绍了 Pjax 的基本用法，以及一些常见问题的解决方法。下面，赶快动起手来，让你的网站使用 Pjax 吧。
+本文主要介绍了 Pjax 的基本用法，和一些常见问题的解决方法。下面，赶快动起手来，让你的网站使用 Pjax 吧。
 
 ---
 
