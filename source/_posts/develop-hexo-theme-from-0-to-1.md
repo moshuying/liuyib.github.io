@@ -384,7 +384,7 @@ div#header.header
 
 - 在 Stylus 文件中使用
 
-  需要通过 Hexo 内置的函数 `hexo-config` 来获取 `theme` 变量中的属性，但是不需要写 `theme`：
+  需要通过 Hexo 内置的函数 `hexo-config` 来获取 `theme` 变量中的属性，但是不需要加 `theme.` 前缀：
 
   ``` stylus
   // back2top 是 theme 变量下的一个属性
@@ -396,6 +396,8 @@ div#header.header
   .post-title
     color: convert(hexo-config('post.title.color'))
   ```
+
+  > 在其他的 CSS 预处理语言中，理论上也可以通过 `hexo-config` 来获取 `theme` 变量中的属性，我没试过，开发者可以自行尝试。
 
 - 在 JavaScript 文件中使用
 

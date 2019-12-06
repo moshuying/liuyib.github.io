@@ -14,4 +14,7 @@ sitemap: false
 > 名称：liuyib
 > 介绍：write code and love life
 > 链接：https://liuyib.github.io/
-> LOGO：http://t.cn/AiYVb5Tf
+> LOGO：https://i.loli.net/2019/12/06/FkCJn5iVftPGZXN.jpg
+
+想和我成为友链关系，根据上面的信息，把本站添加到你的网站中，然后评论告诉我~
+<center>(  •̆ ᵕ •̆ )◞ <span style="color: red;">❤</span></center>
