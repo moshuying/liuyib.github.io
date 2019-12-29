@@ -16,5 +16,5 @@ sitemap: false
 > 链接：https://liuyib.github.io/
 > LOGO：https://i.loli.net/2019/12/06/FkCJn5iVftPGZXN.jpg
 
-想和我成为友链关系，根据上面的信息，把本站添加到你的网站中，然后评论告诉我~
+想要交换友链，根据上面的信息，把本站添加到你的网站中，然后在下方评论中贴出你的信息~
 <center>(  •̆ ᵕ •̆ )◞ <span style="color: red;">❤</span></center>
