@@ -116,14 +116,14 @@ var pjax = new Pjax({
 
 > 如果可以控制服务端的话，可以做出**真的**加载进度条，至少在 Github Pages 上还暂时做不到。
 
-HTML(Pug):
+HTML (Pug):
 
 ``` html
 div.loading-bar
   div.progress
 ```
 
-CSS(Stylus):
+CSS (Stylus):
 
 ``` stylus
 .loading-bar {
@@ -249,12 +249,12 @@ document.addEventListener('pjax:complete', function (){
 
 2. 重载整个 JS 文件
 
-这种情况多数用于第三方文件，比如，卜算子统计的脚本、谷歌 / 百度 / 腾讯分析的脚本等，这些脚本在每一次页面加载后都需要执行。
+这种情况多数用于第三方文件，比如，卜算子统计的脚本、谷歌/百度/腾讯分析的脚本等，这些脚本在每一次页面加载后都需要执行。
 
 我的做法是，在引入这些文件的标签上添加 `data-pjax` 属性，然后将具有这个属性的标签重新添加在页面中。有时候不方便在这些标签上添加额外的属性，那么你可以在这些标签外套一层标签，如 `<div class=".pjax-reload"></div>`，然后将 `.pjax-reload` 里的元素全部重新添加到页面中即可。代码示例如下：
 
 ``` html
-<script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi/bsz.pure.mini.js" data-pjax>
+<script data-pjax src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi/bsz.pure.mini.js"></script>
 
 <div class=".pjax-reload">
   <script src="https://www.google-analytics.com/analytics.js"></script>
