@@ -1,14 +1,18 @@
 language: node_js
+
 node_js:
   - 10
 
 # Travis-CI Caching
 cache:
+  apt: true
   directories:
     - node_modules
 
 before_install:
+  - export TZ='Asia/Shanghai'       # 更改时区
   - npm install hexo-cli -g
+  - chmod +x ./travis-ci-publish.sh # 为shell文件添加可执行权限
 
 install:
   - npm install
@@ -18,13 +22,7 @@ script:
   - hexo g
 
 after_script:
-  - cd .deploy_git
-  - git init
-  - git config user.name "liuyib"
-  - git config user.email "1656081615@qq.com"
-  - git add -A
-  - git commit -m "Update blog by Travis CI"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+  - ./travis-ci-publish.sh
 
 branches:
   only:
