@@ -94,6 +94,13 @@ night_mode:
     dark: 🌜
     light: 🌞
 
+# The layout for sidebar and content of site.
+layout:
+  content: 768px
+  sidebar: 300px
+  content_sidebar_gap: 30px
+  main_side_gap: 20px
+
 header:
   # Header height (Support for all types of CSS size units).
   height: 80%
@@ -211,8 +218,6 @@ sidebar:
   offsetTop: 30px
   # Horizon line.
   horizon_line: false
-  # Suggest: 240px ~ 300px
-  width: 280px
 
 author:
   enable: true
@@ -454,6 +459,28 @@ disqus:
   enable: false
   shortname: liuyib
   count: true
+
+# Utterances
+# See: https://utteranc.es/
+utterances:
+  enable: false
+  # Github username.
+  owner: liuyib
+  # Github repository.
+  repo: liuyib.github.io
+  # Choose the mapping between blog posts and GitHub issues.
+  # Available values: pathname | url | title | og:title
+  mapping: title
+  # Choose the label that will be assigned to issues created by Utterances.
+  # Emoji are supported in label names.
+  label: utterances
+  # Choose an Utterances theme that matches your blog.
+  # Available values: github-light | github-dark | github-dark-orange | icy-dark | dark-blue | photon-dark
+  theme: github-light
+  # ! -------------------------------------------------------------------------------
+  # ! Don't set this unless the URL of the script in the official website is changed.
+  # ! -------------------------------------------------------------------------------
+  script_url: https://utteranc.es/client.js
 
 # ---------------------------------------------------------------
 # Statistics and Analytics config
