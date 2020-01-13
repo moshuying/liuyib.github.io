@@ -177,9 +177,9 @@ if theme.copyright.enable
 {% endif %}
 ```
 
-{% note default  %}
+{% note default %}
 文章接下来的部分中，模板语言示例代码都会用 Pug 和 Swig 两种语法给出。
-{% endnote  %}
+{% endnote %}
 
 随着项目的发展，配置文件会越来越大，上面这种做法的缺点也会越来越明显。
 
