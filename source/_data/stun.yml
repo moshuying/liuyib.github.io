@@ -475,9 +475,9 @@ disqus:
 utterances:
   enable: false
   # Github username.
-  owner:
+  owner: liuyib
   # Github repository.
-  repo:
+  repo: liuyib.github.io
   # Choose the mapping between blog posts and GitHub issues.
   # Available values: pathname | url | title | og:title
   mapping: title
