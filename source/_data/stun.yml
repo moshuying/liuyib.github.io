@@ -94,6 +94,13 @@ night_mode:
     dark: 🌜
     light: 🌞
 
+# The layout for sidebar and content of site.
+layout:
+  content: 768px
+  sidebar: 300px
+  content_sidebar_gap: 30px
+  main_side_gap: 20px
+
 header:
   # Header height (Support for all types of CSS size units).
   height: 80%
@@ -106,7 +113,7 @@ header:
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
     url: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190918000303.jpg
-  # Mask effect of the top background image.
+  # Mask effect of the background image.
   mask:
     enable: true
     # Opacity of mask (value: 0 ~ 1).
@@ -207,12 +214,10 @@ sidebar:
   enable: true
   # Sidebar position, available values: left | right.
   position: left
-  # Sidebar offset from top menubar (Only px units are supported).
+  # The distance from the top of the page when the sidebar is fixed (Only px units are supported).
   offsetTop: 30px
   # Horizon line.
   horizon_line: false
-  # Suggest: 240px ~ 300px
-  width: 280px
 
 author:
   enable: true
@@ -288,6 +293,36 @@ reading_progress:
   color: "#fc6423"
   # Support for all types of CSS size units.
   height: 1px
+
+# ---------------------------------------------------------------
+# Page config
+# ---------------------------------------------------------------
+
+codeblock:
+  # The style of code block.
+  # values:
+  #   - default
+  #   - simple
+  #   - carbon
+  style: carbon
+  # The theme of code highlight.
+  # values:
+  #   - light
+  #   - dark
+  #   - ocean
+  highlight: light
+  # Whether the code to newline.
+  word_wrap: false
+
+# Add a line below h1, h2.
+heading_line: true
+
+# Reward
+reward:
+  enable: true
+  # Fill in your QR Code for collecting money.
+  alipay: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222805.png
+  wechat: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222806.png
 
 # ---------------------------------------------------------------
 # Post config
@@ -369,26 +404,6 @@ stick_top:
   # Please use the quote to wrap value (All CSS size units are supported).
   color: "#999"
 
-# Code highlight.
-# values:
-#   - light
-#   - dark
-#   - ocean
-highlight_theme: light
-
-# Code wrap.
-code_word_wrap: false
-
-# Add a line below h1, h2.
-heading_line: true
-
-# Reward
-reward:
-  enable: true
-  # Fill in your QR Code for collecting money.
-  alipay: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222805.png
-  wechat: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222806.png
-
 # ---------------------------------------------------------------
 # Comment config
 # ---------------------------------------------------------------
@@ -454,6 +469,28 @@ disqus:
   enable: false
   shortname: liuyib
   count: true
+
+# Utterances
+# See: https://utteranc.es/
+utterances:
+  enable: false
+  # Github username.
+  owner:
+  # Github repository.
+  repo:
+  # Choose the mapping between blog posts and GitHub issues.
+  # Available values: pathname | url | title | og:title
+  mapping: title
+  # Choose the label that will be assigned to issues created by Utterances.
+  # Emoji are supported in label names.
+  label: utterances
+  # Choose an Utterances theme that matches your blog.
+  # Available values: github-light | github-dark | github-dark-orange | icy-dark | dark-blue | photon-dark
+  theme: github-light
+  # ! -------------------------------------------------------------------------------
+  # ! Don't set this unless the URL of the script in the official website is changed.
+  # ! -------------------------------------------------------------------------------
+  script_url: https://utteranc.es/client.js
 
 # ---------------------------------------------------------------
 # Statistics and Analytics config
@@ -532,7 +569,7 @@ canvas_nest:
   enable: false
   # Display on mobile or not
   onmobile: true
-  # RGB values, use ',' to separate
+  # RGB values, use "," to separate
   # Color for lines
   color: "0,0,0"
   # The opacity of line: 0 ~ 1
