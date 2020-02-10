@@ -1,11 +1,5 @@
 [
   {
-    "name": "liuyib",
-    "introduction": "write code and love life",
-    "url": "https://liuyib.github.io",
-    "avatar": "https://i.loli.net/2019/12/06/FkCJn5iVftPGZXN.jpg"
-  },
-  {
     "name": "seriouszyx",
     "introduction": "孤獨时代",
     "url": "http://seriouszyx.com/",
@@ -27,12 +21,18 @@
     "name": "lvlv",
     "introduction": "The Harder You Work, The Luckier You Will Be",
     "url": "https://www.lvshaomei.club/",
-    "avatar": "https://www.lvshaomei.club/images/banner/labia.jpeg"
+    "avatar": "https://cdn.jsdelivr.net/gh/Lvshaomei/Lvshaomei.github.io@master/images/banner/labia.jpeg"
   },
   {
     "name": "米米的博客",
     "introduction": "米米的博客！！",
     "url": "https://zhangshuqiao.org",
     "avatar": "https://gravatar.loli.net/avatar/f56980e9dc026727282a04eea02b4f4d?s=512"
+  },
+  {
+    "name": "杨帆的博客",
+    "introduction": "杨帆的博客",
+    "url": "https://www.hexoblog.top/",
+    "avatar": "https://www.hexoblog.top/images/avatar.gif"
   }
 ]

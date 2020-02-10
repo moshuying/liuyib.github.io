@@ -31,6 +31,10 @@ baidu_site_verification: UYjZUCoORR
 # see http://zhanzhang.so.com/
 qihu360_site_verification: b926bfcb0e6034f32ac4700700a812f5
 
+# Sougou Webmaster tools verification setting
+# see http://zhanzhang.sogou.com/
+sougou_site_verification: hbRL4tRKAg
+
 # ---------------------------------------------------------------
 # Menu config
 # ---------------------------------------------------------------
@@ -106,59 +110,67 @@ layout:
   sidebar: 300px
   # The width between the content and the sidebar.
   content_sidebar_gap: 30px
-  # The width between the main of website and the sides of page.
-  main_side_gap: 20px
+  # The padding property of the main tag.
+  # You can set it the same way you set the padding property of CSS.
+  main_padding:
+    # Screen width in: [768px, Infinity)
+    default: 20px
+    # Screen width in: [576px, 768px)
+    tablet: 15px
+    # Screen width in: [0px, 576px)
+    mobile: 10px
 
 header:
-  # Header height (Support for all types of CSS size units).
+  enable: true
+  # Whether to show on the some pages.
+  show_on:
+    # Whether to show on the article page.
+    post: true
+  # Height of the header. (Support for all types of CSS size units)
   height: 80%
-  # Header navigation bar height (Support for all types of CSS size units).
-  nav_height: 50px
   # Background image in the header.
   bg_image:
     enable: true
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190918000303.jpg
+    url: https://cdn.jsdelivr.net/gh/liuyib/picBed@master/hexo-blog/cover-img/20190918000303.jpg
   # Mask effect of the background image.
   mask:
     enable: true
     # Opacity of mask (value: 0 ~ 1).
     opacity: 0.5
+  nav:
+    # Height of the navigation bar. (Support for all types of CSS size units)
+    height: 50px
+    # Background color of the navigation bar.
+    bg_color: "#333"
   # The icon that prompt to scroll down.
   scroll_down_icon:
     enable: true
     animation: true
 
-# Creative Commons 4.0 International License.
-creative_commons:
-  enable: true
-  # Available: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND.
-  # For details, please see: https://creativecommons.org/share-your-work/licensing-types-examples/
-  license: BY-NC-SA
-  # Show the CC license in the sidebar.
-  sidebar: true
-  # Show the CC license at the post bottom.
-  post: true
-  # You can set a language value if you prefer a translated version of CC license.
-  # Valid values of language: en, zh, etc.
-  # If not set, "en" will be used by default.
-  language: zh
-
-# Back to top button.
-back2top:
-  enable: true
-  icon:
-    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
-    # `rocket` is recommended.
-    name: rocket
-    # Rotation Angle of icon.
-    rotate: -45deg
-    # Please use quote to wrap value (All CSS size units are supported).
-    color: "#49b1f5"
-    # Colour when the mouse hovers it.
-    hover_color: "#fc6423"
+body:
+  # Background image in the body.
+  bg_image:
+    enable: true
+    # In theme directory (source/images): /images/avatar.png
+    # In site directory (source/uploads): /uploads/avatar.png
+    # You can also use a link of image.
+    url: /assets/bg-dot.png
+    # Whether to fixed the background image.
+    fixed: true
+    # Whether to repeat the image as much as possible to cover the entire area.
+    repeat: true
+  # Mask effect of the background image.
+  mask:
+    enable: true
+    # Opacity of mask (value: 0 ~ 1).
+    opacity:
+      # Opacity of the mask for the body background image by default.
+      default: 0.1
+      # Opacity of the mask for the body background image in night mode.
+      night_mode: 0.6
 
 # Footer of your site.
 footer:
@@ -214,6 +226,35 @@ footer:
     enable: true
     text: 托管于 <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>
 
+# Creative Commons 4.0 International License.
+creative_commons:
+  enable: true
+  # Available: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND.
+  # For details, please see: https://creativecommons.org/share-your-work/licensing-types-examples/
+  license: BY-NC-SA
+  # Show the CC license in the sidebar.
+  sidebar: true
+  # Show the CC license at the post bottom.
+  post: true
+  # You can set a language value if you prefer a translated version of CC license.
+  # Valid values of language: en, zh, etc.
+  # If not set, "en" will be used by default.
+  language: zh
+
+# Back to top button.
+back2top:
+  enable: true
+  icon:
+    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
+    # `rocket` is recommended.
+    name: rocket
+    # Rotation Angle of icon.
+    rotate: -45deg
+    # Please use quote to wrap value (All CSS size units are supported).
+    color: "#49b1f5"
+    # Colour when the mouse hovers it.
+    hover_color: "#fc6423"
+
 # ---------------------------------------------------------------
 # Sidebar config
 # ---------------------------------------------------------------
@@ -223,7 +264,7 @@ sidebar:
   # Sidebar position, available values: left | right.
   position: left
   # The distance from the top of the page when the sidebar is fixed (Only px units are supported).
-  offsetTop: 30px
+  offsetTop: 20px
   # Horizon line.
   horizon_line: false
 
@@ -234,7 +275,7 @@ author:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190528162910.jpg
+    url: https://cdn.jsdelivr.net/gh/liuyib/picBed@master/hexo-blog/20190528162910.jpg
     # If true, the avatar would be displayed in a circle.
     rounded: true
     # The value should be chosen from 0 to 1.
@@ -273,14 +314,16 @@ social_setting:
 toc:
   enable: true
   # Automatically add list number to toc.
-  number: true
+  list_number: true
   # If true, all words will be placed on the next lines when they overflow.
   wrap: true
   # If true, the toc of post will always be displayed, rather than the activated part of it.
   expand_all: false
-  # Maximum heading depth of generated toc. You can set it in the
-  #   post through `toc_max_depth` in Front-matter.
-  # e.g. value: 3, will use h1~3 to generated toc.
+  # Minimum heading depth of generated toc.
+  # You can also set it in Front-matter by `toc_max_depth`.
+  min_depth: 2
+  # You can also set it in Front-matter by `toc_min_depth`.
+  # Maximum heading depth of generated toc.
   max_depth: 4
 
 # Subscribe of email and rss.
@@ -329,8 +372,8 @@ heading_line: true
 reward:
   enable: true
   # Fill in your QR Code for collecting money.
-  alipay: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222805.png
-  wechat: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/20190529222806.png
+  alipay: https://cdn.jsdelivr.net/gh/liuyib/picBed@master/hexo-blog/20190529222805.png
+  wechat: https://cdn.jsdelivr.net/gh/liuyib/picBed@master/hexo-blog/20190529222806.png
 
 # ---------------------------------------------------------------
 # Post config
@@ -392,6 +435,13 @@ post_widget:
     enable: true
     # Show the horizon line before the text of the end.
     horizon_line: true
+  # Article sharing
+  share:
+    enable: true
+    # The text displayed before the share button.
+    label: "分享到："
+    # Optional value: qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google
+    target: qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google
 
 # Automatically retain article excerpt.
 auto_excerpt:
@@ -563,7 +613,7 @@ local_search:
 # Canvas-ribbon
 # Dependencies: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: true
+  enable: false
   # The width of the ribbon.
   size: 120
   # The transparency of the ribbon.
@@ -861,3 +911,11 @@ cdn:
   # Example:
   # pjax: //cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js
   pjax:
+
+  # Using version: 1.0.16
+  # See: https://github.com/overtrue/share.js
+  # Example:
+  # share_js: //cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js
+  # share_css: //cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css
+  share_js:
+  share_css:

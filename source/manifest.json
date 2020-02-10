@@ -1,8 +1,8 @@
 {
   "name": "Liuyib's Blog",
   "short_name": "liuyib",
-  "theme_color": "#a0daff",
-  "background_color": "#a0daff",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

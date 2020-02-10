@@ -47,7 +47,8 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace:
+  tab_replace: false
+  hljs: false
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -116,16 +117,6 @@ search:
   path: search.json
   field: post
   content: true
-
-# See: https://github.com/crimx/hexo-filter-github-emojis
-githubEmojis:
-  enable: true
-  className: github-emoji
-  inject: false
-  styles:
-    color: inherit
-    background-image: none !important
-  customEmojis: 
 
 # ------------------------------------
 # See: https://github.com/chenzhutian/hexo-all-minifier
