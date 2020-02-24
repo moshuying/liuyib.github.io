@@ -2,7 +2,7 @@
 # Theme Core Configuration Settings
 # ---------------------------------------------------------------
 
-# Remove unnecessary files after hexo generate. Introduced in Stun v1.4.0
+# Remove unnecessary files after hexo generate.
 shake_file: true
 
 # ---------------------------------------------------------------
@@ -12,6 +12,11 @@ shake_file: true
 # If true, will add site-subtitle to index page.
 # Remember to set up your site-subtitle in Hexo `_config.yml`.
 index_subtitle: false
+
+# Set a canonical link tag for your Hexo site.
+# See: https://support.google.com/webmasters/answer/139066
+# Remember to set up your URL in Hexo `_config.yml` (e.g. url: http://yoursite.com)
+canonical: true
 
 # Webmaster tools verification setting
 # ---------------------------------------------------------------
@@ -39,27 +44,28 @@ sougou_site_verification: hbRL4tRKAg
 # Menu config
 # ---------------------------------------------------------------
 
-# Header navigation menu.
-# Value before `||` delimiter is the target link.
-# Value after `||` delimiter is the name of FontAwesome icon.
-# See: https://fontawesome.com/v4.7.0/icons/
-# If not set, "question-circle-o" icon will be shown.
+# The menu in the website header.
+# Value before `||` is the target link, value after `||` is the name of FontAwesome icon.
+# Usage: `Key: /link/ || fa(s|r|l|d|b) fa-iconname`
+# Select your icon name, see: https://fontawesome.com/icons
 menu:
-  home: / || home
-  article: javascript:; || paint-brush
-  laboratory: javascript:; || flask
-  about: /about/ || user
-  gallery: /gallery/ || picture-o
-  friends: /friends/ || hand-spock-o
+  home: / || fas fa-home
+  article: javascript:; || fas fa-feather-alt
+  laboratory: javascript:; || fas fa-flask
+  about: /about/ || fas fa-user
+  gallery: /gallery/ || fas fa-images
+  friends: /friends/ || fas fa-hand-spock
+  # You can add a secondary menu like follow.
+  # xxx1: javascript:; || fa(s|r|l|d|b) fa-xxx
 
-# Secondary menu.
+# Secondary menu
 submenu:
   article:
-    archives: /archives/ || folder-open
-    categories: /categories/ || th
-    tags: /tags/ || tags
+    archives: /archives/ || fas fa-folder-open
+    categories: /categories/ || fas fa-layer-group
+    tags: /tags/ || fas fa-tags
   laboratory:
-    hexo-theme-stun: https://github.com/liuyib/hexo-theme-stun
+    hexo-theme-stun: https://github.com/liuyib/hexo-theme-stun ||
 
 menu_settings:
   # Only show by icon.
@@ -74,28 +80,29 @@ menu_settings:
 favicon:
   small: /images/icons/favicon-16x16.png
   medium: /images/icons/favicon-32x32.png
-  # ! -----------------------------------------------------
-  # ! If you don't understand, please ignore the following.
-  # ! -----------------------------------------------------
+  # ! --------------------------------------------------
+  # ! If you don't know the following, please ignore it.
+  # ! --------------------------------------------------
   # apple_touch_icon: /images/icons/apple-touch-icon.png
-  # safari_pinned_tab: /images/icons/logo-stun.svg
+  # safari_pinned_tab: /images/icons/stun-logo.svg
   # msapplication: /images/icons/favicon-144x144.png
 
-# PWA
+# Progressive Web Apps
 # See: https://github.com/lavas-project/hexo-pwa/
 pwa:
   enable: true
   manifest: /manifest.json
+  # (Please use "" to wrap the value)
   theme_color: "#54bcff"
 
-# Whether to show the button of dark mode.
+# Night mode
 night_mode:
   enable: true
   # The button of switching to the night mode.
   button:
-    # Color of button.
+    # Color of button (Please use "" to wrap the value).
     color: "#fafafa"
-    # Background color of button.
+    # Background color of button (Please use "" to wrap the value).
     bg_color: "#8c8a8a"
   # The icon that stand for day and night.
   icon:
@@ -105,30 +112,34 @@ night_mode:
 # The layout for sidebar and content of site.
 layout:
   # The width of the content area in website.
-  content: 768px
+  content: 760px
   # The width of the sidebar in website.
-  sidebar: 300px
+  sidebar: 280px
   # The width between the content and the sidebar.
   content_sidebar_gap: 30px
   # The padding property of the main tag.
-  # You can set it the same way you set the padding property of CSS.
+  # e.g. Usage:
+  # 20px
+  # 20px 30px
+  # 20px 20px 30px
+  # 20px 30px 40px 25px
   main_padding:
-    # Screen width in: [768px, Infinity)
+    # Take effect when screen width in: [768px, Infinity)
     default: 20px
-    # Screen width in: [576px, 768px)
+    # Take effect when screen width in: [576px, 768px)
     tablet: 15px
-    # Screen width in: [0px, 576px)
+    # Take effect when screen width in: [0px, 576px)
     mobile: 10px
 
+# The header of site.
 header:
   enable: true
-  # Whether to show on the some pages.
   show_on:
     # Whether to show on the article page.
     post: true
-  # Height of the header. (Support for all types of CSS size units)
+  # If you set a percentage, it will be calculated based on the height of screen (Supports all CSS units)
   height: 80%
-  # Background image in the header.
+  # Background image of site header.
   bg_image:
     enable: true
     # In theme directory (source/images): /images/avatar.png
@@ -138,43 +149,46 @@ header:
   # Mask effect of the background image.
   mask:
     enable: true
-    # Opacity of mask (value: 0 ~ 1).
+    # Opacity of the mask (value: 0 ~ 1)
     opacity: 0.5
   nav:
-    # Height of the navigation bar. (Support for all types of CSS size units)
+    # Height of the navigation bar (Supports all CSS units)
     height: 50px
-    # Background color of the navigation bar.
+    # Background color of the navigation bar (Please use "" to wrap the value).
     bg_color: "#333"
-  # The icon that prompt to scroll down.
+  # The icon that prompts the user to pull down.
   scroll_down_icon:
     enable: true
+    # Icon name in FontAwesome, see: https://fontawesome.com/icons
+    name: fas fa-angle-down
     animation: true
 
+# The body of site.
 body:
-  # Background image in the body.
+  # Background image of site body.
   bg_image:
-    enable: true
+    enable: false
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: /assets/bg-dot.png
+    url:
     # Whether to fixed the background image.
     fixed: true
     # Whether to repeat the image as much as possible to cover the entire area.
     repeat: true
   # Mask effect of the background image.
   mask:
-    enable: true
-    # Opacity of mask (value: 0 ~ 1).
+    enable: false
+    # Opacity of mask (value: 0 ~ 1)
     opacity:
-      # Opacity of the mask for the body background image by default.
+      # Opacity of the mask by default.
       default: 0.1
-      # Opacity of the mask for the body background image in night mode.
+      # Opacity of the mask in night mode.
       night_mode: 0.6
 
-# Footer of your site.
+# The footer of site.
 footer:
-  # Background image in the footer.
+  # Background image of site footer.
   bg_image:
     enable: false
     # In theme directory (source/images): /images/avatar.png
@@ -184,93 +198,93 @@ footer:
   # Mask effect of the background image.
   mask:
     enable: false
-    # Opacity of mask (value: 0 ~ 1).
+    # Opacity of mask (value: 0 ~ 1)
     opacity: 0.5
   # Copyright information.
   copyright:
     enable: true
-    # If not set, will be used `author` from Hexo main config.
-    #   (e.g. liuyib. All Rights Reserved.)
+    # If not set, will be used `author` from Hexo main config (e.g. liuyib. All Rights Reserved.)
     text: liuyib. All Rights Reserved.
     # Start time. If not set, the current year will be used.
     since: 2019
     # End time. If not set, the current year will be used.
     end:
-  # The icon between the copyright year and the owner.
+  # The icon between the copyright and the owner.
   icon:
     enable: true
-    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
-    # `heart` is recommended with animation in red (#ff0000).
-    name: heart
-    # Heart beat animation.
+    # Icon name in FontAwesome, see: https://fontawesome.com/icons
+    name: fas fa-heart
+    # Heartbeat animation.
     animation: false
-    # Please use quote to wrap value (All CSS size units are supported).
+    # (Please use "" to wrap the value)
     color: "#ff0000"
-  # Hexo link (Powered by Hexo).
+  # Hexo link
   powered:
     enable: true
-    # Version info of Hexo after Hexo link (e.g. vX.X.X).
+    # Whether to show version after Hexo link (e.g. vX.X.X)
     version: true
-  # Theme info link (Theme - stun).
+  # Theme link
   theme:
     enable: true
-    # Version info of theme after theme info (e.g. vX.X.X).
+    # Whether to show version after theme link (e.g. vX.X.X)
     version: true
-  # Beian icp information for Chinese users. see: http://www.miitbeian.gov.cn/
+  # Beian information for Chinese users, see: http://www.miitbeian.gov.cn/
   beian:
     enable: false
     # 备案 XXXXXXXX 号
     icp:
-  # Any custom text (e.g. Hosted by <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>).
+  # Any custom text (e.g. Hosted by <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>)
   custom:
     enable: true
     text: 托管于 <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>
 
-# Creative Commons 4.0 International License.
+# Creative Commons 4.0 International License
 creative_commons:
   enable: true
-  # Available: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND.
+  # Optional values: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND
   # For details, please see: https://creativecommons.org/share-your-work/licensing-types-examples/
   license: BY-NC-SA
   # Show the CC license in the sidebar.
   sidebar: true
   # Show the CC license at the post bottom.
   post: true
-  # You can set a language value if you prefer a translated version of CC license.
-  # Valid values of language: en, zh, etc.
-  # If not set, "en" will be used by default.
+  # Optional values:
+  #   id | ms | ca | da | de | en | es | es_ES | eo | eu | fr | gl | hr
+  #   it | lv | lt | hu | nl | no | pt | pt_BR | pl | ro | sl | fi | sv
+  #   tr | is | cs | el | be | ru | zh | zh_TW | uk | ar | fa | bn | ja | ko
+  # If not set, `en` will be used by default.
   language: zh
 
-# Back to top button.
+# Back to top
 back2top:
   enable: true
   icon:
-    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
-    # `rocket` is recommended.
-    name: rocket
+    # Icon name in FontAwesome, see: https://fontawesome.com/icons
+    name: fas fa-rocket
     # Rotation Angle of icon.
     rotate: -45deg
-    # Please use quote to wrap value (All CSS size units are supported).
+    # (Please use "" to wrap the value)
     color: "#49b1f5"
-    # Colour when the mouse hovers it.
+    # Color when the mouse hovers it (Please use "" to wrap the value)
     hover_color: "#fc6423"
 
 # ---------------------------------------------------------------
 # Sidebar config
 # ---------------------------------------------------------------
 
+# The sidebar of site.
 sidebar:
   enable: true
-  # Sidebar position, available values: left | right.
+  # Optional value: left | right
   position: left
-  # The distance from the top of the page when the sidebar is fixed (Only px units are supported).
+  # The distance from the top of the page when the sidebar is fixed (Only `px` unit is supported)
   offsetTop: 20px
-  # Horizon line.
+  # Whether to show horizon line.
   horizon_line: false
 
 author:
   enable: true
-  # Avatar in the sidebar.
+  # Avatar in the site sidebar.
   avatar:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
@@ -278,32 +292,32 @@ author:
     url: https://cdn.jsdelivr.net/gh/liuyib/picBed@master/hexo-blog/20190528162910.jpg
     # If true, the avatar would be displayed in a circle.
     rounded: true
-    # The value should be chosen from 0 to 1.
+    # Opacity of avatar (value: 0 ~ 1)
     opacity: 1
-    # Mouse hover animation, available value: turn | shake.
+    # Mouse hover animation
+    # Optional value: turn | shake
     animation: shake
   # Your favorite motto.
   motto: write code and love life
 
-# Social links.
-# Value before `||` delimiter is the target link.
-# Value after `||` delimiter is the name of FontAwesome icon.
-# See: https://fontawesome.com/v4.7.0/icons/
-# If you can`t find a suitable icon, you can choose to display the original
-#   text by adding the "origin" prefix (e.g. origin:sf, then "sf" will be show).
+# Social links
+# Value before `||` is the target link, value after `||` is the name of FontAwesome icon.
+# Usage: `Key: /link/ || fa(s|r|l|d|b) fa-iconname`
+# Select your icon name, see: https://fontawesome.com/icons
+# If you can`t find a suitable icon, you can choose to display text by adding the `origin:` prefix.
+# e.g. `origin:sf`, so `sf` will be displayed.
 social:
-  github: https://github.com/liuyib/ || github
-  # google: https://plus.google.com/ || google
-  # twitter: https://twitter.com/ || twitter
-  # youtube: https://youtube.com/ || youtube
+  github: https://github.com/liuyib/ || fab fa-github
+  # google: https://plus.google.com/ || fab fa-google
+  # twitter: https://twitter.com/ || fab fa-twitter
+  # youtube: https://youtube.com/ || fab fa-youtube
   segmentfault: https://segmentfault.com/u/liuyib/ || origin:sf
-  # weibo: https://weibo.com/ || weibo
+  # weibo: https://weibo.com/ || fab fa-weibo
   zhihu: https://www.zhihu.com/people/liu-yibo-64-65/activities/ || origin:知
-  # wechat: yournumber || weixin
-  # telegram: yournumber || telegram
-  # qq: yournumber || qq
+  # wechat: yournumber || fab fa-weixin
+  # telegram: yournumber || fab fa-telegram
+  # qq: yournumber || fab fa-qq
   juejin: https://juejin.im/user/5ad6b350f265da2397076275/ || origin:掘
-  # xxx: xxx || (origin:)xxx
 
 social_setting:
   enable: true
@@ -329,20 +343,18 @@ toc:
 # Subscribe of email and rss.
 feed:
   enable: true
-  # Enter your email subscription link (e.g. http://eepurl.com/guAE6j).
+  # Enter your email subscription link (e.g. http://eepurl.com/guAE6j)
   email: http://eepurl.com/guAE6j
-  # Enter the rss address of you set (e.g. /atom.xml).
-  # Dependencies: https://github.com/hexojs/hexo-generator-feed/
-  # Don't enable this before install dependencies
-  #   by `npm install hexo-generator-feed --save` in hexo directory.
+  # Enter the rss address of you set (e.g. /atom.xml)
+  # Dependency: https://github.com/hexojs/hexo-generator-feed/
+  # !!! Don't enable this before install dependency by `npm install hexo-generator-feed --save` in hexo root directory.
   rss: /atom.xml
 
 # The reading progress of post.
 reading_progress:
   enable: true
-  # Please use the quote to wrap value (All CSS size units are supported).
+  # (Please use "" to wrap the value)
   color: "#fc6423"
-  # Support for all types of CSS size units.
   height: 1px
 
 # ---------------------------------------------------------------
@@ -351,27 +363,21 @@ reading_progress:
 
 codeblock:
   # The style of code block.
-  # values:
-  #   - default
-  #   - simple
-  #   - carbon
+  # Optional values: default | simple | carbon
   style: carbon
   # The theme of code highlight.
-  # values:
-  #   - light
-  #   - dark
-  #   - ocean
+  # Optional values: light | dark | ocean
   highlight: light
-  # Whether the code to newline.
+  # Whether to wrap when code overflow.
   word_wrap: false
 
-# Add a line below h1, h2.
+# Add a line below h1, h2 tags.
 heading_line: true
 
-# Reward
+# Reward QR Code
 reward:
   enable: true
-  # Fill in your QR Code for collecting money.
+  # Your QR code for collecting money.
   alipay: https://cdn.jsdelivr.net/gh/liuyib/picBed@master/hexo-blog/20190529222805.png
   wechat: https://cdn.jsdelivr.net/gh/liuyib/picBed@master/hexo-blog/20190529222806.png
 
@@ -379,42 +385,40 @@ reward:
 # Post config
 # ---------------------------------------------------------------
 
-# The meta-information at the front of the post.
+# The information of post.
 post_meta:
   # Only show by icon.
   icon_only: false
-  # Show create information.
+  # The create time of post.
   created:
     enable: true
-    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
-    icon: calendar-o
-  # Show update information.
+    # Icon name in FontAwesome, see: https://fontawesome.com/icons
+    icon: far fa-calendar-plus
+  # The update time of post.
   updated:
     enable: true
-    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
-    icon: calendar-check-o
-  # Count the reading time of the post.
-  # Dependencies: https://github.com/willin/hexo-wordcount/
-  # Don't enable this before install dependencies
-  #   by `npm install hexo-wordcount --save` in hexo directory.
+    # Icon name in FontAwesome, see: https://fontawesome.com/icons
+    icon: far fa-calendar-check
+  # The approximate reading time of post.
+  # Dependency: https://github.com/willin/hexo-wordcount/
+  # !!! Don't enable this before install dependency by `npm install hexo-wordcount --save` in hexo root directory.
   reading_time:
     enable: true
-    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
-    icon: clock-o
-    # Set reading speed to estimate reading time.
+    # Icon name in FontAwesome, see: https://fontawesome.com/icons
+    icon: far fa-clock
+    # Set reading speed to count reading time.
     speed:
       # Reading speed of zh-CN.
       zh: 200
       # Reading speed of en-US.
       en: 80
-  # Count the words of the post.
-  # Dependencies: https://github.com/willin/hexo-wordcount/
-  # Don't enable this before install dependencies
-  #   by `npm install hexo-wordcount --save` in hexo directory.
+  # Counting the words of post.
+  # Dependency: https://github.com/willin/hexo-wordcount/
+  # !!! Don't enable this before install dependency by `npm install hexo-wordcount --save` in hexo root directory.
   word_count:
     enable: true
-    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
-    icon: file-word-o
+    # Icon name in FontAwesome, see: https://fontawesome.com/icons
+    icon: far fa-file-word
 
 # The article list on the homepage or archives page.
 post_list:
@@ -428,38 +432,38 @@ post_list:
 
 # The widget of post.
 post_widget:
-  # Show tags at the bottom of the post.
+  # Whether to show tags at the bottom of post.
   tags: true
-  # Show "post end" at the bottom of the post.
+  # Whether to show "------ END ------" at the bottom of post.
   end_text:
     enable: true
-    # Show the horizon line before the text of the end.
+    # Whether to show a horizon line before "------ END ------".
     horizon_line: true
   # Article sharing
   share:
     enable: true
     # The text displayed before the share button.
     label: "分享到："
-    # Optional value: qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google
+    # Optional values: qzone | qq | weibo | wechat | douban | linkedin | facebook | twitter | google
     target: qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google
 
-# Automatically retain article excerpt.
+# Retain excerpt automatically.
 auto_excerpt:
   enable: false
   length: 150
 
-# Stick post to the top.
-# Dependencies: https://github.com/netcan/hexo-generator-index-pin-top/
-# Don't enable this before install dependencies
-#   by `npm install hexo-generator-index-pin-top --save` in hexo directory.
+# Stick post to the top
+# Dependency: https://github.com/netcan/hexo-generator-index-pin-top/
+# !!! Don't enable this before install dependency by `npm install hexo-generator-index-pin-top --save` in hexo directory.
 stick_top:
-  # Position of icon, available values: left | right.
+  # Position of icon
+  # Optional values: left | right
   position: right
-  # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
-  icon: thumb-tack
+    # Icon name in FontAwesome, see: https://fontawesome.com/icons
+  icon: fas fa-thumbtack
   # Rotation Angle of icon.
   rotate: 45deg
-  # Please use the quote to wrap value (All CSS size units are supported).
+  # (Please use "" to wrap the value)
   color: "#999"
 
 # ---------------------------------------------------------------
@@ -483,9 +487,8 @@ gitalk:
   # Facebook-like distraction free mode.
   distraction_free_mode: true
   # Gitalk's display language depends on user's browser or system environment.
-  # If you want everyone visiting your site to see a uniform language,
-  #   you can set a force language value.
-  # Available values: en, zh-CN, es-ES, fr, ru, zh-TW.
+  # If you want everyone visiting your site to see a uniform language, you can set a force language value.
+  # Optional values: en | zh-CN | es-ES | fr | ru | zh-TW
   language:
 
 # Valine
@@ -512,7 +515,7 @@ valine:
   visitor: true
   # Whether to record the commenter IP.
   recordIP: false
-  # language, available values: en, zh-cn.
+  # Optional values: en | zh-cn
   language: zh-cn
 
 # Livere
@@ -537,13 +540,13 @@ utterances:
   # Github repository.
   repo: liuyib.github.io
   # Choose the mapping between blog posts and GitHub issues.
-  # Available values: pathname | url | title | og:title
+  # Optional values: pathname | url | title | og:title
   mapping: title
   # Choose the label that will be assigned to issues created by Utterances.
   # Emoji are supported in label names.
   label: utterances
   # Choose an Utterances theme that matches your blog.
-  # Available values: github-light | github-dark | github-dark-orange | icy-dark | dark-blue | photon-dark
+  # Optional values: github-light | github-dark | github-dark-orange | icy-dark | dark-blue | photon-dark
   theme: github-light
   # ! -------------------------------------------------------------------------------
   # ! Don't set this unless the URL of the script in the official website is changed.
@@ -563,16 +566,16 @@ busuanzi:
   # Number of unique visitor to the entire site.
   site_uv:
     enable: true
-    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
-    icon: user
+    # Icon name in FontAwesome, see: https://fontawesome.com/icons
+    icon: fas fa-user
   # Number of page view to the entire site.
   site_pv:
     enable: true
-    icon: eye
+    icon: fas fa-eye
   # Number of page view to a post.
   post_pv:
     enable: true
-    icon: eye
+    icon: fas fa-eye
 
 # Google analytics ID
 # See: https://analytics.google.com/
@@ -591,7 +594,7 @@ tencent_analytics: 66465986
 # ---------------------------------------------------------------
 
 # Algolia Search
-# Dependencies: https://github.com/algolia/instantsearch.js/
+# Dependency: https://github.com/algolia/instantsearch.js/
 algolia_search:
   enable: false
   hits:
@@ -611,9 +614,9 @@ local_search:
 # ---------------------------------------------------------------
 
 # Canvas-ribbon
-# Dependencies: https://github.com/hustcc/ribbon.js
+# Dependency: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: false
+  enable: true
   # The width of the ribbon.
   size: 120
   # The transparency of the ribbon.
@@ -622,19 +625,19 @@ canvas_ribbon:
   zIndex: -1
 
 # Canvas-nest
-# Dependencies: https://github.com/hustcc/canvas-nest.js
+# Dependency: https://github.com/hustcc/canvas-nest.js
 canvas_nest:
   enable: false
-  # Display on mobile or not
+  # Whether to show on mobile.
   onmobile: true
-  # RGB values, use "," to separate
-  # Color for lines
+  # Color of lines.
+  # RGB values, use `,` to separate.
   color: "0,0,0"
-  # The opacity of line: 0 ~ 1
+  # The opacity of lines (value: 0 ~ 1)
   opacity: 0.6
-  # The number of lines
+  # The number of lines.
   count: 99
-  # z-index property of the background
+  # `z-index` property of the background.
   zIndex: -1
 
 # ---------------------------------------------------------------
@@ -682,8 +685,11 @@ fancybox: false
 zoom_image:
   enable: true
   # The color of mask.
-  # Please use the quote to wrap value (All CSS size units are supported).
+  # (Please use "" to wrap the value)
   mask_color: "rgba(0,0,0,0.6)"
+  # The gap between image and a edge of screen when image is enlarged.
+  # (Only `px` unit is supported)
+  gap_aside: 20px
 
 # If you are use "photos" attribute in the Front-matter,
 #   you can enable this to show images in waterfalls flow.
@@ -698,7 +704,7 @@ gallery_waterfall:
 # See: https://github.com/tuupola/lazyload
 lazyload:
   enable: true
-  # Available values: gif | block
+  # Optional values: gif | block
   placeholder: gif
 
 # Quicklink support
@@ -718,9 +724,9 @@ quicklink:
   priority: true
   # For more flexibility you can add some patterns (RegExp, Function, or Array) to ignores.
   # See: https://github.com/GoogleChromeLabs/quicklink#custom-ignore-patterns
-  # ! ---------------------------------------------------------------
-  # ! If you don't understand, please ignore the following.
-  # ! ---------------------------------------------------------------
+  # ! --------------------------------------------------
+  # ! If you don't know the following, please ignore it.
+  # ! --------------------------------------------------
   ignores:
     - /\/api\/?/
     - uri => uri.includes('.xml')
@@ -734,9 +740,9 @@ pjax:
   enable: true
   # Scrolling to the second screen when the page loaded.
   scrollTo2screen: true
-  # ! -----------------------------------------------------
-  # ! If you don't understand, please ignore the following.
-  # ! -----------------------------------------------------
+  # ! --------------------------------------------------
+  # ! If you don't know the following, please ignore it.
+  # ! --------------------------------------------------
   # Please see: https://github.com/MoOx/pjax/#options
   elements:
   selectors:
@@ -763,24 +769,23 @@ external_link:
   # Adding an icon make it easier for users to know that this is an external link.
   icon:
     enable: true
-    # Icon name in FontAwesome, see: https://fontawesome.com/v4.7.0/icons/
-    # `external-link` is recommended.
-    name: external-link
-    # Please use the quote to wrap value (All CSS size units are supported).
+    # Icon name in FontAwesome, see: https://fontawesome.com/icons
+    name: fas fa-external-link-alt
+    # (Please use "" to wrap the value)
     color: "#aaa"
 
 # The shortcuts of the site.
 shortcuts:
   # Switch to the prev / next post by key.
-  # "Ctrl + ←" is the shortcuts to prev post.
-  # "Ctrl + →" is the shortcuts to next post.
+  # `Ctrl + ←` is the shortcuts to prev post.
+  # `Ctrl + →` is the shortcuts to next post.
   switch_post:
     enable: true
 
 # Tag cloud
 # If not used, comment it or ignore it.
 tag_cloud:
-  # Color for tag (please use the quote to wrap value, only support HEX).
+  # (Please use "" to wrap the value)
   start_color: "#a4d8fa"
   end_color: "#49b1f5"
   # Size for tag.
@@ -790,31 +795,47 @@ tag_cloud:
   max_amount: 200
 
 # Assets
-# In theme directory (source/css).
+# In theme directory (source/css)
 css: css
-# In theme directory (source/js).
+# In theme directory (source/js)
 js: js
-# In theme directory (source/images).
+# In theme directory (source/images)
 images: images
 
-# The common prefix of the FontAwesome icon.
-# Using "fa" prefix in version 4.
-# Using "fas | far | fal | fad | fab" prefix in version 5.
-fa_prefix: fa
+# Set icon for some components.
+# Icon name in FontAwesome, see: https://fontawesome.com/icons
+# ! -------------------------------------------------------------------
+# ! Do not edit the follow configs, unless you know what you are doing.
+# ! -------------------------------------------------------------------
+icon:
+  search: fas fa-search
+  localsearch_empty: far fa-meh
+  menu_btn: fas fa-bars
+  feed_email: fas fa-envelope
+  feed_rss: fas fa-rss
+  paginator_prev: fas fa-angle-left
+  paginator_next: fas fa-angle-right
+  read_more_btn: fas fa-long-arrow-alt-right
+  post_tags: fas fa-tag
+  copy_btn: fas fa-copy
+  prompt_success: fas fa-check-circle
+  prompt_info: fas fa-arrow-circle-right
+  prompt_warning: fas fa-exclamation-circle
+  prompt_error: fas fa-times-circle
+  valine_visitor: fas fa-eye
 
 # Set a CDN address for the vendor you want to customize.
-# ! -----------------------------------------------------
-# ! Do not edit the follow configs.
-# ! Unless you know what you are doing.
-# ! -----------------------------------------------------
+# ! -------------------------------------------------------------------
+# ! Do not edit the follow configs, unless you know what you are doing.
+# ! -------------------------------------------------------------------
 cdn:
-  # Using version: 4.7.0
+  # Using version: 5.12.1
   # See: https://fontawesome.com/
   # Example:
-  # fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css
-  # fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.2/css/all.min.css
+  # fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
+  # fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
-  # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css
+  # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css
   fontawesome:
 
   # Using version: 3.4.1
