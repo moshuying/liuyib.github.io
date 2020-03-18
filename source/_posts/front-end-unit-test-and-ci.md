@@ -291,7 +291,7 @@ branches:
 
 此外我们还需要将用到的测试库项目级安装。
 
-``` bash
+```bash
 npm install --save-dev codecov istanbul mocha should
 ```
 
@@ -312,22 +312,20 @@ install:
 "scripts": {
   "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
   "codecov": "cat ./coverage/lcov.info | codecov"
-},
+}
 ```
-
-也就是说和你自己跑指令时一样，全局安装的依赖包就不需要指定路径。
 
 > 这里建议不要将 mocha 全局安装，而且依赖包最好都项目级安装。
 
-### 带上你的荣誉徽章
+### 展示徽章
 
 实现了 CI，也上传了代码覆盖率，接下来我们只需要将结果以徽章的形式放入 READMD 即可。
 
-Travis 的徽章这样获取。
+Travis 的徽章这样获取：
 
 ![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604225243.png)
 
-Codecov 的徽章这样获取。
+Codecov 的徽章这样获取：
 
 ![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604225017.png)
 
@@ -337,4 +335,4 @@ Codecov 的徽章这样获取。
 
 浏览器端使用的库，在各个浏览器端的兼容性也是非常重要的。一些项目会选择在模拟环境中进行测试，这样虽然方便，但是毕竟是模拟的，测试效果无法媲美真实环境。所以就需要用到跨浏览器测试的工具，有两个选择 [SauceLabs](https://saucelabs.com/) 和 [BrowserStack](https://www.browserstack.com/)，这个工具提供了多重的浏览器环境（包括 PC 端和移动端），帮助你在多种浏览器中自动运行脚本。
 
-关于跨浏览器集成测试更详尽的使用，推荐阅读：[前端持续集成解决方案](https://segmentfault.com/a/1190000007221668#articleHeader3)
+关于跨浏览器集成测试，这里不再叙述。

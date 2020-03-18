@@ -46,7 +46,8 @@ sougou_site_verification: hbRL4tRKAg
 
 # The menu in the website header.
 # Value before `||` is the target link, value after `||` is the name of FontAwesome icon.
-# Usage: `Key: /link/ || fa(s|r|l|d|b) fa-iconname`
+# Usage(With Icon): `Key: /link/ || fa(s|r|l|d|b) fa-iconname`
+# Usage(No Icon)  : `Key: /link/`
 # Select your icon name, see: https://fontawesome.com/icons
 menu:
   home: / || fas fa-home
@@ -175,7 +176,7 @@ body:
     # Whether to fixed the background image.
     fixed: true
     # Whether to repeat the image as much as possible to cover the entire area.
-    repeat: true
+    repeat: false
   # Mask effect of the background image.
   mask:
     enable: false
@@ -203,8 +204,8 @@ footer:
   # Copyright information.
   copyright:
     enable: true
-    # If not set, will be used `author` from Hexo main config (e.g. liuyib. All Rights Reserved.)
-    text: liuyib. All Rights Reserved.
+    # If not set, will be used `author` from Hexo main config (e.g. liuyib All Rights Reserved)
+    text: <a href="https://github.com/liuyib" rel="noopener" target="_blank">liuyib</a> All Rights Reserved
     # Start time. If not set, the current year will be used.
     since: 2019
     # End time. If not set, the current year will be used.
@@ -215,7 +216,7 @@ footer:
     # Icon name in FontAwesome, see: https://fontawesome.com/icons
     name: fas fa-heart
     # Heartbeat animation.
-    animation: false
+    animation: true
     # (Please use "" to wrap the value)
     color: "#ff0000"
   # Hexo link
@@ -236,7 +237,7 @@ footer:
   # Any custom text (e.g. Hosted by <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>)
   custom:
     enable: true
-    text: 托管于 <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>
+    text: 托管于 <a href="https://github.com/liuyib/liuyib.github.io/tree/hexo" rel="noopener" target="_blank">Github</a>
 
 # Creative Commons 4.0 International License
 creative_commons:
@@ -289,7 +290,7 @@ author:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: https://cdn.jsdelivr.net/gh/liuyib/picBed@master/hexo-blog/20190528162910.jpg
+    url: https://cdn.jsdelivr.net/gh/liuyib/picBed@master/avatar.jpg
     # If true, the avatar would be displayed in a circle.
     rounded: true
     # Opacity of avatar (value: 0 ~ 1)
@@ -311,13 +312,13 @@ social:
   # google: https://plus.google.com/ || fab fa-google
   # twitter: https://twitter.com/ || fab fa-twitter
   # youtube: https://youtube.com/ || fab fa-youtube
-  segmentfault: https://segmentfault.com/u/liuyib/ || origin:sf
+  segmentfault: https://segmentfault.com/u/liuyib/ || origin:SF
   # weibo: https://weibo.com/ || fab fa-weibo
   zhihu: https://www.zhihu.com/people/liu-yibo-64-65/activities/ || origin:知
   # wechat: yournumber || fab fa-weixin
   # telegram: yournumber || fab fa-telegram
   # qq: yournumber || fab fa-qq
-  juejin: https://juejin.im/user/5ad6b350f265da2397076275/ || origin:掘
+  juejin: https://juejin.im/user/5ad6b350f265da2397076275/ || origin:掘金
 
 social_setting:
   enable: true
@@ -441,16 +442,11 @@ post_widget:
     horizon_line: true
   # Article sharing
   share:
-    enable: true
+    enable: false
     # The text displayed before the share button.
     label: "分享到："
     # Optional values: qzone | qq | weibo | wechat | douban | linkedin | facebook | twitter | google
     target: qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google
-
-# Retain excerpt automatically.
-auto_excerpt:
-  enable: false
-  length: 150
 
 # Stick post to the top
 # Dependency: https://github.com/netcan/hexo-generator-index-pin-top/
@@ -644,7 +640,7 @@ canvas_nest:
 # Math and Chart config
 # ---------------------------------------------------------------
 math:
-  enable: true
+  enable: false
 
   # Only the page which has `math: true` in Front-matter will render.
   # If true, it will load mathjax / katex srcipt EVERY PAGE.
@@ -823,6 +819,12 @@ icon:
   prompt_warning: fas fa-exclamation-circle
   prompt_error: fas fa-times-circle
   valine_visitor: fas fa-eye
+  post_heading: fas fa-link
+  notetag_default: fas fa-arrow-circle-right
+  notetag_success: fas fa-check-circle
+  notetag_info: fas fa-info-circle
+  notetag_warning: fas fa-exclamation-circle
+  notetag_danger: fas fa-minus-circle
 
 # Set a CDN address for the vendor you want to customize.
 # ! -------------------------------------------------------------------
