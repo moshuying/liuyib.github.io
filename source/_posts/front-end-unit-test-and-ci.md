@@ -7,56 +7,41 @@ tags:
   - Github徽章
 categories:
   - 前端自动化
-top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190918001207.jpg
-math: false
+top_image: /assets/banner/3.jpg
 ---
-
-经常使用 Github 的同学应该知道，一些开源项目中常常会挂上很多花花绿绿了的小徽章，比如 vue 的：
-
-<!-- more -->
-
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604131517.png)
-
-这些徽章不仅起到装饰 README 的作用，更给人以安全可靠的感觉。由于好奇，自己也探究了一番。
-
-## 给项目装上徽章
-
-想要获取徽章，有很多方式，最简单的可以通过 [shields.io](https://shields.io/) 网站获取，基本上想要的徽章都能获取到，没有的也可以进行 DIY，很方便。
-
-举个例子，将项目的开源协议通过徽章进行展示，你只需要填写 Github 用户名和项目名称，网站就会自动获取你项目中的数据。
-
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604131257.png)
-
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604131255.png)
-
-然后你只需要复制链接，将徽章放入你的 README 即可。
-
-## 单元测试
-
-上面所说的开源协议这类徽章基本上只有展示作用，还有一些徽章，用户点击后，可以获取到他们想知道的数据，比如 `build passing`、`coverage 97%` 这些徽章是项目进行 CI（Continuous integration, 持续集成）测试和生成代码覆盖率报告后，展示出来的徽章。当用户点击它们，就可以看到项目 CI 测试的情况和代码覆盖率的报告图。
-
-为什么要展示代码覆盖率？原因很简单，代码覆盖率常常被认为是衡量单元测试好坏的一个指标，而单元测试的好坏在某种程度上又会反应项目代码的质量。因此当项目挂上 `coverage: 100%` 的徽章时，总给人以满满的安全感。
-
-那么为什么要进行单元测试，推荐看一个知乎上的优质回答：[单元测试到底是什么？应该怎么做？](https://www.zhihu.com/question/28729261/answer/163637881)。这里我只简单介绍一下前端单元测试的流程。
 
 前端的单元测试包括但不限于：单元功能测试、UI 测试、兼容性测试等等。一个测试体系大体包括四部分：
 
-- 测试运行器（eg: [karma](https://github.com/karma-runner/karma)）
-- 测试框架（eg: [mocha](https://github.com/mochajs/mocha), [jest](https://github.com/facebook/jest), [jasmine](https://github.com/jasmine/jasmine), [qunit](https://github.com/qunitjs/qunit)）
-- 断言库（eg: [should](https://github.com/shouldjs/should.js), [chai](https://github.com/chaijs/chai)）
-- 代码覆盖率（eg: [istanbul](https://github.com/gotwarlost/istanbul)）
+- 测试运行器（e.g. [Karma](https://github.com/karma-runner/karma)）
+- 测试框架（e.g. [Mocha](https://github.com/mochajs/mocha), [Jest](https://github.com/facebook/jest), [Jasmine](https://github.com/jasmine/jasmine), [Qunit](https://github.com/qunitjs/qunit)）
+- 断言库（e.g. [Should](https://github.com/shouldjs/should.js), [Chai](https://github.com/chaijs/chai)）
+- 测试覆盖率（e.g. [Istanbul](https://github.com/gotwarlost/istanbul)）
 
-下面我们通过一个单元功能测试的例子来了解如果进行前端单元测试。
+<!-- more -->
 
-> 举的这个例子没有涉及测试运行器，只讲了测试框架、断言库和测试覆盖率的使用。以我个人比较喜欢的 `mocha + should + istanbul` 组合为例。
+本文会通过一个例子，来一步步了解如何进行前端单元测试。
 
-### 建立项目
+> 本文举的例子中，没有涉及测试运行器，只涉及测试框架、断言库和测试覆盖率。并以 `Mocha + Should + Istanbul` 组合为例。
+>
+> 如果你知道 Karma 是干什么的，并且需要用到它，推荐阅读我的另一篇文章：[使用 Karma + Mocha 构建 Web 单元测试环境](https://liuyib.github.io/2020/03/20/use-karma-mocha-chai-to-test/)
 
-首先，执行 `npm init --yes` 创建 package.json 文件。
+## 新建项目
 
-然后，新建一个 main.js 文件，编写 factorial 函数，用于求一个数的阶乘。
+如果你的电脑上没有安装 Node.js，那么你需要访问它的[官网](https://nodejs.org/zh-cn/)，下载并安装到你的电脑上。NPM 是 Node.js 的包管理工具，会随着 Node.js 一起安装。
+
+然后，我们需要用 NPM（Node Package Manager）来管理依赖包，所以先初始化 NPM 的配置文件 `package.json`，执行指令：
+
+```bash
+$ npm init -y
+```
+
+> `-y` 参数表示不进行询问，直接使用默认的配置。
+
+下面我们在 `src` 目录下，新建 `main.js` 文件，并编写一个 `factorial` 函数（用于求数的阶乘）：
 
 ```js
+// main.js
+
 var factorial = function(n) {
   if (n === 0) {
     return 1;
@@ -66,112 +51,143 @@ var factorial = function(n) {
 };
 
 if (require.main === module) {
-  // 如果是直接执行 main.js，则进入此处
-  // 如果 main.js 被其他文件 require，则此处不会执行
+  // 如果是在命令行中执行 main.js，则此处会执行。
+  // 如果 main.js 被其他文件 require，则此处不会执行。
   var n = Number(process.argv[2]);
-  console.log("factorial(" + n + ") is", factorial(n));
+  console.log('factorial(' + n + ') is', factorial(n));
 }
 ```
 
-这只是简单的实现，我们先运行一下，看看结果是否正确。执行指令：`node main.js 5`，效果如下。
+运行一下这个文件，看看结果是否正确。执行指令：`node ./src/main.js 5`，效果如下：
 
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604172016.png)
+![](/assets/posts/front-end-unit-test-and-ci/run-main-file-in-node.png)
 
-结果是 120，符合预期。但是一个测试例子并不能说明什么，我们还需要验证如果输入，负数、非数字、小数、很大的数等等，程序会返回什么。所以接下来我们将进行 **测试驱动开发**（Test-Driven Development, TDD），通过不断的测试来逐步完善我们的代码。
+结果是 `120`，符合预期。但是一个例子并不能说明什么，我们还需要对负数、非数字、小数、很大的数等进行验证，在逐步的验证过程中，代码中的不足也会逐渐暴露出来。所以接下来我们将进行**测试驱动开发**（Test-Driven Development, TDD），通过不断的测试来完善代码。
 
-### 运行测试
+## 编写测试文件
 
-在 main.js 中添加一句 `exports.fibonacci = fibonacci;` 将函数暴露出去。这样才可以在其他文件中 `require` 这个函数。
-
-在 test 目录下新建测试文件，命名为 `main.test.js`。然后在测试文件中引用 fibonacci 函数，并使用 mocha 和 should 进行测试。
-
-> 测试文件通常放在 test 目录下，文件的命名规则是在原来的文件名后面加 `.test`
+首先，在 `main.js` 文件最后添加代码：
 
 ```js
-var main = require("../src/main");
-var should = require("should");
+exports.factorial = factorial;
+```
 
-describe("test/main.js", function() {
-  it("should equal 0 when n === 0", function() {
-    main.factorial(0).should.equal(1);
+这段代码的作用是将 `factorial` 函数暴露出去，这样才可以在其他文件中 `require` 这个函数。
+
+通常，测试文件与所要测试的源文件同名，但是后缀名为 `.test.js`（表示测试）或 `.spec.js`（表示规格）。例如，`main.js` 的测试文件就是 `main.test.js`：
+
+```js
+// main.test.js
+
+var main = require('../src/main');
+var should = require('should');
+
+describe('test/main.js', function() {
+  it('should equal 1 when n === 0', function() {
+    should(main.factorial(0)).equal(1);
   });
 });
 ```
 
-> 其中 `describe()`、`it()` 是 mocha 提供的 api，看不懂的话先记住就好了。
+上面的代码中：
 
-接着我们来跑通测试文件。
+- `describe` 块称为“测试套件（test suite）”，表示一组相关的测试。它是一个函数，第一个参数是测试套件的名称，第二个参数是一个实际执行的函数。
 
-首先全局安装 mocha：`npm install mocha -g`，然后执行指令：`mocha ./test/main.test.js`，结果如下，显示 passing 表明测试通过。
+- `it` 块称为“测试用例（test case）”，表示一个单独的测试，是测试的最小单位。它也是一个函数，第一个参数是测试用例的名称，第二个参数是一个实际执行的函数。
 
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604175056.png)
+一个测试文件中，可以包含一个或多个 `describe` 块，一个 `describe` 块中可以包含一个或多个 `it` 块。
 
-到这里，我们已经使用测试框架 + 断言库进行了最简单的测试，接下来需要不断完善测试用例来使我们的代码健壮起来。
+想要运行这个测试文件，需要安装依赖 Mocha 和 Should：
 
-### 完善测试用例
+```bash
+$ npm install --save-dev mocha should
+```
 
-首先，明确函数功能。我们的 factorial 函数应该有以下功能。
+然后，在 `package.json` 中新建一条 NPM 指令：
 
-- 当 n === 0 时，返回 1。
-- 当 n > 0 时，返回 `factorial(n - 1) * n`。
-- 当 n < 0 时，抛出错误。因为没有意义。
-- 当 n 不是数字时，抛出错误。
-- 当 n > 10 时，抛出错误。这里为了演示，只进行 10 以内的阶乘运算。
+```json
+...
+"scripts": {
+  "test": "./node_modules/.bin/mocha ./test/main.test.js"
+}
+...
+```
 
-然后，我们需要根据功能来完善测试用例。
+该指令的作用就是：使用安装在项目目录中的 Mocha 命令 `./node_modules/.bin/mocha` 来测试 `./test/main.test.js` 文件。
+
+执行这个指令 `npm run test`，结果如下（可以看到测试通过）：
+
+![](/assets/posts/front-end-unit-test-and-ci/mocha-test-one-case.png)
+
+到这里，我们就使用测试框架 + 断言库，体验了基本的单元测试流程，接下来我们通过不断完善测试用例，来使代码健壮起来。
+
+## 完善测试用例
+
+首先，明确函数功能。我们的 `factorial` 函数应该有以下功能：
+
+- 当 `n === 0` 时，返回 `1`。
+- 当 `n > 0` 时，返回 `factorial(n - 1) * n`。
+- 当 `n < 0` 时，抛出错误，因为没有意义。
+- 当 `n` 不是数字时，抛出错误。
+- 当 `n > 10` 时，抛出错误（本文为了演示，只进行 `10` 以内的阶乘运算）。
+
+然后，我们根据确定好的功能来完善测试用例：
 
 ```js
-describe("test/main.js", function() {
-  it("should equal 1 when n === 0", function() {
-    main.factorial(0).should.equal(1);
+var main = require('../src/main');
+var should = require('should');
+
+describe('test/main.js', function() {
+  it('should equal 1 when n === 0', function() {
+    should(main.factorial(0)).equal(1);
   });
 
-  it("should equal 1 when n === 1", function() {
-    main.factorial(1).should.equal(1);
+  it('should equal 1 when n === 1', function() {
+    should(main.factorial(1)).equal(1);
   });
 
-  it("should equal 3628800 when n === 10", function() {
-    main.factorial(10).should.equal(3628800);
+  it('should equal 3628800 when n === 10', function() {
+    should(main.factorial(10)).equal(3628800);
   });
 
-  it("should throw when n > 10", function() {
+  it('should throw when n > 10', function() {
     (function() {
       main.factorial(11);
-    }.should.throw("n should <= 10"));
+    }.should.throw('n should <= 10'));
   });
 
-  it("should throw when n < 0", function() {
+  it('should throw when n < 0', function() {
     (function() {
       main.factorial(-1);
-    }.should.throw("n should >= 0"));
+    }.should.throw('n should >= 0'));
   });
 
-  it("should throw when n is not Number", function() {
+  it('should throw when n is not Number', function() {
     (function() {
-      main.factorial("参数类型错误");
-    }.should.throw("n should be a Number"));
+      main.factorial('123');
+    }.should.throw('n should be a Number'));
   });
 });
 ```
 
-接着，执行测试指令 `mocha ./test/main.test.js`，效果如下。
+执行测试指令 `npm run test`，效果如下：
 
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604181013.png)
+![](/assets/posts/front-end-unit-test-and-ci/mocha-test-some-case-1.png)
 
-可以看到后面三个测试用例都没有通过，这说明 factorial 函数并不是在所有情况下都可以正常运行。所以我们更新 factorial 的实现。
+可以看到后面三个测试用例都没有通过，这说明 `factorial` 函数并不是在所有情况下都可以正常运行，所以我们需要更新 `factorial` 的实现：
 
 ```js
 var factorial = function(n) {
-  if (typeof n !== "number") {
-    throw new Error("n should be a Number");
+  if (typeof n !== 'number') {
+    throw new Error('n should be a Number');
   }
 
   if (n < 0) {
-    throw new Error("n should >= 0");
+    throw new Error('n should >= 0');
   }
 
   if (n > 10) {
-    throw new Error("n should <= 10");
+    throw new Error('n should <= 10');
   }
 
   if (n === 0) {
@@ -182,157 +198,142 @@ var factorial = function(n) {
 };
 ```
 
-然后再次执行测试指令，效果如下。
+再次执行测试指令 `npm run test`，效果如下：
 
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604191932.png)
+![](/assets/posts/front-end-unit-test-and-ci/mocha-test-some-case-2.png)
 
-完美通过测试。这就是测试驱动开发的流程，首先明确程序的功能，然后跑测试用例，如果测试用例没有通过，修改程序，直到测试用例通过。
+可以看到，所有的测试用例都通过了，这证明 `factorial` 函数的功能已经符合了我们的预期要求，而且代码健壮性有了很大的提高。
 
-### 生成代码覆盖率
+以上就是 TDD 的基本流程，总的来说就是：**首先明确程序的功能，然后跑测试用例，如果测试用例没有通过，修改程序，直到测试用例通过**。
 
-有一个指标用于检测编写的测试用例是否合理。这个指标叫做 “代码覆盖率”。它包含四个方面。
+## 生成覆盖率
+
+如果你想知道测试用例是否合理，可以用“代码覆盖率”来判断。一般而言，如果测试用例写的合理，那么代码覆盖率越高越好，但不是绝对的。
+
+代码覆盖率包括以下几个方面：
 
 - **行覆盖率**：是否每一行都执行了
 - **函数覆盖率**：是否每个函数都调用了
-- **分支覆盖率**：是否每个 if 代码块都执行了
+- **分支覆盖率**：是否每个 `if` 代码块都执行了
 - **语句覆盖率**：是否每个语句都执行了
 
-这里我们使用 istanbul 来生成代码覆盖率。首先全局安装 istanbul：`npm install istanbul -g`，执行指令：`istanbul cover _mocha`（如果这条指令执行时报错，那就将 mocha 项目级安装：`npm install mocha --save-dev`，然后执行指令：`istanbul cover ./node_modules/mocha/bin/_mocha`）
+生成代码覆盖率，需要用到插件 Istanbul，首先将其安装：
 
-> 注意，这条指令中 `_mocha` 前面的下划线不能省略。因为，mocha 和 \_mocha 是两个不同的命令，前者会新建一个进程执行测试，而后者是在当前进程（即 istanbul 所在的进程）执行测试，只有这样， istanbul 才会捕捉到覆盖率数据。其他测试框架也是如此，必须在同一个进程执行测试。
+```bash
+$ npm install --save-dev istanbul
+```
 
-效果如下。
-
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604200739.png)
-
-具体的覆盖率情况，可以运行 `coverage/lcov-report` 目录下的 `index.html` 文件查看。
-
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604201523.png)
-
-其实这次的覆盖率是 100%，因为函数在被其他文件引用时 24、25 这两行不会执行，所以没办法测。如果将这两行所在的 if 语句删除，可以得到 100% 的覆盖率。
-
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604201923.png)
-
-### 上传代码覆盖率
-
-主流的的展示代码覆盖率的工具有 [Codecov](https://codecov.io/) 和 [Coveralls](https://coveralls.io/)。至于选择哪一个，答案是都可以，不过 Coveralls 网站的界面有种古典的气息，相比之下我更喜欢 Codecov，所以这里以 Codecov 为例。
-
-首先，打开 Codecov 官网，绑定 Github 账号之后，选择要展示覆盖率的仓库。
-
-然后，项目级安装 codecov：`npm install codecov --save-dev`。
-
-接着，将上传覆盖率的指令写入 `package.json` 文件。
+然后，在 `package.json` 中新建一条 NPM 指令，用于生成覆盖率：
 
 ```json
+...
+"scripts": {
+  "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha"
+}
+...
+```
+
+> 注意，指令中 `_mocha` 的下划线不能省略。因为，`mocha` 和 `_mocha` 是两个不同的命令，前者会新建一个进程执行测试，而后者是在当前进程（即 Istanbul 所在的进程）执行测试，只有这样， Istanbul 才会捕捉到覆盖率数据。其他测试框架也是如此，必须在同一个进程执行测试。
+
+执行这个指令 `npm run coverage`，结果如下：
+
+![](/assets/posts/front-end-unit-test-and-ci/code-coverage-in-cli-1.png)
+
+将 `coverage/lcov-report` 目录下的 `index.html` 文件在浏览器中运行，可以查看具体的覆盖率。如图所示：
+
+![](/assets/posts/front-end-unit-test-and-ci/code-coverage-in-browser.png)
+
+其实，这次的覆盖率应该是 100%，因为函数在被其他文件引用时 24、25 这两行不会执行，所以没法测。由于这两行代码仅仅是为了刚开始方便演示用，之后我们就不在命令行中测试了，所以直接将这两行语句所在的 `if` 块删除即可。
+
+再次执行测试指令，就得到了 100% 的覆盖率：
+
+![](/assets/posts/front-end-unit-test-and-ci/code-coverage-in-cli-2.png)
+
+## 上传覆盖率
+
+想要展示测试覆盖率，有两个网站可供选择：[Codecov](https://codecov.io/) 和 [Coveralls](https://coveralls.io/)。本文以 Codecov 为例。
+
+首先，打开 Codecov 官网，绑定 Github 账号之后，选择要展示测试覆盖率的仓库。
+
+然后，安装 Codecov：
+
+```bash
+$ npm install --save-dev codecov
+```
+
+接着，在 `package.json` 中新建一条 NPM 指令，来上传测试覆盖率：
+
+```json
+...
 "script": {
   "codecov": "cat ./coverage/lcov.info | ./node_modules/.bin/codecov"
 }
+...
 ```
 
-这条指令中 `cat ./coverage/lcov.info` 指令用于读取 coverage 目录下的 `lcov.info` 文件， `./node_modules/.bin/codecov` 指令用于将覆盖率上传到 Codecov 网站。
+> 其中 `cat ./coverage/lcov.info` 用于读取 `coverage` 目录下的 `lcov.info` 文件，`./node_modules/.bin/codecov` 用于将覆盖率上传到 Codecov 网站。
 
-> 注意，上传覆盖率的指令在本地运行是没有作用的，需要在 CI 中执行才有效。
-
-下面会讲如何在 CI 中上传代码覆盖率。
+该指令在接下来配置 CI（Continuous integration, 持续集成）时会用到。
 
 ## 持续集成
 
-了解了单元测试和代码覆盖率后，这还不够，因为我们不可能每次都手动运行测试脚本，我们需要的是自动化测试。这就涉及到了持续集成的概念。
+如果每次修改代码之后，都手动进行单元测试，不仅加重工作量，而且容易出错，因此我们需要进行自动化测试，这就用到了持续集成。
 
-持续集成是一种软件开发实践，每次集成都通过自动化的构建（包括编译，发布，自动化测试）来验证，从而尽早地发现集成错误。
+持续集成是一种软件开发实践，每次集成都通过自动化的构建（包括编译，发布，测试等）来验证，从而尽早地发现代码中的错误。
 
-主流的持续集成工具有 [Travis CI](https://travis-ci.org/) 和 [Circle CI](https://circleci.com/)，个人比较喜欢前者，因此这里以 Travis CI 为例。
+可供选择的持续集成工具有 [Travis CI](https://travis-ci.org/) 和 [Circle CI](https://circleci.com/)。本文以 Travis CI 为例。
 
-### Travis CI 的使用
+### 使用 Travis CI
 
-首先，进入官网后，点击 Sign In 按钮绑定 Github。然后在仓库列表中选择你要进行持续集成的仓库，点击按钮启用。
+首先，Travis CI 进入官网后，点击 Sign In 按钮绑定 Github。然后在仓库列表中选择你要进行持续集成的仓库，点击按钮启用：
 
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604205207.png)
+![](/assets/posts/front-end-unit-test-and-ci/travis-ci-settings.png)
 
-然后，你需要在项目根目录下创建 `.travis.yml` 文件（如果没有这个文件，Travis 会默认执行 `npm install` 和 `npm test`），配置文件示例如下。
+然后，你需要在项目根目录下创建 `.travis.yml` 文件（如果没有这个文件，Travis CI 会默认执行 `npm install` 和 `npm test`），配置文件示例如下：
 
 ```yml
+# 要使用的语言
 language: node_js
 
+# 要使用的语言版本
 node_js:
   - 10
 
-# Travis CI cache
+# 缓存 NPM 依赖，加快构建
 cache:
   directories:
     - node_modules
 
+# 安装依赖
 install:
   - npm install
 
+# 执行指令
 script:
   - npm run coverage
 
+# 指令执行成功后
 after_success:
   - npm run codecov
 
+# 指定分支
 branches:
   only:
     - master
 ```
 
-在这个配置文件中，指定了我们代码的语言（languages），语言版本（node_js），构建之前运行什么指令安装依赖包（install），执行测试程序的指令（script），测试指令执行成功后执行的指令（after_success）以及对项目的哪些分支进行测试（branches）。更多的配置请查看 Travis 的[官方文档](https://docs.travis-ci.com/user/tutorial/)。
-
-此外这里还使用了 Travis 的 cache 功能缓存 npm 包，来节省构建时间。
-
-上面配置文件中的 `npm run coverage` 和 `npm run codecov` 指令定义在 `package.json` 文件里。
-
-```json
-"scripts": {
-  "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
-  "codecov": "cat ./coverage/lcov.info | ./node_modules/.bin/codecov"
-}
-```
-
-此外我们还需要将用到的测试库项目级安装。
-
-```bash
-npm install --save-dev codecov istanbul mocha should
-```
-
-> 也就是说，你项目的 package.json 文件中的 `devDependencies` 字段或 `dependencies` 字段里，要有这些用到的库的信息才行，这样 CI 执行 `npm run install` 时，才能安装它们，否则会找不到 `istanbul`、`mocha`、`codecov` 这些指令。
-
-如果你 `.travis.yml` 文件中的 install 字段配置如下。
-
-```yml
-install:
-  - npm install
-  - npm install istanbul -g
-  - npm install codecov -g
-```
-
-那么 `npm run coverage` 和 `npm run codecov` 指令就可以修改为。
-
-```json
-"scripts": {
-  "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
-  "codecov": "cat ./coverage/lcov.info | codecov"
-}
-```
-
-> 这里建议不要将 mocha 全局安装，而且依赖包最好都项目级安装。
+最后，将所有修改提交到远程仓库的 master 分支上，就可以看到 Travis CI 正在自动构建。
 
 ### 展示徽章
 
-实现了 CI，也上传了代码覆盖率，接下来我们只需要将结果以徽章的形式放入 READMD 即可。
+当 CI 构建完成之后，我们可以通过访问 Travis CI 和 Codecov 的网站查看到详细结果，当然也可以将结果以徽章的形式放入 README，这样更清晰明了。
 
-Travis 的徽章这样获取：
+Travis CI 的徽章这样获取：
 
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604225243.png)
+![](/assets/posts/front-end-unit-test-and-ci/travis-badge.png)
 
 Codecov 的徽章这样获取：
 
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/post/20190604225017.png)
+![](/assets/posts/front-end-unit-test-and-ci/codecov-badge.png)
 
-每当项目 commit 之后，CI 测试就会自动进行，然后测试的结果就会通过徽章展示在你的项目文档中。
-
-### 跨浏览器集成测试
-
-浏览器端使用的库，在各个浏览器端的兼容性也是非常重要的。一些项目会选择在模拟环境中进行测试，这样虽然方便，但是毕竟是模拟的，测试效果无法媲美真实环境。所以就需要用到跨浏览器测试的工具，有两个选择 [SauceLabs](https://saucelabs.com/) 和 [BrowserStack](https://www.browserstack.com/)，这个工具提供了多重的浏览器环境（包括 PC 端和移动端），帮助你在多种浏览器中自动运行脚本。
-
-关于跨浏览器集成测试，这里不再叙述。
+每当 CI 构建完成，结果就会以徽章的形式，展示在你的项目文档中。

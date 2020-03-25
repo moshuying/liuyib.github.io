@@ -14,7 +14,7 @@ sitemap: false
 > 名称：liuyib
 > 介绍：write code and love life
 > 链接：https://liuyib.github.io/
-> 头像：https://cdn.jsdelivr.net/gh/liuyib/picBed@master/avatar.jpg
+> 头像：https://cdn.jsdelivr.net/gh/liuyib/picBed/avatar.jpg
 
 想要交换友链，先把本站添加到你的网站中，然后评论贴出你的信息~ 💖
 

@@ -146,7 +146,7 @@ header:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: https://cdn.jsdelivr.net/gh/liuyib/picBed@master/hexo-blog/cover-img/20190918000303.jpg
+    url: /assets/banner/1.jpg
   # Mask effect of the background image.
   mask:
     enable: true
@@ -379,8 +379,8 @@ heading_line: true
 reward:
   enable: true
   # Your QR code for collecting money.
-  alipay: https://cdn.jsdelivr.net/gh/liuyib/picBed@master/hexo-blog/20190529222805.png
-  wechat: https://cdn.jsdelivr.net/gh/liuyib/picBed@master/hexo-blog/20190529222806.png
+  alipay: /assets/others/alipay.png
+  wechat: /assets/others/wechat.png
 
 # ---------------------------------------------------------------
 # Post config

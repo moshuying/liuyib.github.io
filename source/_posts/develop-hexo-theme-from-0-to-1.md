@@ -5,19 +5,16 @@ tags:
   - Hexo
 categories:
   - Hexo主题开发
-top_image: https://raw.githubusercontent.com/liuyib/picBed/master/hexo-blog/cover-img/20190911002035.jpg
-math: false
+top_image: /assets/banner/2.jpg
 ---
 
-## 前言
-
 在没有开发自己的 Hexo 主题之前，我都是在 Github issues 里写[博客](https://github.com/liuyib/blog/issues)，但这样的做法总被小伙伴各种吐槽 (￣_￣ )。想到如果文章多的时候，使用 Github issues 浏览起来不够方便，所以还是换回了 Hexo。
+
+<!-- more -->
 
 使用 Hexo 首先是要挑选喜欢的主题，以我个人的感受来讲，Hexo 的主题虽然有两百多个，但是能拿出手的也就不到二十个。其中我最佩服的主题 Next 已经足够优秀，但是风格我并不喜欢，最后决定自己开坑。
 
 本文主要记录了我从零开发 Hexo 主题 -- [Stun](https://github.com/liuyib/hexo-theme-stun) 时，遇到的所有坑和经验，**仅供参考**，有不足的地方欢迎指出。
-
-<!-- more -->
 
 ## 知识储备
 
@@ -108,7 +105,7 @@ yo hexo-theme
 
 按照提示，填写或选择相应的信息，如下图：
 
-![](https://raw.githubusercontent.com/liuyib/picBed/master/hexo-theme-stun/doc/20190822211939.png)
+![](/assets/posts/develop-hexo-theme-from-0-to-1/init-hexo-by-yeoman.png)
 
 生成的文件目录如下：
 
