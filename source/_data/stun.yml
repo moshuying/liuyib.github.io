@@ -205,7 +205,7 @@ footer:
   copyright:
     enable: true
     # If not set, will be used `author` from Hexo main config (e.g. liuyib All Rights Reserved)
-    text: <a href="https://github.com/liuyib" rel="noopener" target="_blank">liuyib</a> All Rights Reserved
+    text: <a href="https://github.com/liuyib" rel="noopener" target="_blank">liuyib</a>
     # Start time. If not set, the current year will be used.
     since: 2019
     # End time. If not set, the current year will be used.
@@ -314,7 +314,7 @@ social:
   # youtube: https://youtube.com/ || fab fa-youtube
   segmentfault: https://segmentfault.com/u/liuyib/ || origin:SF
   # weibo: https://weibo.com/ || fab fa-weibo
-  zhihu: https://www.zhihu.com/people/liu-yibo-64-65/activities/ || origin:知
+  zhihu: https://www.zhihu.com/people/liu-yibo-64-65/activities/ || origin:知乎
   # wechat: yournumber || fab fa-weixin
   # telegram: yournumber || fab fa-telegram
   # qq: yournumber || fab fa-qq
@@ -734,8 +734,8 @@ quicklink:
 # See: https://github.com/MoOx/pjax/
 pjax:
   enable: true
-  # Scrolling to the second screen when the page loaded.
-  scrollTo2screen: true
+  # When switching pages, scroll to the bottom of the top image.
+  avoid_banner: true
   # ! --------------------------------------------------
   # ! If you don't know the following, please ignore it.
   # ! --------------------------------------------------
@@ -745,7 +745,7 @@ pjax:
   switches:
   switchesOptions:
   history: true
-  # If you enable this, you must set `scrollTo2screen: false` firstly.
+  # If you enable this, you must set `avoid_banner: false` firstly.
   scrollTo: false
   scrollRestoration: false
   cacheBust: false
