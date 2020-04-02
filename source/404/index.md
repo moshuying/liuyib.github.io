@@ -5,6 +5,8 @@ permalink: /404
 comments: false
 ---
 
+![404 image](/assets/others/404.svg)
+
 似乎来到了没有知识的荒原，你可能需要：
 
 - [回到首页 ←](https://liuyib.github.io/)

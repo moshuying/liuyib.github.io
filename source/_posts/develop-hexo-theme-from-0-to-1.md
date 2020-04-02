@@ -5,7 +5,7 @@ tags:
   - Hexo
 categories:
   - Hexo主题开发
-top_image: /assets/banner/2.jpg
+top_image: /assets/banner/develop-hexo-theme-from-0-to-1.svg
 ---
 
 在没有开发自己的 Hexo 主题之前，我都是在 Github issues 里写[博客](https://github.com/liuyib/blog/issues)，但这样的做法总被小伙伴各种吐槽 (￣_￣ )。想到如果文章多的时候，使用 Github issues 浏览起来不够方便，所以还是换回了 Hexo。

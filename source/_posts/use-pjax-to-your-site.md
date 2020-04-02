@@ -7,13 +7,14 @@ tags:
   - 局部刷新
 categories:
   - 优化用户体验
+top_image: /assets/banner/use-pjax-to-your-site.svg
 ---
 
 一般情况下，当我们点击一个网页链接后，浏览器就会努力发送网络请求，然后将请求到的网页渲染出来。有时，我们经常会在一个网站中不停地点击链接，然后网页不停地跳转。通常，浏览器会对文件资源进行一定的缓存，这样使得同一个网站之间的页面跳转时，能够更快的加载。
 
-虽然浏览器对资源的缓存加快了页面的加载速度，但是页面每一次跳转时，都会整体刷新一次，这一定程度上降低了用户体验。为了解决这一问题，我们可以使用 Pjax 实现网站无刷新加载。
-
 <!-- more -->
+
+虽然浏览器对资源的缓存加快了页面的加载速度，但是页面每一次跳转时，都会整体刷新一次，这一定程度上降低了用户体验。为了解决这一问题，我们可以使用 Pjax 实现网站无刷新加载。
 
 ## Pjax 原理
 
@@ -32,7 +33,7 @@ Pjax 有依赖和不依赖 jQuery 的两种版本：
 
 为了方便，这里直接使用 JSDelivr 公共的 CDN 地址：
 
-``` html
+```html
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.js"></script>
 ```
 
@@ -40,37 +41,34 @@ Pjax 有依赖和不依赖 jQuery 的两种版本：
 
 在网站页面切换时，有些部分是不变的，有些是改变的。我们需要根据网站的 DOM 结构自行分析。举个例子，假设页面的结构如下：
 
-``` html
+```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Liuyib's Blog</title>
-  <meta name="keywords" content="liuyib, Liuyib's Blog">
-</head>
-<body>
-  <header id="header" class="header">
-    顶部栏...
-  </header>
-  <main id="main" class="main">
-    主体部分...
-  </main>
-  <footer id="footer" class="footer">
-    底部栏...
-  </footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Liuyib's Blog</title>
+    <meta name="keywords" content="liuyib, Liuyib's Blog" />
+  </head>
+  <body>
+    <header id="header" class="header">
+      顶部栏...
+    </header>
+    <main id="main" class="main">
+      主体部分...
+    </main>
+    <footer id="footer" class="footer">
+      底部栏...
+    </footer>
+  </body>
 </html>
 ```
 
 每次切换页面时，`title` 会随之改变，`header` 和 `footer` 一般不变，而 `main` 是网站的主体部分，也会改变。因此，我们可以这样来使用 Pjax：
 
-``` js
+```js
 var pjax = new Pjax({
   // 这里填写页面不变的部分（和 CSS 选择器用法一样）
-  selectors: [
-    "head title",
-    "#main"
-  ]
+  selectors: ["head title", "#main"]
 });
 ```
 
@@ -114,14 +112,13 @@ var pjax = new Pjax({
 
 HTML (Pug):
 
-``` html
-div.loading-bar
-  div.progress
+```html
+div.loading-bar div.progress
 ```
 
 CSS (Stylus):
 
-``` stylus
+```stylus
 .loading-bar {
   position: fixed;
   top: 0;
@@ -153,25 +150,25 @@ CSS (Stylus):
 
 JavaScript:
 
-``` js
-var loadingBar = document.querySelector('.loading-bar');
-var progress = document.querySelector('.loading-bar .progress');
+```js
+var loadingBar = document.querySelector(".loading-bar");
+var progress = document.querySelector(".loading-bar .progress");
 var timer = null;
 
 // Pjax 开始时执行的函数
-document.addEventListener('pjax:send', function (){
+document.addEventListener("pjax:send", function() {
   // 进度条默认已经加载 20%
   var loadingBarWidth = 20;
   // 进度条的最大增加宽度
   var MAX_LOADING_WIDTH = 95;
 
   // 显示进度条
-  loadingBar.classList.add('loading');
+  loadingBar.classList.add("loading");
   // 初始化进度条的宽度
-  progress.style.width = loadingBarWidth + '%';
+  progress.style.width = loadingBarWidth + "%";
 
   clearInterval(timer);
-  timer = setInterval(function () {
+  timer = setInterval(function() {
     // 进度条的增加速度（可以改为一个随机值，显得更加真实）
     loadingBarWidth += 3;
 
@@ -180,17 +177,17 @@ document.addEventListener('pjax:send', function (){
       loadingBarWidth = MAX_LOADING_WIDTH;
     }
 
-    progress.style.width = loadingBarWidth + '%';
+    progress.style.width = loadingBarWidth + "%";
   }, 500);
 });
 
 // Pjax 完成之后执行的函数
-document.addEventListener('pjax:complete', function () {
+document.addEventListener("pjax:complete", function() {
   clearInterval(timer);
-  progress.style.width = '100%';
-  loadingBar.classList.remove('loading');
+  progress.style.width = "100%";
+  loadingBar.classList.remove("loading");
 
-  setTimeout(function () {
+  setTimeout(function() {
     progress.style.width = 0;
   }, 400);
 });
@@ -210,8 +207,8 @@ document.addEventListener('pjax:complete', function () {
 
 比如，页面顶部栏有一个搜索按钮，点击之后会弹出搜索框：
 
-``` js
-document.querySelector('.search-button').onclick = function () {
+```js
+document.querySelector(".search-button").onclick = function() {
   // ...
 };
 ```
@@ -222,23 +219,23 @@ document.querySelector('.search-button').onclick = function () {
 
 比如，页面主体部分是变化的，懒加载其中的图片：
 
-``` js
-var imgs = document.querySelectorAll('#main img.lazyload');
+```js
+var imgs = document.querySelectorAll("#main img.lazyload");
 
 lazyload(imgs);
 ```
 
 当通过 Pjax 切换页面后，由于主体部分改变，上述代码已经失效，因此需要进行重载。为了方便使用，我们使用函数封装一下：
 
-``` js
+```js
 function pjax_reload() {
-  var imgs = document.querySelectorAll('#main img.lazyload');
+  var imgs = document.querySelectorAll("#main img.lazyload");
 
   lazyload(imgs);
 }
 
 // Pjax 完成后，重新加载上面的函数
-document.addEventListener('pjax:complete', function (){
+document.addEventListener("pjax:complete", function() {
   pjax_reload();
 });
 ```
@@ -249,45 +246,52 @@ document.addEventListener('pjax:complete', function (){
 
 我的做法是，在引入这些文件的标签上添加 `data-pjax` 属性，然后将具有这个属性的标签重新添加在页面中。有时候不方便在这些标签上添加额外的属性，那么你可以在这些标签外套一层标签，如 `<div class=".pjax-reload"></div>`，然后将 `.pjax-reload` 里的元素全部重新添加到页面中即可。代码示例如下：
 
-``` html
-<script data-pjax src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi/bsz.pure.mini.js"></script>
+```html
+<script
+  data-pjax
+  src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi/bsz.pure.mini.js"
+></script>
 
 <div class=".pjax-reload">
   <script src="https://www.google-analytics.com/analytics.js"></script>
 </div>
 ```
 
-``` js
+```js
 // jQuery 写法
-$('script[data-pjax], .pjax-reload script').each(function () {
-  $(this).parent().append($(this).remove());
+$("script[data-pjax], .pjax-reload script").each(function() {
+  $(this)
+    .parent()
+    .append($(this).remove());
 });
 
 // JS 写法
-document.querySelector('script[data-pjax], .pjax-reload script').forEach(function (elem) {
-  var id = element.id || '';
-  var src = element.src || '';
-  var code = element.text || element.textContent || element.innerHTML || '';
-  var parent = element.parentNode;
-  var script = document.createElement('script');
+document
+  .querySelector("script[data-pjax], .pjax-reload script")
+  .forEach(function(elem) {
+    var id = element.id || "";
+    var src = element.src || "";
+    var code = element.text || element.textContent || element.innerHTML || "";
+    var parent = element.parentNode;
+    var script = document.createElement("script");
 
-  parent.removeChild(element);
+    parent.removeChild(element);
 
-  if (id !=='') {
-    script.id = element.id;
-  }
+    if (id !== "") {
+      script.id = element.id;
+    }
 
-  if (src !== '') {
-    script.src = src;
-    script.async = false;
-  }
+    if (src !== "") {
+      script.src = src;
+      script.async = false;
+    }
 
-  if (code !== '') {
-    script.appendChild(document.createTextNode(code));
-  }
+    if (code !== "") {
+      script.appendChild(document.createTextNode(code));
+    }
 
-  parent.appendChild(script);
-});
+    parent.appendChild(script);
+  });
 ```
 
 看到两种写法的差距，感觉整个人都不好了。

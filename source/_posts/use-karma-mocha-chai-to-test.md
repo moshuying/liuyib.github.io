@@ -8,6 +8,7 @@ tags:
   - Chai
 categories:
   - 项目总结
+top_image: /assets/banner/use-karma-mocha-chai-to-test.svg
 ---
 
 本文属于对配置项目的总结，不会过多讲解相关知识。阅读正文之前，你需要了解并使用过 webpack、Babel，了解 ES6、CommonJS 规范，了解过前端单元测试。
@@ -91,14 +92,14 @@ $ ./node_modules/.bin/karma init ./karma.conf.js
 module.exports = function(config) {
   config.set({
     // 路径前缀
-    basePath: '',
+    basePath: "",
 
     // 用到的库或框架
     // 添加到这里表示注册为全局变量（不用反复在代码中 import 或 require）
-    frameworks: ['mocha'],
+    frameworks: ["mocha"],
 
     // 需要提供给浏览器的源文件和测试文件
-    files: ['src/**/*.js', 'test/**/*.js'],
+    files: ["src/**/*.js", "test/**/*.js"],
 
     // 需要排除的文件
     exclude: [],
@@ -107,7 +108,7 @@ module.exports = function(config) {
     preprocessors: {},
 
     // 测试信息报告器
-    reporters: ['progress'],
+    reporters: ["progress"],
 
     // 在浏览器中运行的端口
     port: 9876,
@@ -122,7 +123,7 @@ module.exports = function(config) {
     autoWatch: true,
 
     // 需要测试的浏览器环境
-    browsers: ['Chrome'],
+    browsers: ["Chrome"],
 
     // 如果为 true 的话，Karma 将捕获浏览器，运行测试，并自动退出
     // 使用持续集成时会用到该选项（这里先默认，后面会说明）
@@ -181,12 +182,12 @@ export function add(a, b) {
 ```js
 // main.js
 
-import { add } from './utils';
+import { add } from "./utils";
 
 var main = function(selector) {
   var elem = document.querySelector(selector);
 
-  elem.addEventListener('click', function() {
+  elem.addEventListener("click", function() {
     var value = parseInt(elem.innerText, 10);
     elem.innerText = add(value, 1);
   });
@@ -298,7 +299,7 @@ webpack: {
 ...
 ```
 
-然后在命令行中执行 `npm run test`，如果控制台中没有报错信息，并且Karma 自动打开了你选择的浏览器，证明你的上述配置没有问题。否则，你需要检查之前的配置是否正确。
+然后在命令行中执行 `npm run test`，如果控制台中没有报错信息，并且 Karma 自动打开了你选择的浏览器，证明你的上述配置没有问题。否则，你需要检查之前的配置是否正确。
 
 ## 编写测试代码
 
@@ -333,10 +334,10 @@ const expect = require('chai').expect; // CommonJS
 ```js
 // utils.test.js
 
-import { add } from '../src/utils';
+import { add } from "../src/utils";
 
-describe('utils::add test', function() {
-  it('should 3 when add(1, 2) return', function() {
+describe("utils::add test", function() {
+  it("should 3 when add(1, 2) return", function() {
     expect(add(1, 2)).to.equal(3);
   });
 });
@@ -355,24 +356,24 @@ describe('utils::add test', function() {
 ```js
 // main.test.js
 
-import main from '../src/main';
+import main from "../src/main";
 
-describe('main::DOM test', function() {
+describe("main::DOM test", function() {
   // 钩子函数
   beforeEach(function() {
     // 向页面的 body 元素中添加 DOM 元素，来辅助测试
     document.body.innerHTML = '<button id="btn">0</button>';
 
-    main('#btn');
+    main("#btn");
   });
 
-  it('should 1 when button is clicked once', function() {
+  it("should 1 when button is clicked once", function() {
     // 获取前面添加的元素
-    var btn = document.querySelector('#btn');
+    var btn = document.querySelector("#btn");
     // 模拟用户点击
     btn.click();
 
-    expect(btn.innerText).to.equal('1');
+    expect(btn.innerText).to.equal("1");
   });
 });
 ```
@@ -497,7 +498,7 @@ coverageReporter: {
 >    utils.js |    53.49 |    19.23 |    54.55 |    61.11 |... 69,70,71,72,73 |
 >   ----------|----------|----------|----------|----------|-------------------|
 >   ```
-> 一般情况下，常用的报告类型就是 `lcov`, `text`, `text-summary` 这三种。你可以访问[这里](https://istanbul.js.org/docs/advanced/alternative-reporters/)，查看所有报告类型的格式和作用。
+>   一般情况下，常用的报告类型就是 `lcov`, `text`, `text-summary` 这三种。你可以访问[这里](https://istanbul.js.org/docs/advanced/alternative-reporters/)，查看所有报告类型的格式和作用。
 
 找到 `coverage/lcov-report` 目录中的 `index.html` 文件，将其在浏览器中运行，可以查看到详细的覆盖率报告信息，如图所示：
 
@@ -607,7 +608,6 @@ singleRun: !!process.env.CI,
 ```
 
 该配置项默认为 `false`，会使得 Karma 在测试结束后仍然监听文件变化，不会退出测试，但是在 CI 中必须在测试结束后退出测试，否则 CI 将会一直等待，直到超时。
-
 
 ### 上传覆盖率
 
