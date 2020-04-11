@@ -654,7 +654,7 @@ $ npm install --save-dev codecov
 
 ---
 
-参考链接：
+参考资料：
 
 - [搭建 Karma+Mocha+Chai 测试 TypeScript 项目](https://blog.crimx.com/2019/06/19/%E6%90%AD%E5%BB%BA-karma-mocha-chai-%E6%B5%8B%E8%AF%95-typescript-%E9%A1%B9%E7%9B%AE/)
 - [测试框架 Mocha 实例教程](http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html)

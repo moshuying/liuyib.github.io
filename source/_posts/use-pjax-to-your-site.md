@@ -306,7 +306,7 @@ document
 
 ---
 
-参考链接：
+参考资料：
 
 - [pjax 是如何工作的？](https://www.zhihu.com/question/20289254)
 - [让你的网站实现 PJAX 无刷新](https://paugram.com/coding/add-pjax-to-your-website.html)

@@ -337,3 +337,9 @@ Codecov 的徽章这样获取：
 ![](/assets/posts/front-end-unit-test-and-ci/codecov-badge.png)
 
 每当 CI 构建完成，结果就会以徽章的形式，展示在你的项目文档中。
+
+---
+
+参考资料：
+
+- [《Node.js 包教不包会》测试用例：mocha，should，istanbul](https://github.com/alsotang/node-lessons/tree/master/lesson6)

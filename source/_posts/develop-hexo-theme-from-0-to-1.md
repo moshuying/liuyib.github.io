@@ -453,7 +453,7 @@ div#header.header
 
 ---
 
-参考链接：
+参考资料：
 
 - [Hexo主题开发经验杂谈](https://molunerfinn.com/make-a-hexo-theme/)
 - [Hexo 主题开发指南](http://chensd.com/2016-06/hexo-theme-guide.html)

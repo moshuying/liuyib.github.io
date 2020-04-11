@@ -53,9 +53,8 @@ menu:
   home: / || fas fa-home
   article: javascript:; || fas fa-feather-alt
   laboratory: javascript:; || fas fa-flask
-  about: /about/ || fas fa-user
-  gallery: /gallery/ || fas fa-images
-  friends: /friends/ || fas fa-hand-spock
+  about: javascript:; || fas fa-fingerprint
+  others: javascript:; || fas fa-angle-double-down
   # You can add a secondary menu like follow.
   # xxx1: javascript:; || fa(s|r|l|d|b) fa-xxx
 
@@ -67,6 +66,12 @@ submenu:
     tags: /tags/ || fas fa-tags
   laboratory:
     hexo-theme-stun: https://github.com/liuyib/hexo-theme-stun ||
+  about:
+    master: /about/ || fas fa-user
+    reprint: /reprint/ || fas fa-reply
+  others:
+    gallery: /gallery/ || fas fa-images
+    friends: /friends/ || fas fa-hand-spock
 
 menu_settings:
   # Only show by icon.
@@ -454,7 +459,8 @@ post_widget:
 stick_top:
   # Position of icon
   # Optional values: left | right
-  position: right
+  position:
+    right
     # Icon name in FontAwesome, see: https://fontawesome.com/icons
   icon: fas fa-thumbtack
   # Rotation Angle of icon.
