@@ -84,14 +84,14 @@ menu_settings:
 # ---------------------------------------------------------------
 
 favicon:
-  small: /images/icons/favicon-16x16.png
-  medium: /images/icons/favicon-32x32.png
+  small: /assets/icons/icon-16x16.png
+  medium: /assets/icons/icon-32x32.png
   # ! --------------------------------------------------
   # ! If you don't know the following, please ignore it.
   # ! --------------------------------------------------
-  # apple_touch_icon: /images/icons/apple-touch-icon.png
-  # safari_pinned_tab: /images/icons/stun-logo.svg
-  # msapplication: /images/icons/favicon-144x144.png
+  apple_touch_icon: /assets/icons/apple-touch-icon.png
+  safari_pinned_tab: /assets/icons/safari-pinned-tab.svg
+  msapplication: /assets/icons/icon-144x144.png
 
 # Progressive Web Apps
 # See: https://github.com/lavas-project/hexo-pwa/
@@ -99,7 +99,7 @@ pwa:
   enable: true
   manifest: /manifest.json
   # (Please use "" to wrap the value)
-  theme_color: "#54bcff"
+  theme_color: "#ffffff"
 
 # Night mode
 night_mode:
@@ -459,8 +459,7 @@ post_widget:
 stick_top:
   # Position of icon
   # Optional values: left | right
-  position:
-    right
+  position: right
     # Icon name in FontAwesome, see: https://fontawesome.com/icons
   icon: fas fa-thumbtack
   # Rotation Angle of icon.
@@ -475,7 +474,7 @@ stick_top:
 # Gittalk
 # See: https://github.com/gitalk/gitalk/
 gitalk:
-  enable: true
+  enable: false
   # Github username.
   owner: liuyib
   # Github repository.
@@ -520,6 +519,22 @@ valine:
   # Optional values: en | zh-cn
   language: zh-cn
 
+# MiniValine
+# See: https://github.com/MiniValine/MiniValine#Options
+minivaline:
+  enable: false
+  appId: # Your leancloud application appid
+  appKey: # Your leancloud application appkey
+  placeholder: Write a Comment # Comment box placeholder
+  adminEmailMd5: # The MD5 of Admin Email to show Admin Flag.
+  math: true # Support MathJax.
+  md: true # Support Markdown.
+  # MiniValine's display language depends on user's browser or system environment
+  # If you want everyone visiting your site to see a uniform language, you can set a force language value
+  # Available values: en  | zh-CN | (and many more)
+  # More i18n info: https://github.com/MiniValine/minivaline-i18n
+  lang:
+
 # Livere
 # See: https://www.livere.com/
 livere:
@@ -529,7 +544,7 @@ livere:
 # Disqus
 # See: https://disqus.com/
 disqus:
-  enable: false
+  enable: true
   shortname: liuyib
   count: true
 
@@ -630,8 +645,6 @@ canvas_ribbon:
 # Dependency: https://github.com/hustcc/canvas-nest.js
 canvas_nest:
   enable: false
-  # Whether to show on mobile.
-  onmobile: true
   # Color of lines.
   # RGB values, use `,` to separate.
   color: "0,0,0"
@@ -761,10 +774,9 @@ pjax:
 
 # Google AdSense
 google_adsense:
-  enable: false
-  js_src: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
+  enable: true
   client: ca-pub-2577876740331235
-  enable_page_level_ads: true
+  js_src: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
 
 # The links with `target="_blank"` attribute.
 external_link:
@@ -795,6 +807,16 @@ tag_cloud:
   max_size: 26
   # Maximum number of tags displayed. Change it if you have more than 200 tags.
   max_amount: 200
+
+# Eliminate the old version of IE browser (IE6~11).
+# See: https://support.dmeng.net/upgrade-your-browser.html
+kill_old_ie:
+  enable: false
+  # The URL of warning page (Please use "" to wrap the value).
+  # ! ----------------------------------------------------------------
+  # ! Usually you don't need to set this option, just use the default.
+  # ! ----------------------------------------------------------------
+  warning_url: https://support.dmeng.net/upgrade-your-browser.html
 
 # Assets
 # In theme directory (source/css)
@@ -882,6 +904,12 @@ cdn:
   valine:
   leancloud_storage:
 
+  # minivaline
+  # See: https://github.com/MiniValine/MiniValine
+  # Example:
+  # minivaline: //cdn.jsdelivr.net/npm/minivaline/dist/MiniValine.min.js
+  minivaline:
+
   # busuanzi
   # Using version: latest
   # See: https://busuanzi.ibruce.info/
@@ -906,7 +934,7 @@ cdn:
   # Using version: latest
   # See: https://github.com/hustcc/canvas-nest.js
   # Example:
-  # canvas_nest: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@latest/canvas-nest.min.js
+  # canvas_nest: //cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js
   canvas_nest:
 
   # Using version: 3.5.7

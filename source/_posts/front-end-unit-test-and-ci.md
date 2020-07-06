@@ -7,7 +7,6 @@ tags:
   - Github徽章
 categories:
   - 前端自动化
-top_image: /assets/banner/front-end-unit-test-and-ci.svg
 ---
 
 前端的单元测试包括但不限于：单元功能测试、UI 测试、兼容性测试等等。一个测试体系大体包括四部分：

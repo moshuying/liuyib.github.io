@@ -7,7 +7,6 @@ tags:
   - 局部刷新
 categories:
   - 优化用户体验
-top_image: /assets/banner/use-pjax-to-your-site.svg
 ---
 
 一般情况下，当我们点击一个网页链接后，浏览器就会努力发送网络请求，然后将请求到的网页渲染出来。有时，我们经常会在一个网站中不停地点击链接，然后网页不停地跳转。通常，浏览器会对文件资源进行一定的缓存，这样使得同一个网站之间的页面跳转时，能够更快的加载。
@@ -47,7 +46,7 @@ Pjax 有依赖和不依赖 jQuery 的两种版本：
   <head>
     <meta charset="UTF-8" />
     <title>Liuyib's Blog</title>
-    <meta name="keywords" content="liuyib, Liuyib's Blog" />
+    <meta name="description" content="Liuyib's Blog" />
   </head>
   <body>
     <header id="header" class="header">
@@ -67,8 +66,8 @@ Pjax 有依赖和不依赖 jQuery 的两种版本：
 
 ```js
 var pjax = new Pjax({
-  // 这里填写页面不变的部分（和 CSS 选择器用法一样）
-  selectors: ["head title", "#main"]
+  // 这里填写页面中改变的部分（和 CSS 选择器用法一样）
+  selectors: ["head title", "#main"],
 });
 ```
 
@@ -112,8 +111,9 @@ var pjax = new Pjax({
 
 HTML (Pug):
 
-```html
-div.loading-bar div.progress
+```pug
+div.loading-bar
+  div.progress
 ```
 
 CSS (Stylus):
@@ -156,7 +156,7 @@ var progress = document.querySelector(".loading-bar .progress");
 var timer = null;
 
 // Pjax 开始时执行的函数
-document.addEventListener("pjax:send", function() {
+document.addEventListener("pjax:send", function () {
   // 进度条默认已经加载 20%
   var loadingBarWidth = 20;
   // 进度条的最大增加宽度
@@ -168,7 +168,7 @@ document.addEventListener("pjax:send", function() {
   progress.style.width = loadingBarWidth + "%";
 
   clearInterval(timer);
-  timer = setInterval(function() {
+  timer = setInterval(function () {
     // 进度条的增加速度（可以改为一个随机值，显得更加真实）
     loadingBarWidth += 3;
 
@@ -182,12 +182,12 @@ document.addEventListener("pjax:send", function() {
 });
 
 // Pjax 完成之后执行的函数
-document.addEventListener("pjax:complete", function() {
+document.addEventListener("pjax:complete", function () {
   clearInterval(timer);
   progress.style.width = "100%";
   loadingBar.classList.remove("loading");
 
-  setTimeout(function() {
+  setTimeout(function () {
     progress.style.width = 0;
   }, 400);
 });
@@ -199,48 +199,48 @@ document.addEventListener("pjax:complete", function() {
 
 **这里的重载指的是重新加载**。由于通过 Pjax 切换的页面并没有完全刷新，浏览器不会将网页从头执行一遍，因此有些 JS 将不会生效。重载 JS 脚本大致分为三种：一种是重载 JS 函数，一种是重载整个 JS 文件，另一种是重载内联的 `script` 标签。
 
-1. 重载 JS 函数
+1）重载 JS 函数
 
 这种重载一般适用于用户自己编写的一些 JS 函数。但是具体情况比较复杂，函数要不要重载还得具体分析。下面举一些例子：
 
 - 页面不变部分对应的事件
 
-比如，页面顶部栏有一个搜索按钮，点击之后会弹出搜索框：
+  比如，页面顶部栏有一个搜索按钮，点击之后会弹出搜索框：
 
-```js
-document.querySelector(".search-button").onclick = function() {
-  // ...
-};
-```
+  ```js
+  document.querySelector(".search-button").onclick = function () {
+    // ...
+  };
+  ```
 
-由于页面顶部栏不变，所以其中的元素上绑定的事件仍然可以使用，这部分元素对应的 JS 事件不需要重载。
+  由于页面顶部栏不变，所以其中的元素上绑定的事件仍然可以使用，这部分元素对应的 JS 事件不需要重载。
 
 - 页面可变部分对应的事件
 
-比如，页面主体部分是变化的，懒加载其中的图片：
+  比如，页面主体部分是变化的，懒加载其中的图片：
 
-```js
-var imgs = document.querySelectorAll("#main img.lazyload");
-
-lazyload(imgs);
-```
-
-当通过 Pjax 切换页面后，由于主体部分改变，上述代码已经失效，因此需要进行重载。为了方便使用，我们使用函数封装一下：
-
-```js
-function pjax_reload() {
+  ```js
   var imgs = document.querySelectorAll("#main img.lazyload");
 
   lazyload(imgs);
-}
+  ```
 
-// Pjax 完成后，重新加载上面的函数
-document.addEventListener("pjax:complete", function() {
-  pjax_reload();
-});
-```
+  当通过 Pjax 切换页面后，由于主体部分改变，上述代码已经失效，因此需要进行重载。为了方便使用，我们使用函数封装一下：
 
-2. 重载整个 JS 文件
+  ```js
+  function pjax_reload() {
+    var imgs = document.querySelectorAll("#main img.lazyload");
+
+    lazyload(imgs);
+  }
+
+  // Pjax 完成后，重新加载上面的函数
+  document.addEventListener("pjax:complete", function () {
+    pjax_reload();
+  });
+  ```
+
+2）重载整个 JS 文件
 
 这种情况多数用于第三方文件，比如，卜算子统计的脚本、谷歌/百度/腾讯分析的脚本等，这些脚本在每一次页面加载后都需要执行。
 
@@ -259,16 +259,14 @@ document.addEventListener("pjax:complete", function() {
 
 ```js
 // jQuery 写法
-$("script[data-pjax], .pjax-reload script").each(function() {
-  $(this)
-    .parent()
-    .append($(this).remove());
+$("script[data-pjax], .pjax-reload script").each(function () {
+  $(this).parent().append($(this).remove());
 });
 
 // JS 写法
 document
   .querySelector("script[data-pjax], .pjax-reload script")
-  .forEach(function(elem) {
+  .forEach(function (elem) {
     var id = element.id || "";
     var src = element.src || "";
     var code = element.text || element.textContent || element.innerHTML || "";
@@ -296,7 +294,7 @@ document
 
 看到两种写法的差距，感觉整个人都不好了。
 
-3. 重载整个 `script` 标签
+3）重载整个 `script` 标签
 
 这种情况和前面类似，如果一些 JS 脚本写在 `script` 标签中，并且需要重载，可以选择直接重载整个 `script` 标签。具体做法和上一步相同，在标签上添加 `data-pjax` 属性，然后将具有这个属性的标签重新添加到页面中。
 

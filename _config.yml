@@ -55,7 +55,7 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
 
@@ -102,15 +102,15 @@ feed:
   hub:
   content:
   content_limit: 140
-  content_limit_delim: ' '
+  content_limit_delim: " "
   order_by: -date
   # icon: icon.png
 
 # Algolia Search API Key
 algolia:
-  applicationID: 'HVGSDQGVZB'
-  apiKey: 'be51eecdd830511495cc1f9c7b50f272'
-  indexName: 'stun_NAME'
+  applicationID: "HVGSDQGVZB"
+  apiKey: "be51eecdd830511495cc1f9c7b50f272"
+  indexName: "stun_NAME"
 
 # Local Search
 search:
@@ -124,7 +124,7 @@ all_minifier: false
 
 js_concator:
   enable: false
-  bundle_path: '/js/bundle.min.js'
+  bundle_path: "/js/bundle.min.js"
   front: false
   silent: false
 # ------------------------------------
@@ -139,7 +139,7 @@ pwa:
   manifest:
     path: /manifest.json
   serviceWorker:
-    path: /service-worker.js
+    path: /sw.js
     preload:
       urls:
         - /

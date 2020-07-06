@@ -58,5 +58,23 @@
     "introduction": "love coooooooooding",
     "url": "https://impressionyang.github.io",
     "avatar": "https://impressionyang.gitee.io/imgbed/img/avatar/logo_typhone.svg"
+  },
+  {
+    "name": "峡州仙士之页",
+    "introduction": "世上本没有路",
+    "url": "https://cjh0613.github.io/blog/",
+    "avatar": "https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg"
+  },
+  {
+    "name": "Xu’s Blog",
+    "introduction": "博观而约取，厚积而薄发！",
+    "url": "https://hasaik.com",
+    "avatar": "https://hasaik.com/images/avatar.jpg"
+  },
+  {
+    "name": "Lee Hua",
+    "introduction": "编程路上的小学生，热爱技术，喜欢专研",
+    "url": "https://www.stringbug.com/",
+    "avatar": "https://www.stringbug.com/img/avatar.png"
   }
 ]
