@@ -7,7 +7,7 @@ tags:
   - Mocha
   - Chai
 categories:
-  - 项目总结
+  - 项目搭建
 ---
 
 本文属于对配置项目的总结，不会过多讲解相关知识。阅读正文之前，你需要了解并使用过 webpack、Babel，了解 ES6、CommonJS 规范，了解过前端单元测试。

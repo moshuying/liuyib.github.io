@@ -4,7 +4,7 @@ date: 2019-08-20 18:20:24
 tags:
   - Hexo
 categories:
-  - Hexo主题开发
+  - Hexo 主题开发
 ---
 
 在没有开发自己的 Hexo 主题之前，我都是在 Github issues 里写[博客](https://github.com/liuyib/blog/issues)，但这样的做法总被小伙伴各种吐槽 (￣_￣ )。想到如果文章多的时候，使用 Github issues 浏览起来不够方便，所以还是换回了 Hexo。

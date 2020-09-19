@@ -90,9 +90,16 @@ theme: stun
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   repo: git@github.com:liuyib/liuyib.github.io.git
   branch: master
+- type: cjh_google_url_submitter
+- type: cjh_bing_url_submitter
+- type: cjh_baidu_url_submitter
+
+# See: https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+  path: sitemap.xml
 
 # See: https://github.com/hexojs/hexo-generator-feed
 feed:
@@ -118,22 +125,6 @@ search:
   field: post
   content: true
 
-# ------------------------------------
-# See: https://github.com/chenzhutian/hexo-all-minifier
-all_minifier: false
-
-js_concator:
-  enable: false
-  bundle_path: "/js/bundle.min.js"
-  front: false
-  silent: false
-# ------------------------------------
-
-# See: https://github.com/hexojs/hexo-generator-sitemap
-sitemap:
-  path: sitemap.xml
-
-# PWA
 # See: https://github.com/lavas-project/hexo-pwa/
 pwa:
   manifest:
@@ -162,3 +153,32 @@ pwa:
       - pattern: !!js/regexp /cdn.viglink.com/
         strategy: cacheFirst
   priority: 5
+
+# See: https://github.com/cjh0613/hexo-submit-urls-to-search-engine
+hexo_submit_urls_to_search_engine:
+  # 提交最新的 n 个链接
+  count: 10
+  # 提交修改时间在 n 秒内的链接，单位秒
+  period: 900
+  # 提交链接的条件，可选值：count | period
+  submit_condition: count
+  # 是否向 Google 提交，可选值：1 | 0（0：否；1：是）
+  google: 0
+  # 是否向 Bing 提交，可选值：1 | 0（0：否；1：是）
+  bing: 1
+  # 是否向 Baidu 提交，可选值：1 | 0（0：否；1：是）
+  baidu: 1
+  # 文本文档的地址，要推送的链接会保存在此文本文档里
+  txt_path: submit_urls.txt
+  # 在百度站长平台中注册的域名
+  baidu_host: https://liuyib.github.io/
+  # 请注意这是您的私钥， 所以请不要把网站源代码发布在公众仓库里!
+  baidu_token: qMfzfRsjwCoh2k0u
+  # 在必应站长平台中注册的域名
+  bing_host: https://liuyib.github.io/
+  # 请注意这是您的私钥， 所以请不要把网站源代码发布在公众仓库里!
+  bing_token: 72702dcebe574862a5af4935eac48260
+  # 在谷歌站长平台中注册的域名
+  google_host: https://yoursite.com/
+  # 存放 google key 的 json 文件，放于网站根目录
+  google_key_file: google_key.json

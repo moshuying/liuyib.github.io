@@ -4,7 +4,7 @@ date: 2019-06-04 22:54:49
 tags:
   - 单元测试
   - 持续集成
-  - Github徽章
+  - Github 徽章
 categories:
   - 前端自动化
 ---
